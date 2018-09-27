@@ -1,0 +1,52 @@
+package Customer;
+
+public class objectsnclass {
+   
+    public static class Customer {
+    public String name;
+    public int id;
+    public double balance;
+    
+    public Customer(String customerName, int customerId){
+        name = customerName;
+        id = customerId;
+        balance = 0;
+        
+    }
+    
+    public Customer(String customerName, int customerId, double customerBalance){
+       name = customerName;
+       id = customerId;
+       balance = customerBalance;
+    }
+    
+    public void deposit(double amount){
+        balance += amount;
+    }
+    
+    public void withdraw(double amount){
+        if (balance > amount) {
+            balance -= amount;
+        } else{
+        System.out.println("You do not have enough money");    
+        }
+    }
+    
+    public double getBalance(){
+        return balance;
+    }
+    
+    }
+    
+    public static void main(String[] args) {
+    Customer aCustomer = new Customer("Benjamin", 12);
+    aCustomer.deposit(500);
+    System.out.println(aCustomer.getBalance());
+    aCustomer.withdraw(300);
+    System.out.println(aCustomer.getBalance());
+    aCustomer.withdraw(1000);
+    System.out.println(aCustomer.getBalance());
+    }
+    
+}
+

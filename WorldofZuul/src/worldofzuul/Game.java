@@ -15,46 +15,70 @@ public class Game
 
     private void createRooms()
     {
-         Room start, room1M, room2C, room4M, room3M, room5C /*theatre, pub, lab, office*/;
-      
+        Room start, r1M, r2C, r3M, r4M, r5C, r6M, r7M, r8C, r9M;
+        Room r10C, r11M, r12M, r13M, r14C, r15M, r16M, r17M, r18C, r19M;
+        Room r20M, r21C, r22X, r23X, r24X, r25X, r26X, r27X, r28X, r29X;
+        Room r30X, r31X, r32X, r33X, r34X, r35X, r36X, r37X, r38X, r39X;
+        Room r40X, r41X, r42X, r43X, r44X, r45X, r46X, r47X, r48X, r49X;
+        Room r50X, r51X, r52X, r53X, r54X, r55X, r56X, r57X, r58X, r59X;
+        
         start = new Room("standing outside the ugly house");
-        room1M = new Room("meeting a mighty monster, a slime who is level 1");
-        room2C = new Room("getting hit by a CURSE, you loose your weapon");
-        room4M = new Room("smelling something awful, it is a golbin that hasn't showered!");
-        room3M = new Room("kicking in a find a dragon! He is so muscular!");
-        room5C = new Room("falling down into the dungeon, you are stuck in the dungeon now");
-        /*theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        r1M = new Room("meeting a mighty monster, a slime who is level 1");
+        r2C = new Room("getting hit by a CURSE, you loose your weapon");
+        r4M = new Room("smelling something awful, it is a golbin that hasn't showered!");
+        r3M = new Room("kicking in a find a dragon! He is so muscular!");
+        r5C = new Room("falling down into the dungeon, you are stuck in the dungeon now");
+        r6M = new Room("");
+        r7M = new Room("");
+        r8C = new Room("");
+        r9M = new Room("");
+        r10C = new Room("");
+        r11M = new Room("");
+        r12M = new Room("");
+        r13M = new Room("");
+        r14C = new Room("");
+        r15M = new Room("");
+        r16M = new Room("");
+        r17M = new Room("");
+        r18C = new Room("");
+        r19M = new Room("");
+        /*
+        rXXX = new Room("");
+        rXXX = new Room("");
+        rXXX = new Room("");
+        rXXX = new Room("");
+        rXXX = new Room("");
+        rXXX = new Room("");
+        */
         
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
-
-        theatre.setExit("west", outside);
-
-        pub.setExit("east", outside);
-
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-                */
-        start.setExit("south", room1M);
+        start.setExit("south", r1M);
         
-        room1M.setExit("north", start);
-        room1M.setExit("south", room3M);
-        room1M.setExit("east", room2C);
+        r1M.setExit("north", start);
+        r1M.setExit("south", r3M);
+        r1M.setExit("east", r2C);
         
-        room2C.setExit("west", room1M);
-        room2C.setExit("east", room4M);
+        r2C.setExit("west", r1M);
+        r2C.setExit("east", r4M);
         
-        room4M.setExit("west", room2C);
-        
-        room3M.setExit("north", room1M);
-        room3M.setExit("south", room5C);
+        r3M.setExit("north", r1M);
+        r3M.setExit("down", r5C);
        
+        r4M.setExit("west", r2C);
+        
+        r5C.setExit("", r6M);
+        r5C.setExit("", r7M);
+        r5C.setExit("", r8C);
+        
+        r6M.setExit("", r5C);
+        
+        r7M.setExit("", r5C);
+        r7M.setExit("", r11M);
+        r7M.setExit("", r19M);
+        
+        
+        
+        //rxx.setExit("", null);
+        
         currentRoom = start;
     }
 

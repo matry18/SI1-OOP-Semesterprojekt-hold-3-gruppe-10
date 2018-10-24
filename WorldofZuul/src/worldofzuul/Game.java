@@ -18,7 +18,7 @@ public class Game
         Room start, r1M, r2C, r3M, r4M, r5C, r6M, r7M, r8C, r9M;
         Room r10C, r11M, r12M, r13M, r14C, r15M, r16M, r17M, r18C, r19M;
         Room r20M, r21C, r22M, r23M, r24C, r25C, r26M, r27M, r28M, r29M;
-        Room r30C, r31M, r32M, r33M, r34X, r35X, r36X, r37X, r38X, r39X;
+        Room r30C, r31M, r32M, r33M, r34M, r35X, r36X, r37X, r38X, r39X;
         Room r40X, r41X, r42X, r43X, r44X, r45X, r46X, r47X, r48X, r49X;
         Room r50X, r51X, r52X, r53X, r54X, r55X, r56X, r57X, r58X, r59X;
         
@@ -56,6 +56,7 @@ public class Game
         r31M = new Room("");
         r32M = new Room("");
         r33M = new Room("");
+        r34M = new Room("");
         
         
         start.setExit("south", r1M);

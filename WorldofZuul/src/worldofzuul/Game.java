@@ -15,10 +15,15 @@ public class Game
 
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office;
+         Room start, room1M, room2C, room4M, room3M, room5C /*theatre, pub, lab, office*/;
       
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
+        start = new Room("standing outside the ugly house");
+        room1M = new Room("meeting a mighty monster, a slime who is level 1");
+        room2C = new Room("getting hit by a CURSE, you loose your weapon");
+        room4M = new Room("smelling something awful, it is a golbin that hasn't showered!");
+        room3M = new Room("kicking in a find a dragon! He is so muscular!");
+        room5C = new Room("falling down into the dungeon, you are stuck in the dungeon now");
+        /*theatre = new Room("in a lecture theatre");
         pub = new Room("in the campus pub");
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
@@ -35,8 +40,22 @@ public class Game
         lab.setExit("east", office);
 
         office.setExit("west", lab);
-
-        currentRoom = outside;
+                */
+        start.setExit("south", room1M);
+        
+        room1M.setExit("north", start);
+        room1M.setExit("south", room3M);
+        room1M.setExit("east", room2C);
+        
+        room2C.setExit("west", room1M);
+        room2C.setExit("east", room4M);
+        
+        room4M.setExit("west", room2C);
+        
+        room3M.setExit("north", room1M);
+        room3M.setExit("south", room5C);
+       
+        currentRoom = start;
     }
 
     public void play() 

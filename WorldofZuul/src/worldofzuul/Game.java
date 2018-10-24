@@ -17,8 +17,8 @@ public class Game
     {
         Room start, r1M, r2C, r3M, r4M, r5C, r6M, r7M, r8C, r9M;
         Room r10C, r11M, r12M, r13M, r14C, r15M, r16M, r17M, r18C, r19M;
-        Room r20M, r21C, r22X, r23X, r24X, r25X, r26X, r27X, r28X, r29X;
-        Room r30X, r31X, r32X, r33X, r34X, r35X, r36X, r37X, r38X, r39X;
+        Room r20M, r21C, r22M, r23M, r24C, r25C, r26M, r27M, r28M, r29M;
+        Room r30C, r31M, r32M, r33X, r34X, r35X, r36X, r37X, r38X, r39X;
         Room r40X, r41X, r42X, r43X, r44X, r45X, r46X, r47X, r48X, r49X;
         Room r50X, r51X, r52X, r53X, r54X, r55X, r56X, r57X, r58X, r59X;
         
@@ -42,14 +42,20 @@ public class Game
         r17M = new Room("");
         r18C = new Room("");
         r19M = new Room("");
-        /*
-        rXXX = new Room("");
-        rXXX = new Room("");
-        rXXX = new Room("");
-        rXXX = new Room("");
-        rXXX = new Room("");
-        rXXX = new Room("");
-        */
+        r20M = new Room("");
+        r21C = new Room("");
+        r22M = new Room("");
+        r23M = new Room("");
+        r24C = new Room("");
+        r25C = new Room("");
+        r26M = new Room("");
+        r27M = new Room("");
+        r28M = new Room("");
+        r29M = new Room("");
+        r30C = new Room("");
+        r31M = new Room("");
+        r32M = new Room("");
+        
         
         start.setExit("south", r1M);
         

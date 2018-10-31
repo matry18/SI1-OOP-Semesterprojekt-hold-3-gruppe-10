@@ -69,7 +69,7 @@ public class Game
         r2C.setExit("east", r4M);
         
         r3M.setExit("north", r1M);
-        r3M.setExit("down", r5C);
+        r3M.setExit("down", r5C); //If you choose this path, you cannot return
        
         r4M.setExit("west", r2C);
         

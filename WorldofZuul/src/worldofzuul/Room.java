@@ -31,14 +31,6 @@ public class Room
         return "You are " + description + ".\n" + getExitString();
     }
     
-    public String getMonsterDescription() {
-        return "kicking in the door and is being attacked by a monster. ";
-    }
-    
-    public String getCurseDescription() {
-        return "kicking in the door and is being hit by a curse. ";
-    }
-
     private String getExitString()
     {
         String returnString = "Exits:";

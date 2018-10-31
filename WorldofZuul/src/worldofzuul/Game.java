@@ -15,79 +15,28 @@ public class Game
 
     private void createRooms()
     {
-        Room start, r1M, r2C, r3M, r4M, r5C, r6M, r7M, r8C, r9M;
-        Room r10C, r11M, r12M, r13M, r14C, r15M, r16M, r17M, r18C, r19M;
-        Room r20M, r21C, r22M, r23M, r24C, r25C, r26M, r27M, r28M, r29M;
-        Room r30C, r31M, r32M, r33M, r34M, r35X, r36X, r37X, r38X, r39X;
-        Room r40X, r41X, r42X, r43X, r44X, r45X, r46X, r47X, r48X, r49X;
-        Room r50X, r51X, r52X, r53X, r54X, r55X, r56X, r57X, r58X, r59X;
+        Room outside, theatre, pub, lab, office;
+      
+        outside = new Room("outside the main entrance of the university");
+        theatre = new Room("in a lecture theatre");
+        pub = new Room("in the campus pub");
+        lab = new Room("in a computing lab");
+        office = new Room("in the computing admin office");
         
-        start = new Room("standing outside the ugly house");
-        r1M = new Room("meeting a mighty monster, a slime who is level 1");
-        r2C = new Room("getting hit by a CURSE, you loose your weapon");
-        r4M = new Room("smelling something awful, it is a golbin that hasn't showered!");
-        r3M = new Room("kicking in a find a dragon! He is so muscular!");
-        r5C = new Room("falling down into the dungeon, you are stuck in the dungeon now");
-        r6M = new Room("");
-        r7M = new Room("");
-        r8C = new Room("");
-        r9M = new Room("");
-        r10C = new Room("");
-        r11M = new Room("");
-        r12M = new Room("");
-        r13M = new Room("");
-        r14C = new Room("");
-        r15M = new Room("");
-        r16M = new Room("");
-        r17M = new Room("");
-        r18C = new Room("");
-        r19M = new Room("");
-        r20M = new Room("");
-        r21C = new Room("");
-        r22M = new Room("");
-        r23M = new Room("");
-        r24C = new Room("");
-        r25C = new Room("");
-        r26M = new Room("");
-        r27M = new Room("");
-        r28M = new Room("");
-        r29M = new Room("");
-        r30C = new Room("");
-        r31M = new Room("");
-        r32M = new Room("");
-        r33M = new Room("");
-        r34M = new Room("");
-        
-        
-        start.setExit("south", r1M);
-        
-        r1M.setExit("north", start);
-        r1M.setExit("south", r3M);
-        r1M.setExit("east", r2C);
-        
-        r2C.setExit("west", r1M);
-        r2C.setExit("east", r4M);
-        
-        r3M.setExit("north", r1M);
-        r3M.setExit("down", r5C); //If you choose this path, you cannot return
-       
-        r4M.setExit("west", r2C);
-        
-        r5C.setExit("", r6M);
-        r5C.setExit("", r7M);
-        r5C.setExit("", r8C);
-        
-        r6M.setExit("", r5C);
-        
-        r7M.setExit("", r5C);
-        r7M.setExit("", r11M);
-        r7M.setExit("", r19M);
-        
-        
-        
-        //rxx.setExit("", null);
-        
-        currentRoom = start;
+        outside.setExit("east", theatre);
+        outside.setExit("south", lab);
+        outside.setExit("west", pub);
+
+        theatre.setExit("west", outside);
+
+        pub.setExit("east", outside);
+
+        lab.setExit("north", outside);
+        lab.setExit("east", office);
+
+        office.setExit("west", lab);
+
+        currentRoom = outside;
     }
 
     public void play() 

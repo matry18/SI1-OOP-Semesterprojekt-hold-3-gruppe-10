@@ -30,7 +30,7 @@ public class Room
     {
         return "You are " + description + ".\n" + getExitString();
     }
-    
+
     private String getExitString()
     {
         String returnString = "Exits:";

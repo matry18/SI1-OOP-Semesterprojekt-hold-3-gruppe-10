@@ -60,6 +60,7 @@ public class Room
 
     public void setMonster(Monster monster) {
         this.monster = monster;
+        containsMonster = true;
     }
 
     public boolean isContainsMonster() {

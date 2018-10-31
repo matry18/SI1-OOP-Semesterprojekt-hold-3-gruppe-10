@@ -27,7 +27,6 @@ public class Game
         outside.setExit("south", lab);
         outside.setExit("west", pub);
         outside.setMonster(new Monster("Karate Squid","He makes sushi out of you. He will chop you up in small pieces.", 8, "Lose 2 levels."));
-        outside.setContainsMonster(true);
         
         theatre.setExit("west", outside);
 

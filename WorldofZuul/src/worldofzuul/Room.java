@@ -9,7 +9,10 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;
-
+    private Monster monster;
+    
+    private boolean containsMonster = false;
+    
     public Room(String description) 
     {
         this.description = description;
@@ -28,7 +31,12 @@ public class Room
 
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        if(containsMonster){
+        return "You are " + description + ". In here you see a level "+ getMonster().getLevel()+ " " + getMonster().getName() + "\nDescription: "+ getMonster().getDescription()+ "\nBad Stuff: " + getMonster().getBadStuff() + "\n" + getExitString();
+        }
+        else{
+            return "You are " + description +"\n" + getExitString();
+        }
     }
 
     private String getExitString()
@@ -45,5 +53,24 @@ public class Room
     {
         return exits.get(direction);
     }
+
+    public Monster getMonster() {
+        return monster;
+    }
+
+    public void setMonster(Monster monster) {
+        this.monster = monster;
+        containsMonster = true;
+    }
+
+    public boolean isContainsMonster() {
+        return containsMonster;
+    }
+
+    public void setContainsMonster(boolean containsMonster) {
+        this.containsMonster = containsMonster;
+    }
+    
+    
 }
 

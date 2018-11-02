@@ -10,8 +10,10 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
     private Monster monster;
+    private Curse curse;
     
     private boolean containsMonster = false;
+    private boolean containsCurse = false;
     
     public Room(String description) 
     {
@@ -34,6 +36,9 @@ public class Room
         if(containsMonster){
         return "You are " + description + ". In here you see a level "+ getMonster().getLevel()+ " " + getMonster().getName() + "\nDescription: "+ getMonster().getDescription()+ "\nBad Stuff: " + getMonster().getBadStuff() + "\n" + getExitString();
         }
+        else if(containsCurse) {
+        return "You are " + description + ". In this room you are getting hit by a curse "+ getCurse().getName() + "\nDescription: "+getCurse().getDescription()+ "\nBad Stuff: " + getCurse().getBadStuff() + "\n" + getExitString();
+    }
         else{
             return "You are " + description +"\n" + getExitString();
         }
@@ -57,20 +62,32 @@ public class Room
     public Monster getMonster() {
         return monster;
     }
+public Curse getCurse() {
+    return curse;
+}
 
     public void setMonster(Monster monster) {
         this.monster = monster;
         containsMonster = true;
     }
+    public void setCurse(Curse curse) {
+        this.curse = curse;
+        containsCurse = true;
+    }
 
     public boolean isContainsMonster() {
         return containsMonster;
+    }
+    public boolean isContainsCurse() {
+        return containsCurse;
     }
 
     public void setContainsMonster(boolean containsMonster) {
         this.containsMonster = containsMonster;
     }
-    
+    public void setContainsCurse(boolean containsCurse) {
+        this.containsCurse = containsCurse;
+    }
     
 }
 

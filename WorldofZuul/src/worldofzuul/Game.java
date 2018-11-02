@@ -19,11 +19,11 @@ public class Game {
 
         //Creating the rooms
         start = new Room("standing outside the ugly house");
-        r1M = new Room("meeting a mighty monster, a slime who is level 1");
-        r2C = new Room("getting hit by a CURSE, you loose your weapon");
-        r4M = new Room("smelling something awful, it is a golbin that hasn't showered!");
-        r3M = new Room("kicking in a find a dragon! He is so muscular!");
-        r5C = new Room("falling down into the dungeon, you are stuck in the dungeon now");
+        r1M = new Room("");
+        r2C = new Room("");
+        r4M = new Room("");
+        r3M = new Room("");
+        r5C = new Room("");
         r6M = new Room("");
         r7M = new Room("");
         r8C = new Room("");
@@ -186,6 +186,19 @@ public class Game {
         r39M.setExit("east", r27M);
 
         r40C.setExit("west", r12M);
+        
+        //Define the curses in the rooms
+        r2C.setCurse(new Curse("BAM WAM SLAM!", "You get hit and you do not know by what", "Lose your weapon. If you don’t have any nothing happens"));
+        r5C.setCurse(new Curse("Curse!", "Immortality removed (good luck). You are now on your own!... MUHAHAHA!", "You can’t go back to previous rooms and you now have to explore the dungeon"));
+        r8C.setCurse(new Curse("Fancy hat with feathers.", "The hat i fancy, because it got feathers!", "The hat removes any other head gear you are wearing and has no bonuses. The hat will stay on until a curse removes the hat"));
+        r10C.setCurse(new Curse("E-tivity", "A very difficult online activity, you rip your hair out of your head!", "Lose any current headgear, otherwise -1 level"));
+        r14C.setCurse(new Curse("Harsh Language!", "A rat says something very unpleasant about your mother", "Your moral is lowered. Attack -3 during next battle"));
+        r18C.setCurse(new Curse("Shitter Twitter Trump", "He hacks your Twitter account and posts shit", "Lose 1 level"));
+        r21C.setCurse(new Curse("Tiny Hands", "Tiny hands comes flying toward you, they taking your weapon! ", "Lose weapon"));
+        r24C.setCurse(new Curse("Rolling Stone", "A huge round stone rolls against you and crushes you", "Lose your footgear and escape or be crushed and lose 1 level"));
+        r25C.setCurse(new Curse("Duck of Doom", "A menacing presence makes you shiver", "Lose 1 level"));
+        r30C.setCurse(new Curse("Josef F. Ritzl", "He invites you in to his cellar and locks you up", "Lose 3 items or lose 2 levels"));
+        r40C.setCurse(new Curse("Tar room", "You jump into the room, so your footgear gets instantly stuck in the tar", "Lose your footgear"));
         
         //Define the monsters in the rooms
         r1M.setMonster(new Monster("Tiny Chicken", "Still looking for his friend: Chicken Little", 1, "Calls you a chicken"));

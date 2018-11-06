@@ -82,7 +82,6 @@ public class Character {
             if (wear > 1) { //If the player has more than one equipped
                 System.out.println("Character is already armed.");
             } else {
-                //hm.put(item, item.getBonus());
                 inventory.add(item);
                 System.out.println("The Player puts on " + item.getName());
             }
@@ -96,7 +95,6 @@ public class Character {
             if (wear > 0) {
                 System.out.println("Character is already armed.");
             } else {
-                //hm.put(item, item.getBonus());
                 inventory.add(item);
                 System.out.println("The Player equips " + item.getName());
             }

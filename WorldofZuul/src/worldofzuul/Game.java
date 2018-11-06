@@ -12,10 +12,10 @@ public class Game {
 
     private void createRooms() {
         Room start, r1M, r2C, r3M, r4M, r5C, r6M, r7M, r8C, r9M,
-        r10C, r11M, r12M, r13M, r14C, r15M, r16M, r17M, r18C, r19M,
-        r20M, r21C, r22M, r23M, r24C, r25C, r26M, r27M, r28M, r29M,
-        r30C, r31M, r32M, r33M, r34M, r35M, r36M, r37M, r38M, r39M,
-        r40C;
+                r10C, r11M, r12M, r13M, r14C, r15M, r16M, r17M, r18C, r19M,
+                r20M, r21C, r22M, r23M, r24C, r25C, r26M, r27M, r28M, r29M,
+                r30C, r31M, r32M, r33M, r34M, r35M, r36M, r37M, r38M, r39M,
+                r40C;
 
         //Creating the rooms
         start = new Room("standing outside the ugly house");
@@ -186,7 +186,7 @@ public class Game {
         r39M.setExit("east", r27M);
 
         r40C.setExit("west", r12M);
-        
+
         //Define the curses in the rooms
         r2C.setCurse(new Curse("BAM WAM SLAM!", "You get hit and you do not know by what.", "Lose your weapon. If you don’t have any nothing happens."));
         r5C.setCurse(new Curse("Curse!", "Immortality removed. You are now on your own!... MUHAHAHA!", "You are trapped in the dungeon, the only way out is reaching level 10. Good Luck."));
@@ -199,7 +199,7 @@ public class Game {
         r25C.setCurse(new Curse("Duck of Doom!", "A menacing presence makes you shiver.", "Lose 1 level."));
         r30C.setCurse(new Curse("Josef F. Ritzl?!", "He invites you in to his cellar and locks you up.", "Lose 3 items or lose 2 levels."));
         r40C.setCurse(new Curse("Tar room.", "You jump into the room, only to find your feet getting stuck in the tar.", "Lose your footgear."));
-        
+
         //Define the monsters in the rooms
         r1M.setMonster(new Monster("A Tiny Chicken.", "Still looking for his friend: Chicken Little.", 1, "Calls you a chicken."));
         r3M.setMonster(new Monster("'The Bully'", "He bullys you into submission(you notice a trap door behind him).", 4, "Lose your weapon."));
@@ -230,7 +230,7 @@ public class Game {
         r37M.setMonster(new Monster("G’huunies.", "They seem cute at first, but they just keep coming.", 11, "INFESTED -5 to next fight."));
         r38M.setMonster(new Monster("Moon Maidens.", "You must chastise them empty-handed. Use no weapon in this fight.", 9, "You lose your pants."));
         r39M.setMonster(new Monster("Brick Bat.", "+4 against anyone with headgear.", 9, "Lose your headgear and a level… or 2 levels if you have no headgear."));
-      
+
         currentRoom = start;
     }
 

@@ -4,6 +4,7 @@ public class Game {
 
     private Parser parser;
     private Room currentRoom;
+    Character bob = new Character();
 
     public Game() {
         createRooms();
@@ -315,14 +316,13 @@ public class Game {
     }
 
     private boolean fight(Command command) {
-        Character character = new Character(1, 2);
         if (command.hasSecondWord()) {
             System.out.println("Don't be silly now");
             return false;
-        } else if (character.totalAttackValue() <= currentRoom.getMonster().getLevel()) {
+        } else if (bob.totalAttackValue() <= currentRoom.getMonster().getLevel()) {
             System.out.println("You are not strong enough");
             return false;
-        } else if (character.totalAttackValue() > currentRoom.getMonster().getLevel()) {
+        } else if (bob.totalAttackValue() > currentRoom.getMonster().getLevel()) {
             currentRoom.setContainsMonster(false);
             System.out.println(currentRoom.getMonster().getName() + " has been defeated");
             return true;

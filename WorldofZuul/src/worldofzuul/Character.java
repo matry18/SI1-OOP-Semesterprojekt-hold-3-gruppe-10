@@ -54,7 +54,7 @@ ArrayList<Item> inventory = new ArrayList<>();
             else { //If the player is not already wearing a headgear
                 //hm.put(item, item.getBonus());
                 inventory.add(item);
-                System.out.println("The Player puts on "+item);
+                System.out.println("The Player puts on "+item.getName());
             }
         }
         else if (item instanceof Armor){
@@ -64,12 +64,12 @@ ArrayList<Item> inventory = new ArrayList<>();
                 }
             }
             if(wear > 0){ 
-                System.out.println("Character already wears headgear.");
+                System.out.println("Character already wears armor.");
             }
             else { 
                 //hm.put(item, item.getBonus());
                 inventory.add(item);
-                System.out.println("The Player puts on "+item);
+                System.out.println("The Player puts on "+item.getName());
             }
         }
         else if (item instanceof OneHand){
@@ -82,12 +82,12 @@ ArrayList<Item> inventory = new ArrayList<>();
                 }
             }
             if(wear > 1){ //If the player has more than one equipped
-                System.out.println("Character already wears headgear.");
+                System.out.println("Character is already armed.");
             }
             else { 
                 //hm.put(item, item.getBonus());
                 inventory.add(item);
-                System.out.println("The Player puts on "+item);
+                System.out.println("The Player puts on "+item.getName());
             }
         }
         else if (item instanceof TwoHand){
@@ -97,12 +97,12 @@ ArrayList<Item> inventory = new ArrayList<>();
                 }
             }
             if(wear > 0){ 
-                System.out.println("Character already has a weapon.");
+                System.out.println("Character is already armed.");
             }
             else { 
                 //hm.put(item, item.getBonus());
                 inventory.add(item);
-                System.out.println("The Player equips "+item);
+                System.out.println("The Player equips "+item.getName());
             }
         }
 
@@ -112,7 +112,7 @@ ArrayList<Item> inventory = new ArrayList<>();
     public String stringInventory(){
         String total = "";
         for(Item gear : inventory/*Map.Entry<Item, Integer> gear : hm.entrySet()*/){
-            total += "Item Name: "+gear.getName()+" | Item Bonus: "+gear.getBonus();
+            total += "Item Name: "+gear.getName()+" | Item Bonus: "+gear.getBonus()+"\n";
             //total += "Item name: "+gear.getKey().getName()+" | Item bonus: "+gear.getKey().getBonus()+"\n";
         }
         return total;

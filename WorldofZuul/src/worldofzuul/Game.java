@@ -230,7 +230,8 @@ public class Game {
         r37M.setMonster(new Monster("G’huunies", "They seem cute at first, but they just keep coming.", 11, "INFESTED -5 to next fight."));
         r38M.setMonster(new Monster("Moon Maidens", "You must chastise them empty-handed. Use no weapon in this fight.", 9, "You lose your pants."));
         r39M.setMonster(new Monster("Brick Bat", "+4 against anyone with headgear.", 9, "Lose your headgear and a level… or 2 levels if you have no headgear"));
-
+        
+        
         currentRoom = start;
     }
 

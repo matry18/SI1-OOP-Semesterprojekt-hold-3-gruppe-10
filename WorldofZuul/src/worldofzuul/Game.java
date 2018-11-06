@@ -4,6 +4,7 @@ public class Game {
 
     private Parser parser;
     private Room currentRoom;
+    Character bob = new Character();
 
     public Game() {
         createRooms();
@@ -207,7 +208,7 @@ public class Game {
         r6M.setMonster(new Monster("The Karate Squid.", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels."));
         r7M.setMonster(new Monster("Larry the Cable Guy.", "+3 against Swagger Dagger.", 5, "You trip on his cable and get done. Lose 1 level."));
         r9M.setMonster(new Monster("Harry the Hairy Wizard.", "He whacks you with his wand.", 6, "He enchants you, making you grow hair all over your feet! Lose your footgear."));
-        r11M.setMonster(new Monster("The Stoned Golem", "He’s sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level."));
+        r11M.setMonster(new Monster("The Stoned Golem.", "He’s sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level."));
         r12M.setMonster(new Monster("A group of 8378493.5 High Scool Students on Internship.", "They ask you questions with no relevance and you do not care about answering.", 10, "They talk to you, even during your lunch break, until you lay flat on the ground. Lose 1 level."));
         r13M.setMonster(new Monster("An Angry Gnome.", "He HATES!!! Christmas and he hates everybody who mentions Christmas… And he hates YOU!", 13, "He will suffocate you with rice porridge. Lose 2 levels."));
         r15M.setMonster(new Monster("A Dragon with Halitosis.", "It has periodontitis and it smells really bad.", 8, "The smell from his mouth alone kills you (figuratively). Lose 1 level."));
@@ -266,10 +267,12 @@ public class Game {
 
         if (commandWord == CommandWord.HELP) {
             printHelp();
-        } else if (commandWord == CommandWord.GO) {
+        } else if (commandWord == CommandWord.GO && currentRoom.isContainsMonster() == false) {
             goRoom(command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
+        } else if (commandWord == CommandWord.FIGHT) {
+            fight(command);
         }
         return wantToQuit;
     }
@@ -297,6 +300,9 @@ public class Game {
         } else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            if (currentRoom.isContainsMonster() == true) {
+                System.out.println("Battle mode activated: Fight or flee! ");
+            }
         }
     }
 
@@ -306,6 +312,22 @@ public class Game {
             return false;
         } else {
             return true;
+        }
+    }
+
+    private boolean fight(Command command) {
+        if (command.hasSecondWord()) {
+            System.out.println("Don't be silly now");
+            return false;
+        } else if (bob.totalAttackValue() <= currentRoom.getMonster().getLevel()) {
+            System.out.println("You are not strong enough");
+            return false;
+        } else if (bob.totalAttackValue() > currentRoom.getMonster().getLevel()) {
+            currentRoom.setContainsMonster(false);
+            System.out.println(currentRoom.getMonster().getName() + " has been defeated");
+            return true;
+        } else {
+            return false;
         }
     }
 }

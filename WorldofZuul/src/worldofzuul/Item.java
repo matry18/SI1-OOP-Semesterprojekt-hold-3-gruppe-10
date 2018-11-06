@@ -17,7 +17,6 @@ public class Item {
     public Item(String name, int bonus) {
         this.name = name;
         this.bonus = bonus;
-
     }
 
     public String getName() {
@@ -35,5 +34,4 @@ public class Item {
     public void setBonus(int bonus) {
         this.bonus = bonus;
     }
-
 }

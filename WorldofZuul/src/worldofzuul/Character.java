@@ -11,7 +11,6 @@ public class Character {
 
     private int level = 1;
     private int bonus = 0;
-
     ArrayList<Item> inventory = new ArrayList<>();
 
     public Character() {
@@ -50,11 +49,8 @@ public class Character {
             if (wear > 0) { //If the player is already wearing a headgear
                 System.out.println("Character already wears headgear.");
             } else { //If the player is not already wearing a headgear
-
                 inventory.add(item);
-
                 System.out.println("The Player puts on " + item.getName());
-
             }
         } else if (item instanceof Armor) {
             for (Item gear : inventory) {
@@ -65,10 +61,8 @@ public class Character {
             if (wear > 0) {
                 System.out.println("Character already wears armor.");
             } else {
-
                 inventory.add(item);
                 System.out.println("The Player puts on " + item.getName());
-
             }
         } else if (item instanceof OneHand) {
             for (Item gear : inventory) {
@@ -91,7 +85,6 @@ public class Character {
                     wear++;
                 }
             }
-
             if (wear > 0) {
                 System.out.println("Character is already armed.");
             } else {
@@ -108,5 +101,11 @@ public class Character {
         }
         return total;
     }
-
+      public int totalAttackValue() {
+        int totalValue = 0;
+        for (Item gear : inventory) {
+            totalValue += gear.getBonus();
+        }
+        return totalValue + level + bonus;
+      }
 }

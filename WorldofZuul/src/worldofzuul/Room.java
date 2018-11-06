@@ -11,15 +11,7 @@ public class Room {
     private Monster monster;
     private Curse curse;
     private Item item;
-
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
+  
     private boolean containsMonster = false;
     private boolean containsCurse = false;
 
@@ -92,5 +84,15 @@ public class Room {
     public void setContainsCurse(boolean containsCurse) {
         this.containsCurse = containsCurse;
     }
+    
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+
 
 }

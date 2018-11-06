@@ -10,12 +10,13 @@ package worldofzuul;
  * @author patri
  */
 public class Monster {
+
     //Attributes
     private String name;
     private String description;
     private String badStuff;
     private int level;
-    
+
     //Constructor
     public Monster(String name, String description, int level, String badStuff) {
         this.name = name;

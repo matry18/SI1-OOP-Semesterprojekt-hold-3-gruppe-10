@@ -188,50 +188,49 @@ public class Game {
         r40C.setExit("west", r12M);
         
         //Define the curses in the rooms
-        r2C.setCurse(new Curse("BAM WAM SLAM!", "You get hit and you do not know by what", "Lose your weapon. If you don’t have any nothing happens"));
-        r5C.setCurse(new Curse("Curse!", "Immortality removed (good luck). You are now on your own!... MUHAHAHA!", "You can’t go back to previous rooms and you now have to explore the dungeon"));
-        r8C.setCurse(new Curse("Fancy hat with feathers.", "The hat i fancy, because it got feathers!", "The hat removes any other head gear you are wearing and has no bonuses. The hat will stay on until a curse removes the hat"));
-        r10C.setCurse(new Curse("E-tivity", "A very difficult online activity, you rip your hair out of your head!", "Lose any current headgear, otherwise -1 level"));
-        r14C.setCurse(new Curse("Harsh Language!", "A rat says something very unpleasant about your mother", "Your moral is lowered. Attack -3 during next battle"));
-        r18C.setCurse(new Curse("Shitter Twitter Trump", "He hacks your Twitter account and posts shit", "Lose 1 level"));
-        r21C.setCurse(new Curse("Tiny Hands", "Tiny hands comes flying toward you, they taking your weapon! ", "Lose weapon"));
-        r24C.setCurse(new Curse("Rolling Stone", "A huge round stone rolls against you and crushes you", "Lose your footgear and escape or be crushed and lose 1 level"));
-        r25C.setCurse(new Curse("Duck of Doom", "A menacing presence makes you shiver", "Lose 1 level"));
-        r30C.setCurse(new Curse("Josef F. Ritzl", "He invites you in to his cellar and locks you up", "Lose 3 items or lose 2 levels"));
-        r40C.setCurse(new Curse("Tar room", "You jump into the room, so your footgear gets instantly stuck in the tar", "Lose your footgear"));
+        r2C.setCurse(new Curse("BAM WAM SLAM!", "You get hit and you do not know by what.", "Lose your weapon. If you don’t have any nothing happens."));
+        r5C.setCurse(new Curse("Curse!", "Immortality removed. You are now on your own!... MUHAHAHA!", "You are trapped in the dungeon, the only way out is reaching level 10. Good Luck."));
+        r8C.setCurse(new Curse("Fancy hat with feathers.", "The hat i fancy, because it got feathers!", "The hat removes any other head gear you are wearing and has no bonuses. The hat will stay on until a curse removes the hat."));
+        r10C.setCurse(new Curse("E-tivity.", "A very difficult online activity, you rip your hair out of your head!", "Lose any current headgear, otherwise -1 level."));
+        r14C.setCurse(new Curse("Harsh Language!", "A rat says something very unpleasant about your mother.", "Your moral is lowered. Attack -3 during next battle."));
+        r18C.setCurse(new Curse("Shitter Twitter Trump!?", "He hacks your Twitter account and posts shit.", "You feel your IQ lowering. Lose 1 level."));
+        r21C.setCurse(new Curse("Tiny Hands!", "Tiny hands comes flying toward you, they taking your weapon!", "Lose your weapon."));
+        r24C.setCurse(new Curse("Rolling Stone!", "A huge round stone rolls towards you, INDIANA JONES STYLE!", "Lose your footgear and escape or be crushed and lose 1 level."));
+        r25C.setCurse(new Curse("Duck of Doom!", "A menacing presence makes you shiver.", "Lose 1 level."));
+        r30C.setCurse(new Curse("Josef F. Ritzl?!", "He invites you in to his cellar and locks you up.", "Lose 3 items or lose 2 levels."));
+        r40C.setCurse(new Curse("Tar room.", "You jump into the room, only to find your feet getting stuck in the tar.", "Lose your footgear."));
         
         //Define the monsters in the rooms
-        r1M.setMonster(new Monster("Tiny Chicken", "Still looking for his friend: Chicken Little", 1, "Calls you a chicken"));
-        r3M.setMonster(new Monster("'The Bully'", "He will bully you into submission.", 4, "Lose your weapon."));
-        r4M.setMonster(new Monster("Gobo the Goblin", "Iiiiit’s Gobo everbody!", 1, "-1 next time you try to flee"));
-        r6M.setMonster(new Monster("Karate Squid", "Makes sushi out of you. He will chop you up in small pieces", 8, "His arm attacks you from behind. Lose 2 levels"));
-        r7M.setMonster(new Monster("Larry the Cable Guy", "+3 against Swagger Dagger", 5, "You trip on his cable and get done. Lose 1 level"));
-        r9M.setMonster(new Monster("Harry the Hairy Wizard", "He wanks you with his wand", 6, "He enchants you and you will grow hair all over your feet and you will lose the foot protection you are wearing"));
-        r11M.setMonster(new Monster("Stoned Golem", "He’s sooo stooooned broo", 7, "He falls over and lands on you left foot. Lose 1 level"));
-        r12M.setMonster(new Monster("8378493.5 High Scool Students on Internship", "They will ask you questions which are not relevant and you do not know the answers.", 10, "They will talk to you, even during your lunch break, until you lay flat on the ground. Lose 1 level"));
-        r13M.setMonster(new Monster("Angry Gnome", "He HATES!!! Christmas and he hates everybody who mentions Christmas… And he hates YOU!", 13, "He will suffocate you with rice porridge. Lose 2 levels"));
-        r15M.setMonster(new Monster("Dragon with bad breath", "It has periodontitis and it smells really bad.", 8, "The fire from his breath will roast you and the smell from his mouth will kill you. Lose 1 level"));
-        r16M.setMonster(new Monster("Pelvin the Elf and his slightly less known brother Melvin", "Pelvin and Melvin will continue each others sentences which irritates you a lot! You can not flee from this monster, you have to fight them", 7, "They will include you in their debate club. Lose 2 levels"));
-        r17M.setMonster(new Monster("Satan Claws", "Due to a typo and dyslexia it is Satan Claws who has been summoned instead of Santa Claus", 10, "He will gore you with his horns. Lose 2 levels"));
-        r19M.setMonster(new Monster("Stubborn Crying Child", "He’s had to much stewed apples and he’s not happy about it", 4, "the baby throws its dirty diaper at you. You get rid of your armour"));
-        r20M.setMonster(new Monster("Frodo the Fag", "He will diss your choice of fashion", 11, "He will see your attire as a fashion crime and take your armor as a punishment."));
-        r22M.setMonster(new Monster("Curling Merlin", "He will hit you with his curling rocks and it hurts like hell!", 12, "Lose your footwear and 1 level."));
-        r23M.setMonster(new Monster("Killer Rabbit", "It has already slain a whole bunch of knights.", 15, "It will kill you. Lose 2 levels."));
-        r26M.setMonster(new Monster("Trubadourix", "He will sing you a song... which sounds awful!", 14, "Your eardrums inflate so much that your headgear cease to be able to fit your head. Lose your headgear!"));
-        r27M.setMonster(new Monster("Katty Purry", "Great singer but gets distracted easily (typical cat stuff). -5 If you have the Vest of Rabbit Fur.", 18, "She deafens you with her cat wailing: -2 level"));
-        r28M.setMonster(new Monster("Daft Vader", "He flails his arms around while wielding his red lightsaber, trying to intimidate you, while mumbling some mumbo jumbo about some ‘force’.", 6, "He uses the force to choke your hand. Lose a weapon."));
-        r29M.setMonster(new Monster("Shrieking Geek from RobTech", "He is a geek and it is infectious.", 19, "-1 to run away."));
-        r31M.setMonster(new Monster("LEEEEEROYY JENKINSSSS", "He rushes out of the room, yelling about whelplings. He leaves something behind.", 17, "Nothing, he is already gone."));
-        r32M.setMonster(new Monster("Dorky Dragon of Doom", "He tells stupid jokes, which are not funny at all. He bores you to death.", 16, "Lose 2 levels"));
-        r33M.setMonster(new Monster("Doom Donuts", "They have an affinity for everything with a 0 in it.", 7, "Lose 0 levels"));
-        r34M.setMonster(new Monster("Topless Dancer", "+2 if you have a weapon equipped.", 9, "She takes your headgear, not that she needs it."));
-        r35M.setMonster(new Monster("The Great Cornholio", "Hehehehh… Heheheheh", 8, "You lose a level… or something."));
-        r36M.setMonster(new Monster("Flying Surströmming", "The smell is EVERYWHERE.", 12, "You throw up from the smell alone. Lose 3 levels."));
-        r37M.setMonster(new Monster("G’huunies", "They seem cute at first, but they just keep coming.", 11, "INFESTED -5 to next fight."));
-        r38M.setMonster(new Monster("Moon Maidens", "You must chastise them empty-handed. Use no weapon in this fight.", 9, "You lose your pants."));
-        r39M.setMonster(new Monster("Brick Bat", "+4 against anyone with headgear.", 9, "Lose your headgear and a level… or 2 levels if you have no headgear"));
-        
-        
+        r1M.setMonster(new Monster("A Tiny Chicken.", "Still looking for his friend: Chicken Little.", 1, "Calls you a chicken."));
+        r3M.setMonster(new Monster("'The Bully'", "He bullys you into submission(you notice a trap door behind him).", 4, "Lose your weapon."));
+        r4M.setMonster(new Monster("Gobo the Goblin.", "Iiiiit’s Gobo everbody!", 1, "-1 next time you try to flee."));
+        r6M.setMonster(new Monster("The Karate Squid.", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels."));
+        r7M.setMonster(new Monster("Larry the Cable Guy.", "+3 against Swagger Dagger.", 5, "You trip on his cable and get done. Lose 1 level."));
+        r9M.setMonster(new Monster("Harry the Hairy Wizard.", "He whacks you with his wand.", 6, "He enchants you, making you grow hair all over your feet! Lose your footgear."));
+        r11M.setMonster(new Monster("The Stoned Golem", "He’s sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level."));
+        r12M.setMonster(new Monster("A group of 8378493.5 High Scool Students on Internship.", "They ask you questions with no relevance and you do not care about answering.", 10, "They talk to you, even during your lunch break, until you lay flat on the ground. Lose 1 level."));
+        r13M.setMonster(new Monster("An Angry Gnome.", "He HATES!!! Christmas and he hates everybody who mentions Christmas… And he hates YOU!", 13, "He will suffocate you with rice porridge. Lose 2 levels."));
+        r15M.setMonster(new Monster("A Dragon with Halitosis.", "It has periodontitis and it smells really bad.", 8, "The smell from his mouth alone kills you (figuratively). Lose 1 level."));
+        r16M.setMonster(new Monster("Pelvin the Elf and his slightly less known brother Melvin.", "Pelvin and Melvin will continue each others sentences which irritates you a lot! You can not flee from this monster, you have to fight them.", 7, "They will include you in their debate club. Lose 2 levels."));
+        r17M.setMonster(new Monster("Satan Claws.", "Due to a typo and dyslexia it is Satan Claws who has been summoned instead of Santa Claus", 10, "He will gore you with his horns. Lose 2 levels."));
+        r19M.setMonster(new Monster("A Stubborn Crying Child.", "He’s had to much stewed apples and he’s not happy about it.", 4, "The baby throws its dirty diaper at you. Lose your armour."));
+        r20M.setMonster(new Monster("Frodo the Fag.", "He will diss your choice of fashion.", 11, "He will see your attire as a fashion crime and take your armour as a punishment."));
+        r22M.setMonster(new Monster("Curling Merlin.", "He will hit you with his curling rocks and they hurt like hell!", 12, "Lose your footwear and 1 level."));
+        r23M.setMonster(new Monster("A Killer Rabbit.", "It has already slain a whole bunch of knights.", 15, "It kills you (figuratively). Lose 2 levels."));
+        r26M.setMonster(new Monster("Trubadourix", "He will sing you a song... which sounds awful!", 14, "Your eardrums inflate so much that your headgear cease to be able to fit your head! Lose your headgear."));
+        r27M.setMonster(new Monster("Katty Purry", "Great singer but gets distracted easily (typical cat stuff). -5 If you have the Vest of Rabbit Fur.", 18, "She deafens you with her cat wailing! Lose 2 levels."));
+        r28M.setMonster(new Monster("Daft Vader", "He flails his arms around while wielding his red lightsaber, trying to intimidate you, while mumbling mumbo jumbo about some ‘force’.", 6, "He uses the force to choke your hand. Lose your weapon."));
+        r29M.setMonster(new Monster("A Shrieking Geek from RobTech.", "He is a geek and it is infectious.", 19, "-1 to run away."));
+        r31M.setMonster(new Monster("LEEEEEROYY JENKINSSSS.", "He rushes out of the room, yelling about whelplings. He leaves something behind.", 17, "Nothing, he is already gone."));
+        r32M.setMonster(new Monster("Dorky Dragon of Doom.", "He tells stupid jokes, which are not funny at all. He bores you to death (figuratively).", 16, "Lose 2 levels."));
+        r33M.setMonster(new Monster("The Doom Donuts.", "They have an affinity for everything with a 0 in it.", 7, "Lose 0 levels."));
+        r34M.setMonster(new Monster("Topless Dancer.", "+2 if you have a weapon equipped.", 9, "She takes your headgear, not that she needs it."));
+        r35M.setMonster(new Monster("The Great Cornholio!", "Hehehehh… Heheheheh.", 8, "You lose a level… or something."));
+        r36M.setMonster(new Monster("Flying Surströmming.", "The smell is EVERYWHERE.", 12, "You throw up from the smell alone. Lose 3 levels."));
+        r37M.setMonster(new Monster("G’huunies.", "They seem cute at first, but they just keep coming.", 11, "INFESTED -5 to next fight."));
+        r38M.setMonster(new Monster("Moon Maidens.", "You must chastise them empty-handed. Use no weapon in this fight.", 9, "You lose your pants."));
+        r39M.setMonster(new Monster("Brick Bat.", "+4 against anyone with headgear.", 9, "Lose your headgear and a level… or 2 levels if you have no headgear."));
+      
         currentRoom = start;
     }
 

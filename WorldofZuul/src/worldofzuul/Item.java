@@ -14,32 +14,9 @@ public class Item {
     private String usableOnceOnly = "usableOnceOnly";
     private String negativeModifier = "negativeModifier";
 
-    public Item(String name, int bonus/*, int itemType*/) {
+    public Item(String name, int bonus) {
         this.name = name;
         this.bonus = bonus;
-       /* switch (itemType) {
-            case 1:
-                this.dataType = oneHand;
-                break;
-            case 2:
-                this.dataType = twoHand;
-                break;
-            case 3:
-                this.dataType = armor;
-                break;
-            case 4:
-                this.dataType = headgear;
-                break;
-            case 5:
-                this.dataType = footgear;
-                break;
-            case 6:
-                this.dataType = usableOnceOnly;
-                break;
-            case 7:
-                this.dataType = negativeModifier;
-                break;
-        } */
     }
 
     public String getName() {
@@ -57,20 +34,4 @@ public class Item {
     public void setBonus(int bonus) {
         this.bonus = bonus;
     }
-/*
-    public String getDataType() {
-        return dataType;
-    }
-
-    public void setDataType(String dataType) {
-        this.dataType = dataType;
-    }
-    
-    public void test(Item item){
-        if(getDataType().equals(item.getDataType())){
-            System.out.println("Alt er godt");
-        }
-    }
-*/
-
 }

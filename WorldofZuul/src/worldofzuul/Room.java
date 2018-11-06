@@ -10,7 +10,8 @@ public class Room {
     private HashMap<String, Room> exits;
     private Monster monster;
     private Curse curse;
-
+    private Item item;
+  
     private boolean containsMonster = false;
     private boolean containsCurse = false;
 
@@ -83,5 +84,15 @@ public class Room {
     public void setContainsCurse(boolean containsCurse) {
         this.containsCurse = containsCurse;
     }
+    
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+
 
 }

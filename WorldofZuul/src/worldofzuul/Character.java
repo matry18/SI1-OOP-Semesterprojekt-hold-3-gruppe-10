@@ -6,14 +6,11 @@
 package worldofzuul;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Character {
 
     private int level = 1;
     private int bonus = 0;
-//HashMap<Item, Integer> hm = new HashMap<>();
     ArrayList<Item> inventory = new ArrayList<>();
 
     public Character() {
@@ -44,7 +41,7 @@ public class Character {
     public void addItem(Item item) {
         int wear = 0;
         if (item instanceof Headgear) { //Checks if the item is a headgear
-            for (Item gear : inventory/*Map.Entry gear : hm.entrySet()*/) {
+            for (Item gear : inventory) {
                 if (gear instanceof Headgear) {
                     wear++;
                 }
@@ -52,25 +49,23 @@ public class Character {
             if (wear > 0) { //If the player is already wearing a headgear
                 System.out.println("Character already wears headgear.");
             } else { //If the player is not already wearing a headgear
-                //hm.put(item, item.getBonus());
                 inventory.add(item);
-                System.out.println("The Player puts on " + item);
+                System.out.println("The Player puts on " + item.getName());
             }
         } else if (item instanceof Armor) {
-            for (Item gear : inventory/*Map.Entry gear : hm.entrySet()*/) {
+            for (Item gear : inventory) {
                 if (gear instanceof Armor) {
                     wear++;
                 }
             }
             if (wear > 0) {
-                System.out.println("Character already wears headgear.");
+                System.out.println("Character already wears armor.");
             } else {
-                //hm.put(item, item.getBonus());
                 inventory.add(item);
-                System.out.println("The Player puts on " + item);
+                System.out.println("The Player puts on " + item.getName());
             }
         } else if (item instanceof OneHand) {
-            for (Item gear : inventory/*Map.Entry gear : hm.entrySet()*/) {
+            for (Item gear : inventory) {
                 if (gear instanceof OneHand) {
                     wear++;
                 }
@@ -79,45 +74,38 @@ public class Character {
                 }
             }
             if (wear > 1) { //If the player has more than one equipped
-                System.out.println("Character already wears headgear.");
+                System.out.println("Character is already armed.");
             } else {
-                //hm.put(item, item.getBonus());
                 inventory.add(item);
-                System.out.println("The Player puts on " + item);
+                System.out.println("The Player puts on " + item.getName());
             }
         } else if (item instanceof TwoHand) {
-            for (Item gear : inventory/*Map.Entry gear : hm.entrySet()*/) {
+            for (Item gear : inventory) {
                 if (gear instanceof TwoHand || gear instanceof OneHand) {
                     wear++;
                 }
             }
             if (wear > 0) {
-                System.out.println("Character already has a weapon.");
+                System.out.println("Character is already armed.");
             } else {
-                //hm.put(item, item.getBonus());
                 inventory.add(item);
-                System.out.println("The Player equips " + item);
+                System.out.println("The Player equips " + item.getName());
             }
         }
-
-        //hm.put(item, item.getBonus());
     }
 
     public String stringInventory() {
         String total = "";
-        for (Item gear : inventory/*Map.Entry<Item, Integer> gear : hm.entrySet()*/) {
-            total += "Item Name: " + gear.getName() + " | Item Bonus: " + gear.getBonus();
-            //total += "Item name: "+gear.getKey().getName()+" | Item bonus: "+gear.getKey().getBonus()+"\n";
+        for (Item gear : inventory) {
+            total += "Item Name: " + gear.getName() + " | Item Bonus: " + gear.getBonus() + "\n";
         }
         return total;
     }
-
-    public int totalAttackValue() {
+      public int totalAttackValue() {
         int totalValue = 0;
         for (Item gear : inventory) {
             totalValue += gear.getBonus();
         }
         return totalValue + level + bonus;
-    }
-
+      }
 }

@@ -207,7 +207,7 @@ public class Game {
         r6M.setMonster(new Monster("The Karate Squid.", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels."));
         r7M.setMonster(new Monster("Larry the Cable Guy.", "+3 against Swagger Dagger.", 5, "You trip on his cable and get done. Lose 1 level."));
         r9M.setMonster(new Monster("Harry the Hairy Wizard.", "He whacks you with his wand.", 6, "He enchants you, making you grow hair all over your feet! Lose your footgear."));
-        r11M.setMonster(new Monster("The Stoned Golem", "He’s sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level."));
+        r11M.setMonster(new Monster("The Stoned Golem.", "He’s sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level."));
         r12M.setMonster(new Monster("A group of 8378493.5 High Scool Students on Internship.", "They ask you questions with no relevance and you do not care about answering.", 10, "They talk to you, even during your lunch break, until you lay flat on the ground. Lose 1 level."));
         r13M.setMonster(new Monster("An Angry Gnome.", "He HATES!!! Christmas and he hates everybody who mentions Christmas… And he hates YOU!", 13, "He will suffocate you with rice porridge. Lose 2 levels."));
         r15M.setMonster(new Monster("A Dragon with Halitosis.", "It has periodontitis and it smells really bad.", 8, "The smell from his mouth alone kills you (figuratively). Lose 1 level."));

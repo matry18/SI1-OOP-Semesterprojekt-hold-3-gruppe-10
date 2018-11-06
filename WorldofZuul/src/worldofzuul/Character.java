@@ -117,5 +117,12 @@ ArrayList<Item> inventory = new ArrayList<>();
         }
         return total;
     }
+    public int totalAttackValue(){
+        int totalValue = 0;
+        for(Item gear : inventory){
+            totalValue += gear.getBonus();
+        }
+        return totalValue + level + bonus;
+    }
 
 }

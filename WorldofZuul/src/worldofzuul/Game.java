@@ -376,7 +376,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             currentRoom.setContainsMonster(false);
             bob.addLevel();
             System.out.println("'"+currentRoom.getMonster().getName() + "' has been defeated.");
-            System.out.println("In the room you find a "+currentRoom.getItem().getName()+" with an attack bonus of "+currentRoom.getItem().getBonus()); //Skal måske rykkes til lootRoom()
+            System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()); //Skal måske rykkes til lootRoom()
             return true;
         } else {
             return false;

@@ -50,7 +50,7 @@ public class Character {
                 System.out.println("Character already wears headgear.");
             } else { //If the player is not already wearing a headgear
                 inventory.add(item);
-                System.out.println("The Player puts on " + item.getName());
+                System.out.println("The Player puts on " + item.getName()+".");
             }
         } else if (item instanceof Armor) {
             for (Item gear : inventory) {
@@ -62,7 +62,7 @@ public class Character {
                 System.out.println("Character already wears armor.");
             } else {
                 inventory.add(item);
-                System.out.println("The Player puts on " + item.getName());
+                System.out.println("The Player puts on " + item.getName()+".");
             }
         } else if (item instanceof OneHand) {
             for (Item gear : inventory) {
@@ -77,7 +77,7 @@ public class Character {
                 System.out.println("Character is already armed.");
             } else {
                 inventory.add(item);
-                System.out.println("The Player puts on " + item.getName());
+                System.out.println("The Player puts on " + item.getName()+".");
             }
         } else if (item instanceof TwoHand) {
             for (Item gear : inventory) {
@@ -89,7 +89,7 @@ public class Character {
                 System.out.println("Character is already armed.");
             } else {
                 inventory.add(item);
-                System.out.println("The Player equips " + item.getName());
+                System.out.println("The Player equips " + item.getName()+".");
             }
         }
     }

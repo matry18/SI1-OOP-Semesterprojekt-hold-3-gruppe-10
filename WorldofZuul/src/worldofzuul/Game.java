@@ -393,7 +393,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         }
         return true;
     }
-}
+
 
     private boolean loot(Command command){
         if(command.hasSecondWord()){

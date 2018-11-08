@@ -7,6 +7,7 @@ public class Game {
 
     private Parser parser;
     private Room currentRoom;
+    private Room previousRoom;
     Character bob = new Character();
 
     public Game() {
@@ -317,6 +318,8 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.FIGHT) {
             fight(command);
+        } else if (commandWord == CommandWord.FLEE) {
+            flee(command);
         } else if(commandWord == CommandWord.LOOT && currentRoom.isContainsMonster() == false){
             loot(command);
         }
@@ -344,6 +347,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         if (nextRoom == null) {
             System.out.println("There is no door!");
         } else {
+            previousRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom.isContainsMonster() == true) {
@@ -370,6 +374,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             return false;
         } else if (bob.totalAttackValue() > currentRoom.getMonster().getLevel()) {
             currentRoom.setContainsMonster(false);
+            bob.addLevel();
             System.out.println("'"+currentRoom.getMonster().getName() + "' has been defeated.");
             System.out.println("In the room you find a "+currentRoom.getItem().getName()+" with an attack bonus of "+currentRoom.getItem().getBonus()); //Skal måske rykkes til lootRoom()
             return true;
@@ -378,6 +383,18 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         }
     }
     
+    private boolean flee(Command command) {
+        if (command.hasSecondWord()){
+            System.out.println("Flee what?");
+            return false;
+        } else {
+        currentRoom = previousRoom;
+        System.out.println(currentRoom.getLongDescription());
+        }
+        return true;
+    }
+}
+
     private boolean loot(Command command){
         if(command.hasSecondWord()){
             System.out.println("What?");

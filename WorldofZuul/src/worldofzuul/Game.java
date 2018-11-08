@@ -4,6 +4,7 @@ public class Game {
 
     private Parser parser;
     private Room currentRoom;
+    private Room previousRoom;
     Character bob = new Character();
 
     public Game() {
@@ -273,6 +274,8 @@ public class Game {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.FIGHT) {
             fight(command);
+        } else if (commandWord == CommandWord.FLEE) {
+            flee(command);
         }
         return wantToQuit;
     }
@@ -298,6 +301,7 @@ public class Game {
         if (nextRoom == null) {
             System.out.println("There is no door!");
         } else {
+            previousRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom.isContainsMonster() == true) {
@@ -324,10 +328,22 @@ public class Game {
             return false;
         } else if (bob.totalAttackValue() > currentRoom.getMonster().getLevel()) {
             currentRoom.setContainsMonster(false);
+            bob.addLevel();
             System.out.println(currentRoom.getMonster().getName() + " has been defeated");
             return true;
         } else {
             return false;
         }
+    }
+    
+    private boolean flee(Command command) {
+        if (command.hasSecondWord()){
+            System.out.println("Flee what?");
+            return false;
+        } else {
+        currentRoom = previousRoom;
+        System.out.println(currentRoom.getLongDescription());
+        }
+        return true;
     }
 }

@@ -30,23 +30,23 @@ public class Room {
 
     public String getLongDescription() {
         if (containsMonster) {
-            return description + "In here you meet '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff() + "\n" + getExitString();
+            return description + "In here you meet the monster '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff() + "\n" + getExitString();
         } else if (containsCurse) {
-            return description + "In this room you are getting hit by a curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff() + "\n" + getExitString();
+            return description + "In this room you are getting hit by the curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff() + "\nTo loot the room type 'loot' or else leave the room.\n" + getExitString();
         } else {
             return description + "\n" + getExitString();
         }
     }
 
     protected String getExitString() {
-        String returnString = "Exits:";
+        String returnString = "Exit directions:";
         Set<String> keys = exits.keySet();
         for (String exit : keys) {
             returnString += " " + exit;
         }
         return returnString;
     }
-
+    
     public Room getExit(String direction) {
         return exits.get(direction);
     }

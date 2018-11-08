@@ -23,7 +23,7 @@ public class Game {
                 r40C;
 
         //Creating the rooms
-        start = new Room("You are standing outside the ugly house.");
+        start = new Room("You are standing outside a scary house.");
         r1M = new Room("");
         r2C = new Room("");
         r4M = new Room("");
@@ -291,8 +291,6 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
     }
 
     private void printWelcome() {
-        bob.addItem(new Armor("Spiky knees", 1));
-        System.out.println();
         System.out.println("Welcome to the World of Munchkin!");
         System.out.println("World of Munchkim is a new, amazing dungeon crawler game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
@@ -328,7 +326,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
 
     private void printHelp() {
         System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the dungeon.");
+        System.out.println("around in the dungeon.");
         System.out.println("Your command words are:");
         parser.showCommands();
     }
@@ -350,7 +348,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom.isContainsMonster() == true) {
-                System.out.println("Battle mode activated: fight or flee! ");
+                System.out.println("Battle mode activated. You have an attack level of: "+ bob.totalAttackValue()+". You can only fight or flee! ");
             }
         }
     }
@@ -374,9 +372,9 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         } else if (bob.totalAttackValue() > currentRoom.getMonster().getLevel()) {
             currentRoom.setContainsMonster(false);
             bob.addLevel();
-            System.out.println("'"+currentRoom.getMonster().getName() + "' has been defeated.");
+            System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated.");
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
-            System.out.println("\n"+currentRoom.getExitString());
+            System.out.println("To loot the room type 'loot' or else leave the room."+"\n"+currentRoom.getExitString());
             return true;
         } else {
             return false;
@@ -426,7 +424,8 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             }
             else {
                 bob.addItem(currentRoom.getItem());
-                System.out.println(bob.stringInventory());
+                System.out.println(bob.stringInventory()+currentRoom.getExitString());
+                //System.out.println(currentRoom.getExitString());
             }
         }
 }

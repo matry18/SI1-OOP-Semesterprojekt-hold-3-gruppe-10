@@ -30,15 +30,15 @@ public class Room {
 
     public String getLongDescription() {
         if (containsMonster) {
-            return "You are " + description + ". In here you meet '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff() + "\n" + getExitString();
+            return description + "In here you meet '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff() + "\n" + getExitString();
         } else if (containsCurse) {
-            return "You are " + description + ". In this room you are getting hit by a curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff() + "\n" + getExitString();
+            return description + "In this room you are getting hit by a curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff() + "\n" + getExitString();
         } else {
-            return "You are " + description + "\n" + getExitString();
+            return description + "\n" + getExitString();
         }
     }
 
-    private String getExitString() {
+    protected String getExitString() {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
         for (String exit : keys) {

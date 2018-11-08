@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Game {
 
     private Parser parser;
-    private Room currentRoom;
+    protected Room currentRoom;
     private Room previousRoom;
     Character bob = new Character();
 
@@ -23,7 +23,7 @@ public class Game {
                 r40C;
 
         //Creating the rooms
-        start = new Room("standing outside the ugly house.");
+        start = new Room("You are standing outside the ugly house.");
         r1M = new Room("");
         r2C = new Room("");
         r4M = new Room("");
@@ -376,6 +376,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             bob.addLevel();
             System.out.println("'"+currentRoom.getMonster().getName() + "' has been defeated.");
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
+            System.out.println("\n"+currentRoom.getExitString());
             return true;
         } else {
             return false;
@@ -399,7 +400,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             System.out.println("What?");
             return false;
         } else if(currentRoom.isContainsMonster()){
-            System.out.println("You should probably worry about the monster first.");
+            System.out.println("You should probably worry about monster first.");
             return false;
         } else if(currentRoom.isContainsMonster() == false){
             lootRoom();

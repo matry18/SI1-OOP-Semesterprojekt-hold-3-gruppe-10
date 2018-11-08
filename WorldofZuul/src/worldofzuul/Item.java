@@ -11,7 +11,7 @@ public class Item {
     private String armor = "armor";
     private String headgear = "headgear";
     private String footgear = "footgear";
-    private String usableOnceOnly = "usableOnceOnly";
+    private String oneTimeUse = "oneTimeUse";
     private String negativeModifier = "negativeModifier";
 
     public Item(String name, int bonus) {

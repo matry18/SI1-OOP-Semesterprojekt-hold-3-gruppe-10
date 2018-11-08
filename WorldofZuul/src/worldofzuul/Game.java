@@ -328,8 +328,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
 
     private void printHelp() {
         System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
+        System.out.println("around at the dungeon.");
         System.out.println("Your command words are:");
         parser.showCommands();
     }
@@ -376,7 +375,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             currentRoom.setContainsMonster(false);
             bob.addLevel();
             System.out.println("'"+currentRoom.getMonster().getName() + "' has been defeated.");
-            System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()); //Skal måske rykkes til lootRoom()
+            System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
             return true;
         } else {
             return false;

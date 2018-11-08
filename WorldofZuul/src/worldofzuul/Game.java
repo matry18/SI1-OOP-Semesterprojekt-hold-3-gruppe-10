@@ -1,5 +1,8 @@
 package worldofzuul;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Game {
 
     private Parser parser;
@@ -287,6 +290,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
     }
 
     private void printWelcome() {
+        bob.addItem(new Armor("Spiky knees", 1));
         System.out.println();
         System.out.println("Welcome to the World of Munchkin!");
         System.out.println("World of Munchkim is a new, amazing dungeon crawler game.");
@@ -313,6 +317,8 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.FIGHT) {
             fight(command);
+        } else if(commandWord == CommandWord.LOOT && currentRoom.isContainsMonster() == false){
+            loot(command);
         }
         return wantToQuit;
     }
@@ -365,9 +371,53 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         } else if (bob.totalAttackValue() > currentRoom.getMonster().getLevel()) {
             currentRoom.setContainsMonster(false);
             System.out.println("'"+currentRoom.getMonster().getName() + "' has been defeated.");
+            System.out.println("In the room you find a "+currentRoom.getItem().getName()+" with an attack bonus of "+currentRoom.getItem().getBonus()); //Skal måske rykkes til lootRoom()
             return true;
         } else {
             return false;
         }
     }
+    
+    private boolean loot(Command command){
+        if(command.hasSecondWord()){
+            System.out.println("What?");
+            return false;
+        } else if(currentRoom.isContainsMonster()){
+            System.out.println("You should probably worry about the monster first.");
+            return false;
+        } else if(currentRoom.isContainsMonster() == false){
+            lootRoom();
+            return true;
+        } else{
+            System.out.println("What?");
+            return false;
+        }
+    }
+    
+    private void lootRoom(){
+        System.out.println(bob.stringInventory());
+        ArrayList<Item> equippedItems = new ArrayList<>();
+        for(Item item : bob.inventory){
+            if(currentRoom.getItem().getClass().equals(item.getClass())){
+                equippedItems.add(item);
+            }
+        }
+        if(equippedItems.size() > 0){
+              bob.inventory.remove(equippedItems.get(0));
+              bob.addItem(currentRoom.getItem());
+              System.out.println(bob.stringInventory());
+//            Scanner scanner = new Scanner(System.in);
+//            System.out.println("Do you want to replace in item? If so write 'yes'\n> ");
+//            if(scanner.nextLine().contentEquals("yes")){
+//                System.out.println("Which item do you want to replace?");
+//                int answer = scanner.nextInt();
+//                Item chosen = bob.inventory.get(answer+1);
+//                bob.inventory.remove(chosen);
+//                bob.addItem(currentRoom.getItem());
+            }
+            else {
+                bob.addItem(currentRoom.getItem());
+                System.out.println(bob.stringInventory());
+            }
+        }
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Character {
 
-    private int level = 2;
+    private int level = 1;
     private int bonus = 0;
     ArrayList<Item> inventory = new ArrayList<>();
 

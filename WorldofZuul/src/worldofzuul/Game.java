@@ -406,14 +406,6 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
               bob.inventory.remove(equippedItems.get(0));
               bob.addItem(currentRoom.getItem());
               System.out.println(bob.stringInventory());
-//            Scanner scanner = new Scanner(System.in);
-//            System.out.println("Do you want to replace in item? If so write 'yes'\n> ");
-//            if(scanner.nextLine().contentEquals("yes")){
-//                System.out.println("Which item do you want to replace?");
-//                int answer = scanner.nextInt();
-//                Item chosen = bob.inventory.get(answer+1);
-//                bob.inventory.remove(chosen);
-//                bob.addItem(currentRoom.getItem());
             }
             else {
                 bob.addItem(currentRoom.getItem());

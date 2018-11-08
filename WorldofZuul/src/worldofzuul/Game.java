@@ -9,6 +9,7 @@ public class Game {
     protected Room currentRoom;
     private Room previousRoom;
     Character bob = new Character();
+    Die die = new Die();
 
     public Game() {
         createRooms();
@@ -320,6 +321,8 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             flee(command);
         } else if(commandWord == CommandWord.LOOT && currentRoom.isContainsMonster() == false){
             loot(command);
+        } else if(commandWord == CommandWord.ROLL) {
+            roll(command);
         }
         return wantToQuit;
     }
@@ -348,7 +351,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom.isContainsMonster() == true) {
-                System.out.println("Battle mode activated. You have an attack level of: "+ bob.totalAttackValue()+". You can only fight or flee! ");
+                System.out.println("Battle mode activated. You have an attack level of: "+ bob.totalAttackValue()+". You can only fight or flee!");
             }
         }
     }
@@ -385,9 +388,8 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         if (command.hasSecondWord()){
             System.out.println("Flee what?");
             return false;
-        } else {
-        currentRoom = previousRoom;
-        System.out.println(currentRoom.getLongDescription());
+        }  else {
+            this.roll(command);       
         }
         return true;
     }
@@ -409,6 +411,21 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         }
     }
     
+    private void roll(Command command){
+        Die die = new Die();
+        if (command.getCommandWord()==CommandWord.FLEE){
+            System.out.println("Roll the die to flee. You escape on a 5 or more.");
+            int dieResult=die.roll();
+            System.out.println(dieResult);
+            if (dieResult <5) {
+                System.out.println("Damn, bad stuff happens...");
+            }
+            else {
+                currentRoom = previousRoom;
+        System.out.println(currentRoom.getLongDescription());
+            }       
+    }
+    }
     private void lootRoom(){
         System.out.println(bob.stringInventory());
         ArrayList<Item> equippedItems = new ArrayList<>();

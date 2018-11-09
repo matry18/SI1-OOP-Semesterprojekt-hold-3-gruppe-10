@@ -108,10 +108,16 @@ public class Character {
 
     public String stringInventory() {
         String total = "";
+        int counter = 0;
         for (Item gear : inventory) {
+            counter++;
             total += "Item Name: " + gear.getName() + " | Item Bonus: " + gear.getBonus() + "\n";
         }
-        return "Inventory:\n"+total+"\n";
+        if(counter == 0){
+            return "Inventory:\nYou have no items!\n";
+        } else {
+            return "Inventory:\n"+total+"\n";
+        }
     }
 
     public int totalAttackValue() {

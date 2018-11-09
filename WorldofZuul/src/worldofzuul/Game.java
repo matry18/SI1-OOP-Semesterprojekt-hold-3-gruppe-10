@@ -327,6 +327,8 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             loot(command);
         } else if(commandWord == CommandWord.ROLL) {
             roll(command);
+        } else if(commandWord == CommandWord.CHARACTER) {
+            character(command);
         }
         return wantToQuit;
     }
@@ -379,7 +381,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         } else if (player.totalAttackValue() > currentRoom.getMonster().getLevel()) {
             currentRoom.setContainsMonster(false);
             player.addLevel();
-            System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated.");
+            System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
             System.out.println("To loot the room type 'loot' or else leave the room."+"\n"+currentRoom.getExitString());
             return true;
@@ -413,6 +415,17 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             System.out.println("What?");
             return false;
         }
+    }
+    
+    private boolean character(Command command) {
+        if(command.hasSecondWord()) {
+            System.out.println("Not true statement");
+            return false;
+        }
+        else {
+            System.out.println("Here is your character sheet:\nLevel: "+player.getLevel()+"\nTotal attack value: "+player.totalAttackValue()+"\n"+player.stringInventory()); 
+            return true;
+    }
     }
     
     private void roll(Command command){

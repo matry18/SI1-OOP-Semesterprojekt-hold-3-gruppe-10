@@ -39,7 +39,7 @@ public class Character {
     }
 
     public void removeLevel(int level) {
-        this.level = this.level - level;
+        this.level = this.level + level;
     }
 
     public void setBonus(int bonus) {

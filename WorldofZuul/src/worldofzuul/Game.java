@@ -360,8 +360,10 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             previousRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
-            if (currentRoom.isContainsMonster() == true) {
+            if (currentRoom.isContainsMonster()) {
                 System.out.println("Battle mode activated. You have an attack value of: "+ player.totalAttackValue()+". You can only fight or flee!");
+            } else if (currentRoom.isContainsCurse()) {
+                currentRoom.setContainsCurse(false);//Removes curse after getting hit
             }
         }
     }

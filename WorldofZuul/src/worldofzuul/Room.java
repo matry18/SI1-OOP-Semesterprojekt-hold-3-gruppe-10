@@ -30,7 +30,7 @@ public class Room {
 
     public String getLongDescription() {
         if (containsMonster) {
-            return description + "In here you meet the monster '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff() + "\n" + getExitString();
+            return description + "In here you meet the monster '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff();
         } else if (containsCurse) {
             return description + "In this room you are getting hit by the curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff() + "\nTo loot the room type 'loot' or else leave the room.\n" + getExitString();
         } else {

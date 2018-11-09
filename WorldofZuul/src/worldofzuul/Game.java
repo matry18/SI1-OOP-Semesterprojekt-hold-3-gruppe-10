@@ -8,8 +8,9 @@ public class Game {
     private Parser parser;
     protected Room currentRoom;
     private Room previousRoom;
-    Character bob = new Character();
+    Character player = new Character();
     Die die = new Die();
+    private int maxLevel = 10;
 
     public Game() {
         createRooms();
@@ -207,35 +208,35 @@ public class Game {
         r40C.setCurse(new Curse("Tar room.", "You jump into the room, only to find your feet getting stuck in the tar.", "Lose your footgear."));
 
         //Define the monsters in the rooms
-        r1M.setMonster(new Monster("A Tiny Chicken", "Still looking for his friend: Chicken Little.", 1, "Calls you a chicken."));
-        r3M.setMonster(new Monster("The Bully", "He bullys you into submission(you notice a trap door behind him).", 4, "Lose your weapon."));
-        r4M.setMonster(new Monster("Gobo the Goblin", "Iiiiit’s Gobo everbody!", 1, "-1 next time you try to flee."));
-        r6M.setMonster(new Monster("The Karate Squid", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels."));
-        r7M.setMonster(new Monster("Larry the Cable Guy", "+3 against Swagger Dagger.", 5, "You trip on his cable and get done. Lose 1 level."));
-        r9M.setMonster(new Monster("Harry the Hairy Wizard", "He whacks you with his wand.", 6, "He enchants you, making you grow hair all over your feet! Lose your footgear."));
-        r11M.setMonster(new Monster("The Stoned Golem", "He’s sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level."));
-        r12M.setMonster(new Monster("A group of 8378493.5 High Scool Students on Internship", "They ask you questions with no relevance and you do not care about answering.", 10, "They talk to you, even during your lunch break, until you lay flat on the ground. Lose 1 level."));
-        r13M.setMonster(new Monster("An Angry Gnome", "He HATES!!! Christmas and he hates everybody who mentions Christmas… And he hates YOU!", 13, "He will suffocate you with rice porridge. Lose 2 levels."));
-        r15M.setMonster(new Monster("A Dragon with Halitosis", "It has periodontitis and it smells really bad.", 8, "The smell from his mouth alone kills you (figuratively). Lose 1 level."));
-        r16M.setMonster(new Monster("Pelvin the Elf and his slightly less known brother Melvin", "Pelvin and Melvin will continue each others sentences which irritates you a lot! You can not flee from this monster, you have to fight them.", 7, "They will include you in their debate club. Lose 2 levels."));
-        r17M.setMonster(new Monster("Satan Claws", "Due to a typo and dyslexia it is Satan Claws who has been summoned instead of Santa Claus", 10, "He will gore you with his horns. Lose 2 levels."));
-        r19M.setMonster(new Monster("A Stubborn Crying Child", "He’s had to much stewed apples and he’s not happy about it.", 4, "The baby throws its dirty diaper at you. Lose your armour."));
-        r20M.setMonster(new Monster("Frodo the Fag", "He will diss your choice of fashion.", 11, "He will see your attire as a fashion crime and take your armour as a punishment."));
-        r22M.setMonster(new Monster("Curling Merlin", "He will hit you with his curling rocks and they hurt like hell!", 12, "Lose your footwear and 1 level."));
-        r23M.setMonster(new Monster("A Killer Rabbit", "It has already slain a whole bunch of knights.", 15, "It kills you (figuratively). Lose 2 levels."));
-        r26M.setMonster(new Monster("Trubadourix", "He will sing you a song... which sounds awful!", 14, "Your eardrums inflate so much that your headgear cease to be able to fit your head! Lose your headgear."));
-        r27M.setMonster(new Monster("Katty Purry", "Great singer but gets distracted easily (typical cat stuff). -5 If you have the Vest of Rabbit Fur.", 18, "She deafens you with her cat wailing! Lose 2 levels."));
-        r28M.setMonster(new Monster("Daft Vader", "He flails his arms around while wielding his red lightsaber, trying to intimidate you, while mumbling mumbo jumbo about some ‘force’.", 6, "He uses the force to choke your hand. Lose your weapon."));
-        r29M.setMonster(new Monster("A Shrieking Geek from RobTech", "He is a geek and it is infectious.", 19, "-1 to run away."));
-        r31M.setMonster(new Monster("LEEEEEROYY JENKINSSSS", "He rushes out of the room, yelling about whelplings. He leaves something behind.", 17, "Nothing, he is already gone."));
-        r32M.setMonster(new Monster("Dorky Dragon of Doom", "He tells stupid jokes, which are not funny at all. He bores you to death (figuratively).", 16, "Lose 2 levels."));
-        r33M.setMonster(new Monster("The Doom Donuts", "They have an affinity for everything with a 0 in it.", 7, "Lose 0 levels."));
-        r34M.setMonster(new Monster("Topless Dancer", "+2 if you have a weapon equipped.", 9, "She takes your headgear, not that she needs it."));
-        r35M.setMonster(new Monster("The Great Cornholio", "Hehehehh… Heheheheh.", 8, "You lose a level… or something."));
-        r36M.setMonster(new Monster("Flying Surströmming", "The smell is EVERYWHERE.", 12, "You throw up from the smell alone. Lose 3 levels."));
-        r37M.setMonster(new Monster("G’huunies", "They seem cute at first, but they just keep coming.", 11, "INFESTED -5 to next fight."));
-        r38M.setMonster(new Monster("Moon Maidens", "You must chastise them empty-handed. Use no weapon in this fight.", 9, "You lose your pants."));
-        r39M.setMonster(new Monster("Brick Bat", "+4 against anyone with headgear.", 9, "Lose your headgear and a level… or 2 levels if you have no headgear."));
+        r1M.setMonster(new Monster("A Tiny Chicken", "Still looking for his friend: Chicken Little.", 1, "Calls you a chicken but nothing else happens.", 0));
+        r3M.setMonster(new Monster("The Bully", "He bullys you into submission(you notice a trap door behind him).", 4, "Lose 1 level.", -1));
+        r4M.setMonster(new Monster("Gobo the Goblin", "Iiiiit’s Gobo everbody!", 1, "Nothing bad happens.", 0));
+        r6M.setMonster(new Monster("The Karate Squid", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels.", -2));
+        r7M.setMonster(new Monster("Larry the Cable Guy", "+3 against Swagger Dagger.", 5, "You trip on his cable and get done. Lose 1 level.", -1));
+        r9M.setMonster(new Monster("Harry the Hairy Wizard", "He whacks you with his wand.", 6, "He enchants you, making you grow hair all over your feet! Lose 1 level.", -1));
+        r11M.setMonster(new Monster("The Stoned Golem", "He’s sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level.", -1));
+        r12M.setMonster(new Monster("A group of 8378493.5 High Scool Students on Internship", "They ask you questions with no relevance and you do not care about answering.", 10, "They talk to you, even during your lunch break, until you lay flat on the ground. Lose 1 level.", -1));
+        r13M.setMonster(new Monster("An Angry Gnome", "He HATES!!! Christmas and he hates everybody who mentions Christmas… And he hates YOU!", 13, "He will suffocate you with rice porridge. Lose 2 levels.", -2));
+        r15M.setMonster(new Monster("A Dragon with Halitosis", "It has periodontitis and it smells really bad.", 8, "The smell from his mouth alone kills you (figuratively). Lose 1 level.", -1));
+        r16M.setMonster(new Monster("Pelvin the Elf and his slightly less known brother Melvin", "Pelvin and Melvin will continue each others sentences which irritates you a lot! You can not flee from this monster, you have to fight them.", 7, "They will include you in their debate club. Lose 2 levels.", -2));
+        r17M.setMonster(new Monster("Satan Claws", "Due to a typo and dyslexia it is Satan Claws who has been summoned instead of Santa Claus", 10, "He will gore you with his horns. Lose 2 levels.", -2));
+        r19M.setMonster(new Monster("A Stubborn Crying Child", "He’s had to much stewed apples and he’s not happy about it.", 4, "The baby throws its dirty diaper at you. Lose 2 levels.", -2));
+        r20M.setMonster(new Monster("Frodo the Fag", "He will diss your choice of fashion.", 11, "He will see your attire as a fashion crime and make you lose 1 level.", -1));
+        r22M.setMonster(new Monster("Curling Merlin", "He will hit you with his curling rocks and they hurt like hell!", 12, "Lose 2 levels.",-2));
+        r23M.setMonster(new Monster("A Killer Rabbit", "It has already slain a whole bunch of knights.", 15, "It kills you (figuratively). Lose 2 levels.", -2));
+        r26M.setMonster(new Monster("Trubadourix", "He will sing you a song... which sounds awful!", 14, "Your eardrums inflate so much that your headgear cease to be able to fit your head! Lose 3 levels.", -3));
+        r27M.setMonster(new Monster("Katty Purry", "Great singer but gets distracted easily (typical cat stuff). -5 If you have the Vest of Rabbit Fur.", 18, "She deafens you with her cat wailing! Lose 2 levels.", -2));
+        r28M.setMonster(new Monster("Daft Vader", "He flails his arms around while wielding his red lightsaber, trying to intimidate you, while mumbling mumbo jumbo about some ‘force’.", 6, "He uses the force to choke you. Lose 2 levels.", -2));
+        r29M.setMonster(new Monster("A Shrieking Geek from RobTech", "He is a geek and it is infectious.", 19, "Lose 3 levels.", -3));
+        r31M.setMonster(new Monster("LEEEEEROYY JENKINSSSS", "He rushes out of the room, yelling about whelplings. He leaves something behind.", 17, "Nothing, he is already gone.", 0));
+        r32M.setMonster(new Monster("Dorky Dragon of Doom", "He tells stupid jokes, which are not funny at all. He bores you to death (figuratively).", 16, "Lose 2 levels.", -2));
+        r33M.setMonster(new Monster("The Doom Donuts", "They have an affinity for everything with a 0 in it.", 7, "Lose 0 levels.", 0));
+        r34M.setMonster(new Monster("Topless Dancer", "He/she shakes em'.", 9, "Lose 2 levels.", -2));
+        r35M.setMonster(new Monster("The Great Cornholio", "Hehehehh… Heheheheh.", 8, "You lose a level… or something.", -1));
+        r36M.setMonster(new Monster("Flying Surströmming", "The smell is EVERYWHERE.", 12, "You throw up from the smell alone. Lose 3 levels.", -3));
+        r37M.setMonster(new Monster("G’huunies", "They seem cute at first, but they just keep coming.", 11, "Lose 5 levels.", -5));
+        r38M.setMonster(new Monster("Moon Maidens", "They moon you.", 9, "Lose 5 levels.", -5));
+        r39M.setMonster(new Monster("Brick Bad", "He sells you really good meth shaped as bricks.", 9, "Lose 4 levels.", -4));
 
         //Items connected to the rooms
         r1M.setItem(new OneHand("Cheese grater of peace", 3));
@@ -284,9 +285,12 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         printWelcome();
 
         boolean finished = false;
-        while (!finished) {
+        while (!finished && player.getLevel() < maxLevel ) {
             Command command = parser.getCommand();
             finished = processCommand(command);
+        }
+        if (player.getLevel() >= maxLevel) {
+            System.out.println("Hurra!!! You have won the game! Go celebrate...");
         }
         System.out.println("Thank you for playing.  Good bye.");
     }
@@ -351,7 +355,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom.isContainsMonster() == true) {
-                System.out.println("Battle mode activated. You have an attack level of: "+ bob.totalAttackValue()+". You can only fight or flee!");
+                System.out.println("Battle mode activated. You have an attack value of: "+ player.totalAttackValue()+". You can only fight or flee!");
             }
         }
     }
@@ -369,12 +373,12 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         if (command.hasSecondWord()) {
             System.out.println("Don't be silly now");
             return false;
-        } else if (bob.totalAttackValue() <= currentRoom.getMonster().getLevel()) {
+        } else if (player.totalAttackValue() <= currentRoom.getMonster().getLevel()) {
             System.out.println("You are not strong enough");
             return false;
-        } else if (bob.totalAttackValue() > currentRoom.getMonster().getLevel()) {
+        } else if (player.totalAttackValue() > currentRoom.getMonster().getLevel()) {
             currentRoom.setContainsMonster(false);
-            bob.addLevel();
+            player.addLevel();
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated.");
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
             System.out.println("To loot the room type 'loot' or else leave the room."+"\n"+currentRoom.getExitString());
@@ -416,9 +420,13 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         if (command.getCommandWord()==CommandWord.FLEE){
             System.out.println("Roll the die to flee. You escape on a 5 or more.");
             int dieResult=die.roll();
-            System.out.println(dieResult);
+            System.out.println("You have rolled: " + dieResult);
             if (dieResult <5) {
-                System.out.println("Damn, bad stuff happens...");
+                System.out.println(currentRoom.getMonster().getBadStuff());
+                player.removeLevel(currentRoom.getMonster().getBadStuffEffect());
+                System.out.println("You are now level: "+player.getLevel());
+                currentRoom = previousRoom;
+        System.out.println(currentRoom.getLongDescription());
             }
             else {
                 currentRoom = previousRoom;
@@ -427,22 +435,20 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
     }
     }
     private void lootRoom(){
-        System.out.println(bob.stringInventory());
         ArrayList<Item> equippedItems = new ArrayList<>();
-        for(Item item : bob.inventory){
+        for(Item item : player.inventory){
             if(currentRoom.getItem().getClass().equals(item.getClass())){
                 equippedItems.add(item);
             }
         }
         if(equippedItems.size() > 0){
-              bob.inventory.remove(equippedItems.get(0));
-              bob.addItem(currentRoom.getItem());
-              System.out.println(bob.stringInventory());
+              player.inventory.remove(equippedItems.get(0));
+              player.addItem(currentRoom.getItem());
+              System.out.println(player.stringInventory());
             }
             else {
-                bob.addItem(currentRoom.getItem());
-                System.out.println(bob.stringInventory()+currentRoom.getExitString());
-                //System.out.println(currentRoom.getExitString());
+                player.addItem(currentRoom.getItem());
+                System.out.println(player.stringInventory()+currentRoom.getExitString());
             }
         }
 }

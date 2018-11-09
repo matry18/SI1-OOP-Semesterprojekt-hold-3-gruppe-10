@@ -16,18 +16,28 @@ public class Monster {
     private String description;
     private String badStuff;
     private int level;
+    private int badStuffEffect;
 
     //Constructor
-    public Monster(String name, String description, int level, String badStuff) {
+    public Monster(String name, String description, int level, String badStuff, int badStuffEffect) {
         this.name = name;
         this.description = description;
         this.level = level;
         this.badStuff = badStuff;
+        this.badStuffEffect = badStuffEffect;
     }
 
     //Accessors and modifiers
     public String getName() {
         return name;
+    }
+
+    public int getBadStuffEffect() {
+        return badStuffEffect;
+    }
+
+    public void setBadStuffEffect(int badStuffEffect) {
+        this.badStuffEffect = badStuffEffect;
     }
 
     public void setName(String name) {

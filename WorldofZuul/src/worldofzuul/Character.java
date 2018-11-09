@@ -25,7 +25,7 @@ public class Character {
     public Character(int level) {
         this.level = level;
     }
-    
+
     public int getLevel() {
         return level;
     }
@@ -33,9 +33,13 @@ public class Character {
     public void setLevel(int level) {
         this.level = level;
     }
-    
+
     public void addLevel() {
         this.level++;
+    }
+
+    public void removeLevel(int level) {
+        this.level = this.level - level;
     }
 
     public void setBonus(int bonus) {
@@ -58,7 +62,7 @@ public class Character {
                 System.out.println("Character already wears headgear.");
             } else { //If the player is not already wearing a headgear
                 inventory.add(item);
-                System.out.println("The Player puts on the headgear '" + item.getName()+"'.");
+                System.out.println("The Player puts on the headgear '" + item.getName() + "'.");
             }
         } else if (item instanceof Armor) {
             for (Item gear : inventory) {
@@ -70,7 +74,7 @@ public class Character {
                 System.out.println("Character already wears armor.");
             } else {
                 inventory.add(item);
-                System.out.println("The Player puts on the armor '" + item.getName()+"'.");
+                System.out.println("The Player puts on the armor '" + item.getName() + "'.");
             }
         } else if (item instanceof OneHand) {
             for (Item gear : inventory) {
@@ -85,7 +89,7 @@ public class Character {
                 System.out.println("Character is already armed.");
             } else {
                 inventory.add(item);
-                System.out.println("The Player equips '" + item.getName()+"'.");
+                System.out.println("The Player equips '" + item.getName() + "'.");
             }
         } else if (item instanceof TwoHand) {
             for (Item gear : inventory) {
@@ -97,7 +101,7 @@ public class Character {
                 System.out.println("Character is already armed.");
             } else {
                 inventory.add(item);
-                System.out.println("The Player equips '" + item.getName()+"'.");
+                System.out.println("The Player equips '" + item.getName() + "'.");
             }
         }
     }
@@ -107,13 +111,14 @@ public class Character {
         for (Item gear : inventory) {
             total += "Item Name: " + gear.getName() + " | Item Bonus: " + gear.getBonus() + "\n";
         }
-        return total;
+        return "Inventory:\n"+total+"\n";
     }
-      public int totalAttackValue() {
+
+    public int totalAttackValue() {
         int totalValue = 0;
         for (Item gear : inventory) {
             totalValue += gear.getBonus();
         }
         return totalValue + level + bonus;
-      }
+    }
 }

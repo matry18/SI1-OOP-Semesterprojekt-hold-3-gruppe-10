@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Die {
 
-int die;
+private int die;
 public int roll() {
     Random random = new Random();
     die=random.nextInt(6)+1;

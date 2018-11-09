@@ -11,6 +11,7 @@ public class Game {
     Character player = new Character();
     Die die = new Die();
     private int maxLevel = 10;
+    private int minLevel = 0;
 
     public Game() {
         createRooms();
@@ -285,12 +286,14 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         printWelcome();
 
         boolean finished = false;
-        while (!finished && player.getLevel() < maxLevel ) {
+        while (!finished && player.getLevel() < maxLevel && player.getLevel() > minLevel) {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
         if (player.getLevel() >= maxLevel) {
             System.out.println("Hurra!!! You have won the game! Go celebrate...");
+        } else if (player.getLevel() <= minLevel) {
+            System.out.println("You have reached level "+player.getLevel()+" and you are dead! Better luck next time.");
         }
         System.out.println("Thank you for playing.  Good bye.");
     }
@@ -298,7 +301,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
     private void printWelcome() {
         System.out.println("Welcome to the World of Munchkin!");
         System.out.println("World of Munchkim is a new, amazing dungeon crawler game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+        System.out.println("Type '" + CommandWord.HELP + "' if you need help or want to know the rules.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
     }
@@ -319,9 +322,9 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             goRoom(command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
-        } else if (commandWord == CommandWord.FIGHT) {
+        } else if (commandWord == CommandWord.FIGHT && currentRoom.isContainsMonster()) {
             fight(command);
-        } else if (commandWord == CommandWord.FLEE) {
+        } else if (commandWord == CommandWord.FLEE && currentRoom.isContainsMonster()) {
             flee(command);
         } else if(commandWord == CommandWord.LOOT && currentRoom.isContainsMonster() == false){
             loot(command);
@@ -338,6 +341,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         System.out.println("around in the dungeon.");
         System.out.println("Your command words are:");
         parser.showCommands();
+        System.out.println("The rules are: You win the game by reaching level 10 or more.\nYou lose the game if you reach level 0 or below.");
     }
 
     private void goRoom(Command command) {

@@ -364,6 +364,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
                 System.out.println("Battle mode activated. You have an attack value of: "+ player.totalAttackValue()+". You can only fight or flee!");
             } else if (currentRoom.isContainsCurse()) {
                 currentRoom.setContainsCurse(false);//Removes curse after getting hit
+                currentRoom.setHadCurse(true);
             }
         }
     }
@@ -386,6 +387,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             return false;
         } else if (player.totalAttackValue() > currentRoom.getMonster().getLevel()) {
             currentRoom.setContainsMonster(false);
+            currentRoom.setHadMonster(true);
             player.addLevel();
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()

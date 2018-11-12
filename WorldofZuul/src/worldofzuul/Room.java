@@ -11,10 +11,12 @@ public class Room {
     private Monster monster;
     private Curse curse;
     private Item item;
-  
+
     private boolean containsMonster = false;
     private boolean containsCurse = false;
-
+    private boolean hadMonster = false;
+    private boolean hadCurse = false;
+    
     public Room(String description) {
         this.description = description;
         exits = new HashMap<String, Room>();
@@ -33,6 +35,10 @@ public class Room {
             return description + "In here you meet the monster '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff();
         } else if (containsCurse) {
             return description + "In this room you are getting hit by the curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff() + "\nTo loot the room type 'loot' or else leave the room.\n" + getExitString();
+        } else if (hadMonster){
+            return description + "In here you met and defeated the monster '" + getMonster().getName() + "'." + "\n" + getExitString();
+        } else if (hadCurse) {
+            return description + "In here you met and got hit by the curse '" + getCurse().getName() + "'." + "\n" + getExitString();
         } else {
             return description + "\n" + getExitString();
         }
@@ -46,7 +52,7 @@ public class Room {
         }
         return returnString;
     }
-    
+
     public Room getExit(String direction) {
         return exits.get(direction);
     }
@@ -84,7 +90,23 @@ public class Room {
     public void setContainsCurse(boolean containsCurse) {
         this.containsCurse = containsCurse;
     }
-    
+
+    public boolean isHadMonster() {
+        return hadMonster;
+    }
+
+    public void setHadMonster(boolean hadMonster) {
+        this.hadMonster = hadMonster;
+    }
+
+    public boolean isHadCurse() {
+        return hadCurse;
+    }
+
+    public void setHadCurse(boolean hadCurse) {
+        this.hadCurse = hadCurse;
+    }
+
     public Item getItem() {
         return item;
     }
@@ -92,7 +114,5 @@ public class Room {
     public void setItem(Item item) {
         this.item = item;
     }
-
-
 
 }

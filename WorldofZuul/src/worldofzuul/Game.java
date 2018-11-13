@@ -213,7 +213,7 @@ public class Game {
         r3M.setMonster(new Monster("The Bully", "He bullys you into submission(you notice a trap door behind him).", 4, "Lose 1 level.", -1));
         r4M.setMonster(new Monster("Gobo the Goblin", "Iiiiit's Gobo everbody!", 1, "Nothing bad happens.", 0));
         r6M.setMonster(new Monster("The Karate Squid", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels.", -2));
-        r7M.setMonster(new Monster("Larry the Cable Guy", "+3 against Swagger Dagger.", 5, "You trip on his cable and get done. Lose 1 level.", -1));
+        r7M.setMonster(new Monster("Larry the Cable Guy", "+3 against Swagger Dagger.", 4, "You trip on his cable and get done. Lose 1 level.", -1));
         r9M.setMonster(new Monster("Harry the Hairy Wizard", "He whacks you with his wand.", 6, "He enchants you, making you grow hair all over your feet! Lose 1 level.", -1));
         r11M.setMonster(new Monster("The Stoned Golem", "He's sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level.", -1));
         r12M.setMonster(new Monster("A group of 8378493.5 High Scool Students on Internship", "They ask you questions with no relevance and you do not care about answering.", 10, "They talk to you, even during your lunch break, until you lay flat on the ground. Lose 1 level.", -1));
@@ -329,8 +329,8 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             flee(command);
         } else if(commandWord == CommandWord.LOOT && currentRoom.isContainsMonster() == false){
             loot(command);
-        } else if(commandWord == CommandWord.ROLL) {
-            roll(command);
+        /*} else if(commandWord == CommandWord.ROLL) {
+            roll(command);*/
         } else if(commandWord == CommandWord.CHARACTER) {
             character(command);
         }

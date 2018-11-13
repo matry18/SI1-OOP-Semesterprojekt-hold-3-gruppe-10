@@ -388,6 +388,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         } else if (player.totalAttackValue() > currentRoom.getMonster().getLevel()) {
             currentRoom.setContainsMonster(false);
             currentRoom.setHadMonster(true);
+            currentRoom.setContainsItem(true);
             player.addLevel();
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
@@ -416,11 +417,12 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
         } else if(currentRoom.isContainsMonster()){
             System.out.println("You should probably worry about monster first.");
             return false;
-        } else if(currentRoom.isContainsMonster() == false){
+        } else if(!currentRoom.isContainsMonster() && currentRoom.isContainsItem()){
             lootRoom();
+            currentRoom.setContainsItem(false);
             return true;
         } else{
-            System.out.println("What?");
+            System.out.println("Loot what?");
             return false;
         }
     }

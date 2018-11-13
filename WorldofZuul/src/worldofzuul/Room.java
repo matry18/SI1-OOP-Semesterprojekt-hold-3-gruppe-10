@@ -14,6 +14,7 @@ public class Room {
 
     private boolean containsMonster = false;
     private boolean containsCurse = false;
+    private boolean containsItem = false;
     private boolean hadMonster = false;
     private boolean hadCurse = false;
     
@@ -82,6 +83,10 @@ public class Room {
     public boolean isContainsCurse() {
         return containsCurse;
     }
+    
+    public boolean isContainsItem(){
+        return containsItem;
+    }
 
     public void setContainsMonster(boolean containsMonster) {
         this.containsMonster = containsMonster;
@@ -89,6 +94,10 @@ public class Room {
 
     public void setContainsCurse(boolean containsCurse) {
         this.containsCurse = containsCurse;
+    }
+    
+    public void setContainsItem(boolean containsItem){
+        this.containsItem = containsItem;
     }
 
     public boolean isHadMonster() {

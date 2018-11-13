@@ -209,7 +209,7 @@ public class Game {
         r40C.setCurse(new Curse("Tar room.", "You jump into the room, only to find your feet getting stuck in the tar.", "Lose your footgear."));
 
         //Define the monsters in the rooms
-        r1M.setMonster(new Monster("A Tiny Chicken", "Still looking for his friend: Chicken Little.", 1, "Calls you a chicken but nothing else happens.", 0));
+        r1M.setMonster(new Monster("A Tiny Chicken", "Still looking for his friend: Chicken Little.", 0, "Calls you a chicken but nothing else happens.", 0));
         r3M.setMonster(new Monster("The Bully", "He bullys you into submission(you notice a trap door behind him).", 4, "Lose 1 level.", -1));
         r4M.setMonster(new Monster("Gobo the Goblin", "Iiiiit’s Gobo everbody!", 1, "Nothing bad happens.", 0));
         r6M.setMonster(new Monster("The Karate Squid", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels.", -2));
@@ -240,7 +240,7 @@ public class Game {
         r39M.setMonster(new Monster("Brick Bad", "He sells you really good meth shaped as bricks.", 9, "Lose 4 levels.", -4));
 
         //Items connected to the rooms
-        r1M.setItem(new OneHand("Cheese grater of peace", 3));
+        r1M.setItem(new OneHand("Cheese grater of peace", 1));
 r2C.setItem(new Armor("Pants... REALLY pretty pants! They look fancy but gives no bonuses", 0));
 r3M.setItem(new Headgear("Helm of courage", 1));
 r4M.setItem(new Armor("Goblin shitty shirt", 3));

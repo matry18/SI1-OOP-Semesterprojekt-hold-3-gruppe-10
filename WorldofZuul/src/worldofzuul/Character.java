@@ -14,7 +14,6 @@ public class Character {
     ArrayList<Item> inventory = new ArrayList<>();
 
     public Character() {
-        this.bonus = 1;
     }
 
     public Character(int level, int bonus) {

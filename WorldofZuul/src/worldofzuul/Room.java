@@ -35,7 +35,7 @@ public class Room {
         if (containsMonster) {
             return description + "In here you meet the monster '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff();
         } else if (containsCurse) {
-            return description + "In this room you are getting hit by the curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff() + "\n" + getExitString();
+            return description + "In this room you are getting hit by the curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff();
         } else if (hadMonster){
             return description + "In here you met and defeated the monster '" + getMonster().getName() + "'." + "\n" + getExitString();
         } else if (hadCurse) {

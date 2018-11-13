@@ -300,7 +300,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
 
     private void printWelcome() {
         System.out.println("Welcome to the World of Munchkin!");
-        System.out.println("World of Munchkim is a new, amazing dungeon crawler game.");
+        System.out.println("World of Munchkin is a new, amazing dungeon crawler game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help or want to know the rules.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());

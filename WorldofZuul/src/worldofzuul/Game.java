@@ -244,7 +244,7 @@ public class Game {
 r2C.setItem(new Armor("Cursed pants... REALLY pretty cursed pants! They look fancy but gives no bonuses", 0));
 r3M.setItem(new Headgear("Helm of courage", 1));
 r4M.setItem(new Armor("Goblin shitty shirt", 3));
-r5C.setItem(new Armor("Cursed armor of idiotic bravery", -2));
+r5C.setItem(new Armor("Cursed armor of idiotic bravery", 0));
 r6M.setItem(new OneHand("Tentacle", 2));
 r7M.setItem(new OneHand("Wire cutter", 2));
 r8C.setItem(new Headgear("Cursed hat with feathers", -1));

@@ -74,7 +74,19 @@ public class Character {
             } else {
                 inventory.add(item);
                 System.out.println("The Player puts on the armor '" + item.getName() + "'.");
+            } 
+        } else if (item instanceof Footgear) {
+            for (Item gear : inventory) {
+                if (gear instanceof Footgear) {
+                    wear++;
+                }
             }
+            if (wear > 0) {
+                System.out.println("Character already wears footgear.");
+            } else {
+                inventory.add(item);
+                System.out.println("The Player puts on the footgear '" + item.getName() + "'.");
+            } 
         } else if (item instanceof OneHand) {
             for (Item gear : inventory) {
                 if (gear instanceof OneHand) {

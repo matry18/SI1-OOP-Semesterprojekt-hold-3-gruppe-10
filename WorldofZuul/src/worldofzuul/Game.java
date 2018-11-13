@@ -365,6 +365,7 @@ r40C.setItem(new OneHand("Nail, might be good for stopping burglars in your home
             } else if (currentRoom.isContainsCurse()) {
                 currentRoom.setContainsCurse(false);//Removes curse after getting hit
                 currentRoom.setHadCurse(true);
+                currentRoom.setContainsItem(true);
             }
         }
     }

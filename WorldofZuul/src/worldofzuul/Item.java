@@ -1,22 +1,17 @@
 package worldofzuul;
 
-public class Item {
+public class Item implements Comparable<Item> {
 
     private String name;
     private int bonus;
     private String dataType;
+    private int dataNum;
 
-    private String oneHand = "oneHand";
-    private String twoHand = "twoHand";
-    private String armor = "armor";
-    private String headgear = "headgear";
-    private String footgear = "footgear";
-    private String oneTimeUse = "oneTimeUse";
-    private String negativeModifier = "negativeModifier";
-
-    public Item(String name, int bonus) {
+    public Item(String name, int bonus, String dataType, int dataNum) {
         this.name = name;
         this.bonus = bonus;
+        this.dataType = dataType;
+        this.dataNum = dataNum;
     }
 
     public String getName() {
@@ -33,5 +28,26 @@ public class Item {
 
     public void setBonus(int bonus) {
         this.bonus = bonus;
+    }
+
+    public String getDataType() {
+        return dataType;
+    }
+
+    public void setDataType(String dataType) {
+        this.dataType = dataType;
+    }
+
+    public int getDataNum() {
+        return dataNum;
+    }
+
+    public void setDataNum(int dataNum) {
+        this.dataNum = dataNum;
+    }
+    
+    @Override
+    public int compareTo(Item o) {
+        return this.getDataNum() - o.getDataNum();
     }
 }

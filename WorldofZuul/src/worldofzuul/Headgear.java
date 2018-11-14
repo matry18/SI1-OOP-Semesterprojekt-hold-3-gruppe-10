@@ -9,10 +9,10 @@ package worldofzuul;
  *
  * @author Patrick
  */
-public class Headgear extends Item {
+public class Headgear extends Item implements Comparable<Item> {
     
     public Headgear(String name, int bonus) {
-        super(name, bonus);
+        super(name, bonus, "Headgear", 1);
     }
     
 }

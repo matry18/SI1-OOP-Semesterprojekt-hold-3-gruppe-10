@@ -9,10 +9,10 @@ package worldofzuul;
  *
  * @author Patrick
  */
-public class OneTimeUse extends Item {
+public class OneTimeUse extends Item implements Comparable<Item> {
     
     public OneTimeUse(String name, int bonus) {
-        super(name, bonus);
+        super(name, bonus, "Item",6);
     }
     
 }

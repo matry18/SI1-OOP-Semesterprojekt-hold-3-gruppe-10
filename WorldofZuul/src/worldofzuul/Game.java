@@ -369,6 +369,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
                 currentRoom.setHadCurse(true);
                 currentRoom.setContainsItem(true);
                 lootRoom();
+                currentRoom.setContainsItem(false);
             }
         }
     }
@@ -426,7 +427,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             currentRoom.setContainsItem(false);
             return true;
         } else{
-            System.out.println("Loot what?");
+            System.out.println("There is nothing to loot.");
             return false;
         }
     }

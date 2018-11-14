@@ -93,11 +93,8 @@ public class Character {
                 if (gear instanceof OneHand) {
                     wear++;
                 }
-                if (gear instanceof TwoHand) { //Checks if there is a two hander
-                    wear += 2;
-                }
             }
-            if (wear > 1) { //If the player has more than one equipped
+            if (wear > 0) { //If the player has more than one equipped
                 System.out.println("Character is already armed.");
             } else {
                 inventory.add(item);
@@ -105,7 +102,7 @@ public class Character {
             }
         } else if (item instanceof TwoHand) {
             for (Item gear : inventory) {
-                if (gear instanceof TwoHand || gear instanceof OneHand) {
+                if (gear instanceof TwoHand) {
                     wear++;
                 }
             }

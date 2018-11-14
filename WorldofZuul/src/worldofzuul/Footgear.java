@@ -9,10 +9,10 @@ package worldofzuul;
  *
  * @author Patrick
  */
-public class Footgear extends Item {
+public class Footgear extends Item implements Comparable<Item> {
     
     public Footgear(String name, int bonus) {
-        super(name, bonus);
+        super(name, bonus,"Footgear",3);
     }
     
 }

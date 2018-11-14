@@ -6,6 +6,7 @@
 package worldofzuul;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Character {
 
@@ -118,11 +119,12 @@ public class Character {
     }
 
     public String stringInventory() {
+        Collections.sort(inventory);
         String total = "";
         int counter = 0;
         for (Item gear : inventory) {
             counter++;
-            total += "Item Name: " + gear.getName() + " | Item Bonus: " + gear.getBonus() + "\n";
+            total += gear.getDataType()+": " + gear.getName() + " | Item Bonus: " + gear.getBonus() + "\n";
         }
         if(counter == 0){
             return "Inventory:\nYou have no items!\n";

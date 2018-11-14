@@ -4,15 +4,6 @@ public class Item {
 
     private String name;
     private int bonus;
-    private String dataType;
-
-    private String oneHand = "oneHand";
-    private String twoHand = "twoHand";
-    private String armor = "armor";
-    private String headgear = "headgear";
-    private String footgear = "footgear";
-    private String oneTimeUse = "oneTimeUse";
-    private String negativeModifier = "negativeModifier";
 
     public Item(String name, int bonus) {
         this.name = name;

@@ -9,9 +9,9 @@ package worldofzuul;
  *
  * @author Patrick
  */
-public class TwoHand extends Item implements Comparable<Item> {
+public class RightHand extends Item implements Comparable<Item> {
     
-    public TwoHand(String name, int bonus) {
+    public RightHand(String name, int bonus) {
         super(name, bonus,"Right hand weapon",5);
     }
     

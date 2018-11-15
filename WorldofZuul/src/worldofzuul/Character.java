@@ -88,9 +88,9 @@ public class Character {
                 inventory.add(item);
                 System.out.println("The Player puts on the footgear '" + item.getName() + "'.");
             } 
-        } else if (item instanceof OneHand) {
+        } else if (item instanceof LeftHand) {
             for (Item gear : inventory) {
-                if (gear instanceof OneHand) {
+                if (gear instanceof LeftHand) {
                     wear++;
                 }
             }
@@ -100,9 +100,9 @@ public class Character {
                 inventory.add(item);
                 System.out.println("The Player equips '" + item.getName() + "'.");
             }
-        } else if (item instanceof TwoHand) {
+        } else if (item instanceof RightHand) {
             for (Item gear : inventory) {
-                if (gear instanceof TwoHand) {
+                if (gear instanceof RightHand) {
                     wear++;
                 }
             }

@@ -1,4 +1,4 @@
-package worldofzuul;
+package Bonuses;
 
 public class Item implements Comparable<Item> {
 

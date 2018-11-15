@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package worldofzuul;
+package Bonuses;
 
 /**
  *
  * @author Patrick
  */
-public class Armor extends Item implements Comparable<Item>{
+public class Headgear extends Item implements Comparable<Item> {
     
-    public Armor(String name, int bonus) {
-        super(name, bonus, "Armor", 2);
+    public Headgear(String name, int bonus) {
+        super(name, bonus, "Headgear", 1);
     }
     
 }

@@ -5,6 +5,12 @@
  */
 package worldofzuul;
 
+import Bonuses.Item;
+import Bonuses.RightHand;
+import Bonuses.LeftHand;
+import Bonuses.Headgear;
+import Bonuses.Footgear;
+import Bonuses.Armor;
 import java.util.ArrayList;
 import java.util.Collections;
 

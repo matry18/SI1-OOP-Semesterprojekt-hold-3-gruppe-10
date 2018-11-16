@@ -393,14 +393,14 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         }
     }
 
-    private boolean fight(Command command) {
+    private boolean fight(Command command) { //When the player wants to fight the monster.
         if (command.hasSecondWord()) {
             System.out.println("Don't be silly now");
             return false;
         } else if (player.totalAttackValue() <= currentRoom.getMonster().getLevel()) {
             System.out.println("You are not strong enough");
             return false;
-        } else if (player.totalAttackValue() > currentRoom.getMonster().getLevel()) {
+        } else if (player.totalAttackValue() > currentRoom.getMonster().getLevel()) { //If the player has a larger comebined attack value than the monster, it will be defeated and "removed" from the room.
             currentRoom.setContainsMonster(false);
             currentRoom.setHadMonster(true);
             currentRoom.setContainsItem(true);
@@ -414,7 +414,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         }
     }
     
-    private boolean flee(Command command) {
+    private boolean flee(Command command) { //Used for when the player does not want to fight the monster and has to roll a die to flee.
         if (command.hasSecondWord()){
             System.out.println("Flee what?");
             return false;
@@ -425,7 +425,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
     }
 
 
-    private boolean loot(Command command){
+    private boolean loot(Command command){ //Calls lootRoom() and removes the item from the room.
         if(command.hasSecondWord()){
             System.out.println("What?");
             return false;
@@ -442,7 +442,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         }
     }
     
-    private boolean character(Command command) {
+    private boolean character(Command command) { //Prints out the level, combined attack and inventory of the player.
         if(command.hasSecondWord()) {
             System.out.println("Not true statement");
             return false;
@@ -453,7 +453,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
     }
     }
     
-    private void roll(Command command){
+    private void roll(Command command){ //Rolls a die and activates bad stuff if the roll is under 5.
         Die die = new Die();
         if (command.getCommandWord()==CommandWord.FLEE){
             System.out.println("Roll the die to flee. You escape on a 5 or more.");
@@ -472,7 +472,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             }       
     }
     }
-    private void lootRoom(){
+    private void lootRoom(){ //When the player wants to pick up an item from the room. Method call in loot().
         ArrayList<Item> equippedItems = new ArrayList<>();
         for(Item item : player.inventory){
             if(currentRoom.getItem().getClass().equals(item.getClass())){

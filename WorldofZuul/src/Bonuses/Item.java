@@ -4,8 +4,8 @@ public class Item implements Comparable<Item> {
 
     private String name;
     private int bonus;
-    private String dataType;
-    private int dataNum;
+    private String dataType; //Used for printing the type of item. Example: Headgear.
+    private int dataNum; //Used for sorting the inventory. Headgear = 1, Armor = 2 and so on.
 
     public Item(String name, int bonus, String dataType, int dataNum) {
         this.name = name;
@@ -47,7 +47,7 @@ public class Item implements Comparable<Item> {
     }
     
     @Override
-    public int compareTo(Item o) {
+    public int compareTo(Item o) { //Items are compared for inventory management purposes.
         return this.getDataNum() - o.getDataNum();
     }
 }

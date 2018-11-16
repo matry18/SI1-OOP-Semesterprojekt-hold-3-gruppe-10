@@ -1,6 +1,5 @@
 package Commands;
 
-import Commands.CommandWord;
 import java.util.HashMap;
 
 public class CommandWords {

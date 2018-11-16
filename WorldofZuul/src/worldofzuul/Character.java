@@ -56,7 +56,7 @@ public class Character {
         return bonus;
     }
 
-    public void addItem(Item item) {
+    public void addItem(Item item) { //Adds an item to the inventory. Always use a subclass to Item.
         int wear = 0;
         if (item instanceof Headgear) { //Checks if the item is a headgear
             for (Item gear : inventory) {
@@ -121,8 +121,8 @@ public class Character {
         }
     }
 
-    public String stringInventory() {
-        Collections.sort(inventory);
+    public String stringInventory() { //Returns the inventory in a string. Headgear printet first, then armor and so on.
+        Collections.sort(inventory); //Sorts the inventory (ArrayList) after the int dataNum.
         String total = "";
         int counter = 0;
         for (Item gear : inventory) {
@@ -136,7 +136,7 @@ public class Character {
         }
     }
 
-    public int totalAttackValue() {
+    public int totalAttackValue() { //Adds the player level with the combined bonus of all items.
         int totalValue = 0;
         for (Item gear : inventory) {
             totalValue += gear.getBonus();

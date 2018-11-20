@@ -20,8 +20,6 @@ public class Game {
     private Room previousRoom;
     Character player = new Character();
     Die die = new Die();
-    private int maxLevel = 10;
-    private int minLevel = 0;
 
     public Game() {
         createRooms();
@@ -294,22 +292,9 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
     }
 
     public void play() {
-        printWelcome();
-
-        boolean finished = false;
-        while (!finished && player.getLevel() < maxLevel && player.getLevel() > minLevel) {
-            Command command = parser.getCommand();
-            finished = processCommand(command);
-        }
-        if (player.getLevel() >= maxLevel) {
-            System.out.println("Hurra!!! You have won the game! Go celebrate...");
-        } else if (player.getLevel() <= minLevel) {
-            System.out.println("You have reached level "+player.getLevel()+" and you are dead! Better luck next time.");
-        }
-        System.out.println("Thank you for playing.  Good bye.");
     }
 
-    private void printWelcome() {
+    public void printWelcome() {
         System.out.println("Welcome to the World of Munchkin!");
         System.out.println("World of Munchkin is a new, amazing dungeon crawler game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help or want to know the rules.");
@@ -317,7 +302,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         System.out.println(currentRoom.getLongDescription());
     }
 
-    private boolean processCommand(Command command) {
+    public boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
         CommandWord commandWord = command.getCommandWord();
@@ -489,4 +474,9 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
                 System.out.println(player.stringInventory()+currentRoom.getExitString());
             }
         }
+
+    public Parser getParser() {
+        return parser;
+    }
+    
 }

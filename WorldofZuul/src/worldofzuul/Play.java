@@ -8,7 +8,7 @@ package worldofzuul;
 public class Play {
 
     public static void main(String[] args) {
-        Game game = new Game();
+        Multiplayer game = new Multiplayer();
         game.play();
     }
 

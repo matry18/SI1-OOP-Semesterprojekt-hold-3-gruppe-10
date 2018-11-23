@@ -3,27 +3,26 @@ package worldofzuul;
 import Commands.Parser;
 import Commands.CommandWord;
 import Commands.Command;
-import Bonuses.Item;
-import Bonuses.OneTimeUse;
-import Bonuses.RightHand;
-import Bonuses.LeftHand;
-import Bonuses.Headgear;
-import Bonuses.Footgear;
-import Bonuses.Armor;
+import Bonuses.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
 
     private Parser parser;
+    private Command command;
     protected Room currentRoom;
     private Room previousRoom;
+    private final int maxLevel = 10;
+    private final int minLevel = 0;
+    private boolean isMultiplayer;
     Character player = new Character();
     Die die = new Die();
 
-    public Game() {
+    public Game(boolean isMultiplayer) {
         createRooms();
         parser = new Parser();
+        this.isMultiplayer = isMultiplayer;
     }
 
     private void createRooms() {
@@ -292,6 +291,20 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
     }
 
     public void play() {
+     printWelcome();
+
+        boolean finished = false;
+        while (!finished && player.getLevel() < maxLevel && player.getLevel() > minLevel) {
+            command = getParser().getCommand();
+            finished = processCommand(command);
+        }
+        
+        if (player.getLevel() >= maxLevel) {
+            System.out.println("Hurra!!! You have won the game! Go celebrate...");
+        } else if (player.getLevel() <= minLevel) {
+            System.out.println("You have reached level "+player.getLevel()+" and you are dead! Better luck next time.");
+        }
+        System.out.println("Thank you for playing.  Good bye.");
     }
 
     public void printWelcome() {
@@ -328,7 +341,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             roll(command);*/
         } else if(commandWord == CommandWord.CHARACTER) {
             character(command);
-        }
+        } 
         return wantToQuit;
     }
 
@@ -474,9 +487,13 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
                 System.out.println(player.stringInventory()+currentRoom.getExitString());
             }
         }
-
+    
     public Parser getParser() {
         return parser;
+    }
+
+    public boolean isMultiplayer() {
+        return isMultiplayer;
     }
     
 }

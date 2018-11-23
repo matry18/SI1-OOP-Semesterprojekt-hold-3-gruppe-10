@@ -6,7 +6,7 @@
 package worldofzuul;
 
 import Commands.Command;
-import jdk.nashorn.internal.parser.TokenType;
+import Commands.CommandWord;
 
 /**
  *
@@ -14,38 +14,41 @@ import jdk.nashorn.internal.parser.TokenType;
  */
 public class Multiplayer {
     
-    Game game = new Game();
-    Game gane = new Game();
+    Game player1 = new Game(true);
+    Game player2 = new Game(true);
     private final int maxLevel = 10;
     private final int minLevel = 0;
-    private Game currentGame = game;
+    private Game currentGame = player1;
     private Command command;
     
+    
     public void play(){
-        game.printWelcome();
+        currentGame.printWelcome();
 
         boolean finished = false;
-        while (!finished && game.player.getLevel() < maxLevel && game.player.getLevel() > minLevel) {
-            if (currentGame == game) {
+        
+        while (!finished && currentGame.player.getLevel() < maxLevel && currentGame.player.getLevel() > minLevel) {
+            if (currentGame == player1) {
                 System.out.println("Player 1's TURN!");
-                command = game.getParser().getCommand();
-                finished = game.processCommand(command);
-                currentGame = gane;
-            } else if (currentGame == gane) {
+                command = player1.getParser().getCommand();
+                finished = player1.processCommand(command);
+                
+            } else if (currentGame == player2) {
                 System.out.println("Player 2's TURN! ");
-                command = gane.getParser().getCommand();
-                finished = gane.processCommand(command);
-                currentGame = game;
+                command = player2.getParser().getCommand();
+                finished = player2.processCommand(command);
+
             } else {
                 System.out.println("Wow");
             }
         }
-        if (game.player.getLevel() >= maxLevel) {
+        if (currentGame.player.getLevel() >= maxLevel) {
             System.out.println("Hurra!!! You have won the game! Go celebrate...");
-        } else if (game.player.getLevel() <= minLevel) {
-            System.out.println("You have reached level "+game.player.getLevel()+" and you are dead! Better luck next time.");
+        } else if (currentGame.player.getLevel() <= minLevel) {
+            System.out.println("You have reached level "+currentGame.player.getLevel()+" and you are dead! Better luck next time.");
         }
         System.out.println("Thank you for playing.  Good bye.");
 
     }
+    
 }

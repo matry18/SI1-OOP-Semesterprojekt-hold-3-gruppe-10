@@ -13,6 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -56,6 +59,9 @@ public class FXMLController implements Initializable {
     private TextArea txtButtonactionStatement;
     @FXML
     private ImageView imgRoomView;
+    
+    // Creating event handlers
+    
 
     /**
      * Initializes the controller class.

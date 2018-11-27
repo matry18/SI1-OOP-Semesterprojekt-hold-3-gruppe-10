@@ -11,11 +11,13 @@ public class Game {
 
     private Parser parser;
     private Command command;
-    protected Room currentRoom;
+    private Room currentRoom;
     private Room previousRoom;
     private final int maxLevel = 10;
     private final int minLevel = 0;
     private boolean isMultiplayer;
+    private boolean changePlayer = false;
+    private int moves = 3;
     Character player = new Character();
     Die die = new Die();
 
@@ -341,6 +343,8 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             roll(command);*/
         } else if(commandWord == CommandWord.CHARACTER) {
             character(command);
+        } else if(commandWord == CommandWord.ENDTURN) {
+            endTurn(command);
         } 
         return wantToQuit;
     }
@@ -362,10 +366,26 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
 
         String direction = command.getSecondWord();
 
-        Room nextRoom = currentRoom.getExit(direction);
+        Room nextRoom = currentRoom.getExit("west");
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
+        } else if(moves <= 0 && isMultiplayer){
+            System.out.println("You cannot move anymore, change player by using the command: 'endturn'");
+        } else if (isMultiplayer) {
+            previousRoom = currentRoom;
+            currentRoom = nextRoom;
+            moves--;
+            System.out.println(currentRoom.getLongDescription());
+            if (currentRoom.isContainsMonster()) {
+                System.out.println("Battle mode activated. You have an attack value of: "+ player.totalAttackValue()+". You can only fight or flee!");
+            } else if (currentRoom.isContainsCurse()) {
+                currentRoom.setContainsCurse(false);//Removes curse after getting hit
+                currentRoom.setHadCurse(true);
+                currentRoom.setContainsItem(true);
+                lootRoom();
+                currentRoom.setContainsItem(false);
+            }
         } else {
             previousRoom = currentRoom;
             currentRoom = nextRoom;
@@ -381,7 +401,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             }
         }
     }
-
+    
     private boolean quit(Command command) {
         if (command.hasSecondWord()) {
             System.out.println("Quit what?");
@@ -487,6 +507,14 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
                 System.out.println(player.stringInventory()+currentRoom.getExitString());
             }
         }
+    private void endTurn(Command command){
+        if (isMultiplayer) {
+            moves = 3;
+            changePlayer = !changePlayer;
+        } else {
+            System.out.println("This command can only be used in multiplayer");
+        }
+    }
     
     public Parser getParser() {
         return parser;
@@ -494,6 +522,14 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
 
     public boolean isMultiplayer() {
         return isMultiplayer;
+    }
+    
+    public boolean getChangePlayer() {
+        return changePlayer;
+    }
+    
+    public void setChangePlayer(boolean changePlayer) {
+        this.changePlayer = changePlayer;
     }
     
 }

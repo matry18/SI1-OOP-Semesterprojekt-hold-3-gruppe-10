@@ -32,12 +32,17 @@ public class Multiplayer {
                 System.out.println("Player 1's TURN!");
                 command = player1.getParser().getCommand();
                 finished = player1.processCommand(command);
-                
+                if (currentGame.getChangePlayer()) {
+                    changePlayer();
+                    
+                }
             } else if (currentGame == player2) {
                 System.out.println("Player 2's TURN! ");
                 command = player2.getParser().getCommand();
                 finished = player2.processCommand(command);
-
+                if (currentGame.getChangePlayer()) {
+                    changePlayer();
+                }
             } else {
                 System.out.println("Wow");
             }
@@ -49,6 +54,16 @@ public class Multiplayer {
         }
         System.out.println("Thank you for playing.  Good bye.");
 
+    }
+    
+    private void changePlayer() {
+        if (currentGame == player1) {
+            currentGame.setChangePlayer(false);
+            currentGame = player2;
+        } else {
+            currentGame.setChangePlayer(false);
+            currentGame = player1;
+        }
     }
     
 }

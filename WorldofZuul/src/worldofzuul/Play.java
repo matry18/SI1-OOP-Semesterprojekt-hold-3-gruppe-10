@@ -14,7 +14,7 @@ public class Play {
         Multiplayer multiplayer2 = new Multiplayer();
         System.out.println("Singleplayer or Multiplayer?");
         System.out.print("Choose your gamemode: ");
-        String gamemode = "Multiplayer";
+        String gamemode = sc.next();
         if(gamemode.equals("singleplayer") || gamemode.equals("Singleplayer")){
             singleplayer.play();
         } else if (gamemode.equals("multiplayer") || gamemode.equals("Multiplayer")) {

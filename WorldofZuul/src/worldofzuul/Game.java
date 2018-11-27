@@ -366,7 +366,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
 
         String direction = command.getSecondWord();
 
-        Room nextRoom = currentRoom.getExit("west");
+        Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
@@ -507,10 +507,13 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
                 System.out.println(player.stringInventory()+currentRoom.getExitString());
             }
         }
-    private void endTurn(Command command){
+    private void endTurn(Command command){ //(Multiplayer Only) When player has 0 moves left this indicates the players wants to change.
+        if (command.hasSecondWord()) {
+            System.out.println("Wrong expression!");
+        }
         if (isMultiplayer) {
             moves = 3;
-            changePlayer = !changePlayer;
+            changePlayer = true;
         } else {
             System.out.println("This command can only be used in multiplayer");
         }

@@ -15,7 +15,7 @@ public class Game {
     private Room previousRoom;
     private final int maxLevel = 10;
     private final int minLevel = 0;
-    private boolean isMultiplayer;
+    private final boolean isMultiplayer;
     private boolean changePlayer = false;
     private int moves = 3;
     Character player = new Character();

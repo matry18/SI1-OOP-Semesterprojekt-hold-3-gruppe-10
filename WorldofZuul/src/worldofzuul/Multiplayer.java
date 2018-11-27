@@ -6,7 +6,6 @@
 package worldofzuul;
 
 import Commands.Command;
-import Commands.CommandWord;
 
 /**
  *
@@ -24,15 +23,13 @@ public class Multiplayer {
     
     
     public void play(){
+      currentGame.printWelcome();
+      
       boolean finished = false;
         
         while (!finished && currentGame.player.getLevel() < maxLevel && currentGame.player.getLevel() > minLevel) {
             
             if (currentGame == player1) {
-                if (welcomeMessage < 2) {
-                    currentGame.printWelcome();
-                    welcomeMessage++;
-                }
                 System.out.println("Player 1's TURN!");
                 command = player1.getParser().getCommand();
                 finished = player1.processCommand(command);
@@ -41,10 +38,6 @@ public class Multiplayer {
                     
                 }
             } else if (currentGame == player2) {
-                if (welcomeMessage < 2) {
-                    currentGame.printWelcome();
-                    welcomeMessage++;
-                }
                 System.out.println("Player 2's TURN! ");
                 command = player2.getParser().getCommand();
                 finished = player2.processCommand(command);

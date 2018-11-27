@@ -17,7 +17,6 @@ public class Multiplayer {
     Game player2 = new Game(true);
     private final int maxLevel = 10;
     private final int minLevel = 0;
-    private int welcomeMessage = 0;
     private Game currentGame = player1;
     private Command command;
     

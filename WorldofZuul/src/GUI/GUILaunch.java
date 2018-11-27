@@ -8,9 +8,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import worldofzuul.Game;
 
 public class GUILaunch  extends Application {
 
+    static Game game = new Game();
     @Override
     public void start(Stage stage) throws Exception {
     
@@ -20,14 +22,14 @@ public class GUILaunch  extends Application {
         
         stage.setScene(scene);
         stage.setTitle("World of Munchkin");
-        stage.show();
+        stage.show();   
             }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        launch(args);   
     }
     
 }

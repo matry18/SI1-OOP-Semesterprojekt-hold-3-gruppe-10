@@ -124,7 +124,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleQuitButtonAction(ActionEvent event) {
-    
+       System.exit(0);
     }
 
     @FXML

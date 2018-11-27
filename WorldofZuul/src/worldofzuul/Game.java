@@ -296,13 +296,10 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
     }
 
     public void play() {
-        printWelcome();
+        
 
         
-        while (!finished && player.getLevel() < maxLevel && player.getLevel() > minLevel) {
-            Command command = parser.getCommand();
-            finished = processCommand(command);
-        }
+                
         if (player.getLevel() >= maxLevel) {
             System.out.println("Hurra!!! You have won the game! Go celebrate...");
         } else if (player.getLevel() <= minLevel) {
@@ -311,15 +308,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         System.out.println("Thank you for playing.  Good bye.");
     }
 
-    private void printWelcome() {
-        System.out.println("Welcome to the World of Munchkin!");
-        System.out.println("World of Munchkin is a new, amazing dungeon crawler game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help or want to know the rules.");
-        System.out.println();
-        System.out.println(currentRoom.getLongDescription());
-    }
-
-    private boolean processCommand(Command command) {
+        private boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
         CommandWord commandWord = command.getCommandWord();
@@ -330,7 +319,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         }
 
         if (commandWord == CommandWord.HELP) {
-            printHelp();
+            
         } else if (commandWord == CommandWord.GO && currentRoom.isContainsMonster() == false) {
             goRoom(command);
         } else if (commandWord == CommandWord.QUIT) {
@@ -349,15 +338,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         return wantToQuit;
     }
 
-    public void printHelp() {
-        System.out.println("You are lost. You are alone. You wander around in the dungeon.");
-        System.out.println("Your command words are:");
-        parser.showCommands();
-        System.out.println("The rules are: You win the game by reaching level 10 or more.\n"+
-                "You lose the game if you reach level 0 or below.\nYou go up a level by defeating a monster. After defeating a monster you can loot the room for goods.\n"+
-                "When fighting a monster you have to be stronger than the monster.\nYour strength is your level and your bonuses combined.");
-    }
-
+   
     private void goRoom(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Go where?");
@@ -385,16 +366,6 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             }
         }
     }
-
-    private boolean quit(Command command) {
-        if (command.hasSecondWord()) {
-            System.out.println("Quit what?");
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     private boolean fight(Command command) { //When the player wants to fight the monster.
         if (command.hasSecondWord()) {
             System.out.println("Don't be silly now");

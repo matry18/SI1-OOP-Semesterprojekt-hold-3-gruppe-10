@@ -42,7 +42,7 @@
             <ImageView fx:id="imgOneTimeUse" fitHeight="160.0" fitWidth="91.4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2" />
             <VBox fx:id="VBoxAttackLevelOneTimeUseHelpQuit" prefHeight="162.0" prefWidth="92.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
                <children>
-                  <Label fx:id="lblAttack" text="Attack:">
+                  <Label fx:id="lblAttack" text="Attack level:">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -50,7 +50,7 @@
                         <Insets bottom="1.0" top="1.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="lblAttackLevel" />
+                  <TextField fx:id="lblAttackLevel" editable="false" />
                   <Label fx:id="lblLevel" text="Level:">
                      <VBox.margin>
                         <Insets />
@@ -59,7 +59,7 @@
                         <Insets bottom="1.0" top="1.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="txtPlayerLevel">
+                  <TextField fx:id="txtPlayerLevel" editable="false">
                      <padding>
                         <Insets bottom="1.0" top="1.0" />
                      </padding>
@@ -159,7 +159,7 @@
             </GridPane>
             <VBox fx:id="VBoxOutput" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <children>
-                  <TextArea fx:id="txtOutput" prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="txtOutput" prefHeight="200.0" prefWidth="200.0" editable="false" />
                </children>
             </VBox>
             <ImageView fx:id="imgRoomView" fitHeight="320.0" fitWidth="456.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">

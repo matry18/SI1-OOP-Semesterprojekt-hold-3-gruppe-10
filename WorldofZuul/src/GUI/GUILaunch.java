@@ -15,13 +15,13 @@ public class GUILaunch  extends Application {
     public void start(Stage stage) throws Exception {
     
         Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
-        
+                
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
         stage.setTitle("World of Munchkin");
         stage.show();
-    }
+            }
 
     /**
      * @param args the command line arguments

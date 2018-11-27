@@ -10,7 +10,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -18,6 +21,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import static jdk.nashorn.tools.ShellFunctions.input;
 import worldofzuul.Game;
 
@@ -86,11 +91,12 @@ public class FXMLController implements Initializable {
     @FXML
     private TextArea txtOutput;
     @FXML
+    private TextArea txtAreaHelp;
+    @FXML
     private ImageView imgRoomView;
-    
-    /**
+        /**
      * Initializes the controller class.
-     */
+     */   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -102,13 +108,23 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleHelpButtonAction(ActionEvent event) {
-        //txtOutput.setText("");
-        Game game = new Game();
-        game.play();
+               try{
+                   Parent root1 = FXMLLoader.load(getClass().getResource("HelpWindow.fxml"));
+                   Stage stage = new Stage();
+                   stage.setTitle("Help");
+                   stage.setScene(new Scene(root1));
+                   
+                   
+                   stage.show();
+               }
+               catch(Exception e) {
+                   System.err.println(e.getMessage());
+               }
     }
 
     @FXML
     private void handleQuitButtonAction(ActionEvent event) {
+    
     }
 
     @FXML
@@ -121,6 +137,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
+        //game.getCurrentRoom().getExit("west");
     }
 
     @FXML
@@ -137,10 +154,5 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleLootButtonAction(ActionEvent event) {
-    }
-
-    private void printHelp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }  
 }

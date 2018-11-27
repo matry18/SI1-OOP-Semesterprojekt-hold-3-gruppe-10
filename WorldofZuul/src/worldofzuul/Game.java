@@ -10,19 +10,21 @@ import Bonuses.LeftHand;
 import Bonuses.Headgear;
 import Bonuses.Footgear;
 import Bonuses.Armor;
+import interfaces.IPlayGame;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Game {
+public class Game implements IPlayGame {
 
     private Parser parser;
-    protected Room currentRoom;
+    private Room currentRoom;
     private Room previousRoom;
     Character player = new Character();
     Die die = new Die();
     private int maxLevel = 10;
     private int minLevel = 0;
-
+    private boolean finished = false;
+    
     public Game() {
         createRooms();
         parser = new Parser();
@@ -296,7 +298,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
     public void play() {
         printWelcome();
 
-        boolean finished = false;
+        
         while (!finished && player.getLevel() < maxLevel && player.getLevel() > minLevel) {
             Command command = parser.getCommand();
             finished = processCommand(command);
@@ -347,7 +349,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         return wantToQuit;
     }
 
-    private void printHelp() {
+    public void printHelp() {
         System.out.println("You are lost. You are alone. You wander around in the dungeon.");
         System.out.println("Your command words are:");
         parser.showCommands();
@@ -489,4 +491,17 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
                 System.out.println(player.stringInventory()+currentRoom.getExitString());
             }
         }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
+
+    @Override
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
 }

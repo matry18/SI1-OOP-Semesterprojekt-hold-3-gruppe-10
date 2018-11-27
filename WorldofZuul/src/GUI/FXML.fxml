@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLController">
    <children>
@@ -49,6 +50,9 @@
                      <padding>
                         <Insets bottom="1.0" top="1.0" />
                      </padding>
+                     <font>
+                        <Font name="Windlass" size="12.0" />
+                     </font>
                   </Label>
                   <TextField fx:id="lblAttackLevel" editable="false" />
                   <Label fx:id="lblLevel" text="Level:">
@@ -58,6 +62,9 @@
                      <padding>
                         <Insets bottom="1.0" top="1.0" />
                      </padding>
+                     <font>
+                        <Font name="Windlass" size="12.0" />
+                     </font>
                   </Label>
                   <TextField fx:id="txtPlayerLevel" editable="false">
                      <padding>
@@ -67,13 +74,16 @@
                         <Insets />
                      </VBox.margin>
                   </TextField>
-                  <Button fx:id="btnOneTimeUse" mnemonicParsing="false" onAction="#handleOneTimeUseButtonAction" text="Activate scroll">
+                  <Button fx:id="btnOneTimeUse" mnemonicParsing="false" onAction="#handleOneTimeUseButtonAction" text="Activate scroll" wrapText="true">
                      <VBox.margin>
                         <Insets top="1.0" />
                      </VBox.margin>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <font>
+                        <Font name="Windlass" size="12.0" />
+                     </font>
                   </Button>
                   <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#handleHelpButtonAction" text="Help">
                      <VBox.margin>
@@ -85,6 +95,9 @@
                      <padding>
                         <Insets bottom="1.0" top="1.0" />
                      </padding>
+                     <font>
+                        <Font name="Windlass" size="12.0" />
+                     </font>
                   </Button>
                   <Button fx:id="btnQuit" mnemonicParsing="false" onAction="#handleQuitButtonAction" text="Quit">
                      <VBox.margin>
@@ -96,6 +109,9 @@
                      <padding>
                         <Insets bottom="1.0" top="1.0" />
                      </padding>
+                     <font>
+            <Font name="Windlass" size="14.0" />
+         </font>
                   </Button>
                </children>
                <GridPane.margin>
@@ -115,25 +131,37 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnGoEast" mnemonicParsing="false" onAction="#handleGoEastButtonAction" text="East" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="btnGoEast" mnemonicParsing="false" onAction="#handleGoEastButtonAction" text="East" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets left="5.0" />
+                        <Insets left="3.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font name="Windlass" size="12.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="btnGoNorth" mnemonicParsing="false" onAction="#handleGoNorthButtonAction" text="North" GridPane.columnIndex="1" GridPane.columnSpan="3">
+                  <Button fx:id="btnGoNorth" mnemonicParsing="false" onAction="#handleGoNorthButtonAction" text="North" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="3">
                      <GridPane.margin>
-                        <Insets left="7.0" />
+                        <Insets left="4.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font name="Windlass" size="12.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="btnGoWest" mnemonicParsing="false" onAction="#handleGoWestButtonAction" text="West" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                  <Button fx:id="btnGoWest" mnemonicParsing="false" onAction="#handleGoWestButtonAction" text="West" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="18.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font name="Windlass" size="12.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="btnGoSouth" mnemonicParsing="false" onAction="#handleGoSouthButtonAction" text="South" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button fx:id="btnGoSouth" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleGoSouthButtonAction" prefHeight="18.0" prefWidth="89.0" text="South" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
-                        <Insets left="7.0" />
+                        <Insets left="4.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font name="Windlass" size="12.0" />
+                     </font>
                   </Button>
                   <ImageView fx:id="imgCompass" fitHeight="55.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
@@ -149,17 +177,23 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="txtFight" prefHeight="80.0" prefWidth="92.0" promptText="Fight" GridPane.columnSpan="2" />
-                  <Button fx:id="btnFight" mnemonicParsing="false" onAction="#handleFightButtonAction" opacity="0.5" prefHeight="58.0" prefWidth="92.0" text="Fight" GridPane.columnSpan="2" />
-                  <TextField fx:id="txtFlee" prefHeight="63.0" prefWidth="92.0" promptText="Flee" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                  <Button fx:id="bthFlee" mnemonicParsing="false" onAction="#handleFleeButtonAction" opacity="0.5" prefHeight="53.0" prefWidth="92.0" text="Flee" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                  <TextField fx:id="txtLoot" prefHeight="62.0" prefWidth="92.0" promptText="Loot" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                  <Button fx:id="btnLoot" mnemonicParsing="false" onAction="#handleLootButtonAction" opacity="0.5" prefHeight="74.0" prefWidth="92.0" text="Loot" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Button fx:id="btnFight" mnemonicParsing="false" onAction="#handleFightButtonAction" prefHeight="58.0" prefWidth="92.0" text="Fight" GridPane.columnSpan="2">
+                     <font>
+                        <Font name="Windlass" size="14.0" />
+                     </font></Button>
+                  <Button fx:id="bthFlee" mnemonicParsing="false" onAction="#handleFleeButtonAction" prefHeight="53.0" prefWidth="92.0" text="Flee" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Windlass" size="14.0" />
+                     </font></Button>
+                  <Button fx:id="btnLoot" mnemonicParsing="false" onAction="#handleLootButtonAction" prefHeight="74.0" prefWidth="92.0" text="Loot" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Windlass" size="14.0" />
+                     </font></Button>
                </children>
             </GridPane>
             <VBox fx:id="VBoxOutput" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <children>
-                  <TextArea fx:id="txtOutput" prefHeight="200.0" prefWidth="200.0" editable="false" />
+                  <TextArea fx:id="txtOutput" editable="false" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
             <ImageView fx:id="imgRoomView" fitHeight="320.0" fitWidth="456.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">

@@ -305,7 +305,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         } else if (player.getLevel() <= minLevel) {
             System.out.println("You have reached level "+player.getLevel()+" and you are dead! Better luck next time.");
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing. Good bye.");
     }
 
         private boolean processCommand(Command command) {
@@ -313,25 +313,14 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
 
         CommandWord commandWord = command.getCommandWord();
 
-        if (commandWord == CommandWord.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
-            return false;
-        }
-
-        if (commandWord == CommandWord.HELP) {
-            
-        } else if (commandWord == CommandWord.GO && currentRoom.isContainsMonster() == false) {
+         if (commandWord == CommandWord.GO && currentRoom.isContainsMonster() == false) {
             goRoom(command);
-        } else if (commandWord == CommandWord.QUIT) {
-            wantToQuit = quit(command);
         } else if (commandWord == CommandWord.FIGHT && currentRoom.isContainsMonster()) {
             fight(command);
         } else if (commandWord == CommandWord.FLEE && currentRoom.isContainsMonster()) {
             flee(command);
         } else if(commandWord == CommandWord.LOOT && currentRoom.isContainsMonster() == false){
             loot(command);
-        /*} else if(commandWord == CommandWord.ROLL) {
-            roll(command);*/
         } else if(commandWord == CommandWord.CHARACTER) {
             character(command);
         }

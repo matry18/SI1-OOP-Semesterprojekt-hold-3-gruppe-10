@@ -8,7 +8,7 @@
    <children>
       <TextArea fx:id="txtAreaHelp" editable="false" prefHeight="150.0" prefWidth="600.0" wrapText="true">
          <font>
-            <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+            <Font name="Garamond" size="14.0" />
          </font>
       </TextArea>
    </children>

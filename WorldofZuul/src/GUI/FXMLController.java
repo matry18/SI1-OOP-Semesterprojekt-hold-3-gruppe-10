@@ -109,10 +109,10 @@ public class FXMLController implements Initializable {
     @FXML
     private void handleHelpButtonAction(ActionEvent event) {
                try{
-                   Parent root1 = FXMLLoader.load(getClass().getResource("HelpWindow.fxml"));
+                   Parent root = FXMLLoader.load(getClass().getResource("HelpWindow.fxml"));
                    Stage stage = new Stage();
                    stage.setTitle("Help");
-                   stage.setScene(new Scene(root1));
+                   stage.setScene(new Scene(root));
                    
                    
                    stage.show();

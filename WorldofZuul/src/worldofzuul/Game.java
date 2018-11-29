@@ -24,6 +24,7 @@ public class Game implements IPlayGame {
     private int maxLevel = 10;
     private int minLevel = 0;
     private boolean finished = false;
+    private boolean noDoor = false;
     
     public Game() {
         createRooms();
@@ -327,19 +328,23 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         return wantToQuit;
     }
 
+    public boolean isNoDoor() {
+        return noDoor;
+    }
+
    
     private void goRoom(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
         }
-
+        noDoor = false;
         String direction = command.getSecondWord();
 
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+            noDoor = true;
         } else {
             previousRoom = currentRoom;
             currentRoom = nextRoom;

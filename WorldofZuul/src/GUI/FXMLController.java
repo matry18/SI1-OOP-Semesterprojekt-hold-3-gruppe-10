@@ -137,6 +137,9 @@ public class FXMLController implements Initializable {
         parser.setGUICommand("go east");
         GUILaunch.game.processCommand(parser.getCommand());
         txtOutput.setText(game.getCurrentRoom().getLongDescription());
+        if(GUILaunch.game.isNoDoor()){
+            txtOutput.setText("There is no door!");
+        }
     }
 
     @FXML

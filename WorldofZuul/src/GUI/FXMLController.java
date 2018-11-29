@@ -134,40 +134,53 @@ public class FXMLController implements Initializable {
     @FXML
     private void handleGoEastButtonAction(ActionEvent event) {
         Parser parser = new Parser();
-        parser.setGoDirection("go east");
+        parser.setGUICommand("go east");
+        GUILaunch.game.processCommand(parser.getCommand());
         txtOutput.setText(game.getCurrentRoom().getLongDescription());
     }
 
     @FXML
     private void handleGoNorthButtonAction(ActionEvent event) {
         Parser parser = new Parser();
-        parser.setGoDirection("go north");
+        parser.setGUICommand("go north");
+        GUILaunch.game.processCommand(parser.getCommand());
         txtOutput.setText(game.getCurrentRoom().getLongDescription());
     }
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
         Parser parser = new Parser();
-        parser.setGoDirection("go west");
+        parser.setGUICommand("go west");
+        GUILaunch.game.processCommand(parser.getCommand());
         txtOutput.setText(game.getCurrentRoom().getLongDescription());
     }
 
     @FXML
     private void handleGoSouthButtonAction(ActionEvent event) {
         Parser parser = new Parser();
-        parser.setGoDirection("go south");
+        parser.setGUICommand("go south");
+        GUILaunch.game.processCommand(parser.getCommand());
         txtOutput.setText(game.getCurrentRoom().getLongDescription());
     }
 
     @FXML
     private void handleFightButtonAction(ActionEvent event) {
+        Parser parser = new Parser();
+        parser.setGUICommand("fight");
+        GUILaunch.game.processCommand(parser.getCommand());        
     }
 
     @FXML
     private void handleFleeButtonAction(ActionEvent event) {
+        Parser parser = new Parser();
+        parser.setGUICommand("flee");
+        GUILaunch.game.processCommand(parser.getCommand());
     }
 
     @FXML
     private void handleLootButtonAction(ActionEvent event) {
+        Parser parser = new Parser();
+        parser.setGUICommand("loot");
+        GUILaunch.game.processCommand(parser.getCommand());
     }  
 }

@@ -6,8 +6,8 @@ import java.util.StringTokenizer;
 public class Parser 
 {
     private CommandWords commands;
-    private Scanner reader;
-    private String goDirection;
+   // private Scanner reader;
+    private String GUICommand;
 
     public Parser() 
     {
@@ -23,7 +23,7 @@ public class Parser
 
         System.out.print("> "); 
 
-        inputLine = goDirection;
+        inputLine = GUICommand;
 
         Scanner tokenizer = new Scanner(inputLine);
         if(tokenizer.hasNext()) {
@@ -41,8 +41,8 @@ public class Parser
         commands.showAll();
     }
 
-    public void setGoDirection(String goDirection) {
-        this.goDirection = goDirection;
+    public void setGUICommand(String goDirection) {
+        this.GUICommand = goDirection;
     }
     
 }

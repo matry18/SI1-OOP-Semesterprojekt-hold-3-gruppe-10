@@ -308,7 +308,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         System.out.println("Thank you for playing. Good bye.");
     }
 
-        private boolean processCommand(Command command) {
+        public boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
         CommandWord commandWord = command.getCommandWord();

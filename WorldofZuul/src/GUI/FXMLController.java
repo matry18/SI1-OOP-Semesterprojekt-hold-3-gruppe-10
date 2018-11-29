@@ -137,7 +137,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
-        //game.getCurrentRoom().getExit("west");
+        //GUILaunch.game.getCurrentRoom().getExit("west");
     }
 
     @FXML

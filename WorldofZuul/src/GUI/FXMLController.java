@@ -29,13 +29,14 @@ import Commands.*;
 import Bonuses.*;
 import static GUI.GUILaunch.game;
 import worldofzuul.*;
-   
+
 /**
  * FXML Controller class
  *
  * @author aalsc
  */
 public class FXMLController implements Initializable {
+
     @FXML
     private ImageView imgHeadgear;
     @FXML
@@ -98,13 +99,14 @@ public class FXMLController implements Initializable {
     private TextArea txtAreaHelp;
     @FXML
     private ImageView imgRoomView;
-        /**
+
+    /**
      * Initializes the controller class.
-     */   
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void handleOneTimeUseButtonAction(ActionEvent event) {
@@ -112,78 +114,93 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleHelpButtonAction(ActionEvent event) {
-               try{
-                   Parent root = FXMLLoader.load(getClass().getResource("HelpWindow.fxml"));
-                   Stage stage = new Stage();
-                   stage.setTitle("Help");
-                   stage.setScene(new Scene(root));
-                   
-                   
-                   stage.show();
-               }
-               catch(Exception e) {
-                   System.err.println(e.getMessage());
-               }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("HelpWindow.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Help");
+            stage.setScene(new Scene(root));
+
+            stage.show();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     @FXML
     private void handleQuitButtonAction(ActionEvent event) {
-       System.exit(0);
+        System.exit(0);
     }
 
     @FXML
     private void handleGoEastButtonAction(ActionEvent event) {
-        Parser parser = new Parser();
-        parser.setGUICommand("go east");
-        GUILaunch.game.processCommand(parser.getCommand());
+        command("go east");
         txtOutput.setText(game.getCurrentRoom().getLongDescription());
-        if(GUILaunch.game.isNoDoor()){
+        if (game.isBattleMode()) {
+            txtOutput.setText("You are in battle mode you can only fight or flee!");
+        }
+        if (GUILaunch.game.isNoDoor()) {
             txtOutput.setText("There is no door!");
         }
     }
 
     @FXML
     private void handleGoNorthButtonAction(ActionEvent event) {
-        Parser parser = new Parser();
-        parser.setGUICommand("go north");
-        GUILaunch.game.processCommand(parser.getCommand());
+        command("go north");
         txtOutput.setText(game.getCurrentRoom().getLongDescription());
+        if (game.isBattleMode()) {
+            txtOutput.setText("You are in battle mode you can only fight or flee!");
+        }
+        if (GUILaunch.game.isNoDoor()) {
+            txtOutput.setText("There is no door!");
+        }
     }
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
-        Parser parser = new Parser();
-        parser.setGUICommand("go west");
-        GUILaunch.game.processCommand(parser.getCommand());
+        command("go west");
         txtOutput.setText(game.getCurrentRoom().getLongDescription());
+        if (game.isBattleMode()) {
+            txtOutput.setText("You are in battle mode you can only fight or flee!");
+        }
+        if (GUILaunch.game.isNoDoor()) {
+            txtOutput.setText("There is no door!");
+        }
     }
 
     @FXML
     private void handleGoSouthButtonAction(ActionEvent event) {
-        Parser parser = new Parser();
-        parser.setGUICommand("go south");
-        GUILaunch.game.processCommand(parser.getCommand());
+        command("go south");
         txtOutput.setText(game.getCurrentRoom().getLongDescription());
+        if (game.isBattleMode()) {
+            txtOutput.setText("You are in battle mode you can only fight or flee!");
+        }
+        if (GUILaunch.game.isNoDoor()) {
+            txtOutput.setText("There is no door!");
+        }
     }
 
     @FXML
     private void handleFightButtonAction(ActionEvent event) {
-        Parser parser = new Parser();
-        parser.setGUICommand("fight");
-        GUILaunch.game.processCommand(parser.getCommand());        
+        command("fight");
     }
 
     @FXML
     private void handleFleeButtonAction(ActionEvent event) {
-        Parser parser = new Parser();
-        parser.setGUICommand("flee");
-        GUILaunch.game.processCommand(parser.getCommand());
+        command("flee");
     }
 
     @FXML
     private void handleLootButtonAction(ActionEvent event) {
+        command("loot");
+        if (game.isBattleMode()) {
+            txtOutput.setText("You are in battle mode you can only fight or flee!");
+        }
+    }
+
+    private void command(String input) {
         Parser parser = new Parser();
-        parser.setGUICommand("loot");
+        parser.setGUICommand(input);
         GUILaunch.game.processCommand(parser.getCommand());
-    }  
+
+    }
 }

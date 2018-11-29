@@ -25,6 +25,7 @@ public class Game implements IPlayGame {
     private int minLevel = 0;
     private boolean finished = false;
     private boolean noDoor = false;
+    private boolean battleMode = false;
     
     public Game() {
         createRooms();
@@ -351,6 +352,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom.isContainsMonster()) {
                 System.out.println("Battle mode activated. You have an attack value of: "+ player.totalAttackValue()+". You can only fight or flee!");
+                battleMode = true;
             } else if (currentRoom.isContainsCurse()) {
                 currentRoom.setContainsCurse(false);//Removes curse after getting hit
                 currentRoom.setHadCurse(true);
@@ -361,6 +363,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         }
     }
     private boolean fight(Command command) { //When the player wants to fight the monster.
+        battleMode = false;
         if (command.hasSecondWord()) {
             System.out.println("Don't be silly now");
             return false;
@@ -380,8 +383,9 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             return false;
         }
     }
-    
+          
     private boolean flee(Command command) { //Used for when the player does not want to fight the monster and has to roll a die to flee.
+        battleMode = false;
         if (command.hasSecondWord()){
             System.out.println("Flee what?");
             return false;
@@ -463,6 +467,10 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
 
     public void setFinished(boolean finished) {
         this.finished = finished;
+    }
+
+    public boolean isBattleMode() {
+        return battleMode;
     }
 
     @Override

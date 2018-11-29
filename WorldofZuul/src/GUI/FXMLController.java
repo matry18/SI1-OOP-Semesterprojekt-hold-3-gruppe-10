@@ -25,7 +25,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import static jdk.nashorn.tools.ShellFunctions.input;
 import worldofzuul.Game;
-
+import Commands.*;
+import Bonuses.*;
+import static GUI.GUILaunch.game;
+import worldofzuul.*;
+   
 /**
  * FXML Controller class
  *
@@ -129,19 +133,30 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleGoEastButtonAction(ActionEvent event) {
+        Parser parser = new Parser();
+        parser.setGoDirection("go east");
+        txtOutput.setText(game.getCurrentRoom().getLongDescription());
     }
 
     @FXML
     private void handleGoNorthButtonAction(ActionEvent event) {
+        Parser parser = new Parser();
+        parser.setGoDirection("go north");
+        txtOutput.setText(game.getCurrentRoom().getLongDescription());
     }
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
-        //GUILaunch.game.getCurrentRoom().getExit("west");
+        Parser parser = new Parser();
+        parser.setGoDirection("go west");
+        txtOutput.setText(game.getCurrentRoom().getLongDescription());
     }
 
     @FXML
     private void handleGoSouthButtonAction(ActionEvent event) {
+        Parser parser = new Parser();
+        parser.setGoDirection("go south");
+        txtOutput.setText(game.getCurrentRoom().getLongDescription());
     }
 
     @FXML

@@ -12,7 +12,7 @@ import worldofzuul.Game;
 
 public class GUILaunch  extends Application {
 
-    static Game game = new Game();
+   static Game game = new Game();
     @Override
     public void start(Stage stage) throws Exception {
     
@@ -29,6 +29,7 @@ public class GUILaunch  extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         launch(args);   
     }
     

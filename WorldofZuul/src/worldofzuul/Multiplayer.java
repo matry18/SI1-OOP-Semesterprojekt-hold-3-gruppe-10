@@ -19,6 +19,7 @@ public class Multiplayer {
     private final int minLevel = 0;
     private Game currentGame = player1;
     private Command command;
+    private boolean startOfTurn;
     
     
     public void play(){
@@ -29,17 +30,25 @@ public class Multiplayer {
         while (!finished && currentGame.player.getLevel() < maxLevel && currentGame.player.getLevel() > minLevel) {
             
             if (currentGame == player1) {
+                if (startOfTurn) {
+                    player1.getCurrentRoom().getLongDescription();
+                }
                 System.out.println("Player 1's TURN!");
                 command = player1.getParser().getCommand();
                 finished = player1.processCommand(command);
+                startOfTurn = false;
                 if (currentGame.getChangePlayer()) {
                     changePlayer();
                     
                 }
             } else if (currentGame == player2) {
+                if (startOfTurn) {
+                    player2.getCurrentRoom().getLongDescription();
+                }
                 System.out.println("Player 2's TURN! ");
                 command = player2.getParser().getCommand();
                 finished = player2.processCommand(command);
+                startOfTurn = false;
                 if (currentGame.getChangePlayer()) {
                     changePlayer();
                 }
@@ -60,9 +69,11 @@ public class Multiplayer {
         if (currentGame == player1) {
             currentGame.setChangePlayer(false);
             currentGame = player2;
+            startOfTurn = true;
         } else {
             currentGame.setChangePlayer(false);
             currentGame = player1;
+            startOfTurn = true;
         }
     }
     

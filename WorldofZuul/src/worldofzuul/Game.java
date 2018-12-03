@@ -18,7 +18,7 @@ public class Game {
     private final boolean isMultiplayer;
     private boolean changePlayer = false;
     private int moves = 3;
-    Character player = new Character(6, 20);
+    Character player = new Character();
     Die die = new Die();
 
     public Game(boolean isMultiplayer) {
@@ -289,7 +289,7 @@ r37M.setItem(new OneTimeUse("Infestation", 5));
 r38M.setItem(new Armor("B.A.A.W.W.", 4));
 r39M.setItem(new Footgear("Boots of butt-kicking", 2));
 r40C.setItem(new Footgear("Cursed feet with blisters", -3));
-        currentRoom = r11M;
+        currentRoom = start;
     }
 
     public void play() {
@@ -554,5 +554,10 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
     public void setChangePlayer(boolean changePlayer) {
         this.changePlayer = changePlayer;
     }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+    
     
 }

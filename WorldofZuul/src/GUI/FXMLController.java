@@ -182,11 +182,14 @@ public class FXMLController implements Initializable {
     @FXML
     private void handleFightButtonAction(ActionEvent event) {
         command("fight");
+        checkForWinning();
+        
     }
 
     @FXML
     private void handleFleeButtonAction(ActionEvent event) {
         command("flee");
+        checkForLosing();
     }
 
     @FXML
@@ -194,6 +197,35 @@ public class FXMLController implements Initializable {
         command("loot");
         if (game.isBattleMode()) {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
+        }
+    }
+    
+    public void checkForWinning() {
+        if (game.getPlayer().getLevel() == game.getMaxLevel()) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Winner.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Won the game");
+            stage.setScene(new Scene(root));
+            
+            stage.show();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+           }
+    public void checkForLosing() {
+        if (game.getPlayer().getLevel() <= game.getMinLevel()) {
+            try {
+            Parent root = FXMLLoader.load(getClass().getResource("Losing.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Lose the game");
+            stage.setScene(new Scene(root));
+            
+            stage.show();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
         }
     }
 

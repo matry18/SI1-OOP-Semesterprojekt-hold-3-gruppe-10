@@ -13,7 +13,8 @@ import worldofzuul.Game;
 public class GUILaunch  extends Application {
 
    static Game game = new Game();
-    @Override
+   //game.play();
+       @Override
     public void start(Stage stage) throws Exception {
     
         Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));

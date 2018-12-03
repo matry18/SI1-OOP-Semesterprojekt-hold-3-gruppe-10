@@ -19,7 +19,7 @@ public class Game implements IPlayGame {
     private Parser parser;
     private Room currentRoom;
     private Room previousRoom;
-    Character player = new Character(9, 0);
+    Character player = new Character();
     Die die = new Die();
     private int maxLevel = 10;
     private int minLevel = 0;
@@ -297,21 +297,6 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
         currentRoom = start;
     }
 
-    public void play() {
-        //printWelcome();
-        /*boolean finished = false;
-        while (!finished && player.getLevel() < maxLevel && player.getLevel() > minLevel) {
-            Command command = parser.getCommand();
-            finished = processCommand(command);
-        }*/        
-        if (player.getLevel() >= maxLevel) {               
-            System.out.println("Hurra!!! You have won the game! Go celebrate...");
-        } else if (player.getLevel() <= minLevel) {
-            System.out.println("You have reached level "+player.getLevel()+" and you are dead! Better luck next time.");
-        }
-        System.out.println("Thank you for playing. Good bye.");
-    }
-
         public boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
@@ -473,6 +458,18 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
 
     public boolean isBattleMode() {
         return battleMode;
+    }
+
+    public Character getPlayer() {
+        return player;
+    }
+
+    public int getMaxLevel() {
+        return maxLevel;
+    }
+
+    public int getMinLevel() {
+        return minLevel;
     }
 
     @Override

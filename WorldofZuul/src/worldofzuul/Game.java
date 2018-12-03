@@ -18,7 +18,7 @@ public class Game {
     private final boolean isMultiplayer;
     private boolean changePlayer = false;
     private int moves = 3;
-    Character player = new Character();
+    Character player = new Character(6, 20);
     Die die = new Die();
 
     public Game(boolean isMultiplayer) {
@@ -289,7 +289,7 @@ r37M.setItem(new OneTimeUse("Infestation", 5));
 r38M.setItem(new Armor("B.A.A.W.W.", 4));
 r39M.setItem(new Footgear("Boots of butt-kicking", 2));
 r40C.setItem(new Footgear("Cursed feet with blisters", -3));
-        currentRoom = start;
+        currentRoom = r11M;
     }
 
     public void play() {
@@ -345,7 +345,9 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             character(command);
         } else if(commandWord == CommandWord.ENDTURN) {
             endTurn(command);
-        } 
+        } else if(commandWord == CommandWord.USEITEM) {
+            useItem(command);
+        }
         return wantToQuit;
     }
 
@@ -426,6 +428,7 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
             System.out.println("To loot the room type 'loot' or else leave the room."+"\n"+currentRoom.getExitString());
+            player.resetTemporaryBonus();
             return true;
         } else {
             return false;
@@ -510,12 +513,29 @@ r40C.setItem(new Footgear("Cursed feet with blisters", -3));
     private void endTurn(Command command){ //(Multiplayer Only) When player has 0 moves left this indicates the players wants to change.
         if (command.hasSecondWord()) {
             System.out.println("Wrong expression!");
+            
         }
         if (isMultiplayer) {
             moves = 3;
             changePlayer = true;
         } else {
             System.out.println("This command can only be used in multiplayer");
+        }
+    }
+    
+    private boolean useItem(Command command) {
+        if (command.hasSecondWord()) {
+            System.out.println("lol");
+            return false;
+        }
+        if (player.getOneTimeUse() == null) {
+            System.out.println("You have none, fool!");
+            return false;
+        } else {
+            player.addTemporaryBonus(player.getOneTimeUse().getBonus());
+            System.out.println("You used the item and it went puff");
+            player.inventory.remove(player.getOneTimeUse());
+            return true;
         }
     }
     

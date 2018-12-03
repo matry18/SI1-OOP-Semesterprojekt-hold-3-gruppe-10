@@ -28,6 +28,7 @@ import worldofzuul.Game;
 import Commands.*;
 import Bonuses.*;
 import static GUI.GUILaunch.game;
+import javafx.scene.Node;
 import worldofzuul.*;
 
 /**
@@ -99,6 +100,7 @@ public class FXMLController implements Initializable {
     private TextArea txtAreaHelp;
     @FXML
     private ImageView imgRoomView;
+    private boolean lost = false;
 
     /**
      * Initializes the controller class.
@@ -190,6 +192,9 @@ public class FXMLController implements Initializable {
     private void handleFleeButtonAction(ActionEvent event) {
         command("flee");
         checkForLosing();
+        if (lost) {
+            ((Node)event.getSource()).getScene().getWindow().hide();
+        }
     }
 
     @FXML
@@ -217,12 +222,14 @@ public class FXMLController implements Initializable {
     public void checkForLosing() {
         if (game.getPlayer().getLevel() <= game.getMinLevel()) {
             try {
+            
             Parent root = FXMLLoader.load(getClass().getResource("Losing.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Lose the game");
             stage.setScene(new Scene(root));
             
             stage.show();
+            lost = true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

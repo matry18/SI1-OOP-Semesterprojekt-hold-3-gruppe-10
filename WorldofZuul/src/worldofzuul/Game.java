@@ -210,17 +210,17 @@ public class Game implements IPlayGame {
         r40C.setExit("west", r12M);
 
         //Define the curses in the rooms
-        r2C.setCurse(new Curse("BAM WAM SLAM!", "You get hit and you do not know by what.", "You now have a cursed armor."));
-        r5C.setCurse(new Curse("Curse!", "Immortality removed. You are now on your own!... MUHAHAHA!", "You are trapped in the dungeon, the only way out is reaching level 10. Good Luck.\n You now have a cursed armor."));
-        r8C.setCurse(new Curse("Fancy hat with feathers.", "The hat i fancy, because it got feathers!", "You now have a cursed headgear."));
-        r10C.setCurse(new Curse("E-tivity.", "A very difficult online activity, you rip your hair out of your head!", "You now have a cursed headgear."));
-        r14C.setCurse(new Curse("Harsh Language!", "A rat says something very unpleasant about your mother.", "You now have a cursed haedgear."));
-        r18C.setCurse(new Curse("Shitter Twitter Trump!?", "He hacks your Twitter account and posts shit.", "You now have a cursed weapon."));
-        r21C.setCurse(new Curse("Tiny Hands!", "Tiny hands comes flying toward you, they taking your weapon!", "You now have a cursed weapon."));
-        r24C.setCurse(new Curse("Rolling Stone!", "A huge round stone rolls towards you, INDIANA JONES STYLE!", "You now have a cursed weapon."));
-        r25C.setCurse(new Curse("Duck of Doom!", "A menacing presence makes you shiver.", "You now have a cursed armor."));
-        r30C.setCurse(new Curse("Josef F. Ritzl?!", "He invites you in to his cellar and locks you up.", "You now have a cursed weapon."));
-        r40C.setCurse(new Curse("Tar room.", "You jump into the room, only to find your feet getting stuck in the tar.", "You now have a cursed footgear."));
+        r2C.setCurse(new Curse("BAM WAM SLAM!", "You get hit and you do not know by what.", "You now have a cursed armor.", ""));
+        r5C.setCurse(new Curse("Curse!", "Immortality removed. You are now on your own!... MUHAHAHA!", "You are trapped in the dungeon, the only way out is reaching level 10. Good Luck.\n You now have a cursed armor.", ""));
+        r8C.setCurse(new Curse("Fancy hat with feathers.", "The hat i fancy, because it got feathers!", "You now have a cursed headgear.", ""));
+        r10C.setCurse(new Curse("E-tivity.", "A very difficult online activity, you rip your hair out of your head!", "You now have a cursed headgear.", ""));
+        r14C.setCurse(new Curse("Harsh Language!", "A rat says something very unpleasant about your mother.", "You now have a cursed haedgear.", ""));
+        r18C.setCurse(new Curse("Shitter Twitter Trump!?", "He hacks your Twitter account and posts shit.", "You now have a cursed weapon.", ""));
+        r21C.setCurse(new Curse("Tiny Hands!", "Tiny hands comes flying toward you, they taking your weapon!", "You now have a cursed weapon.", ""));
+        r24C.setCurse(new Curse("Rolling Stone!", "A huge round stone rolls towards you, INDIANA JONES STYLE!", "You now have a cursed weapon.", ""));
+        r25C.setCurse(new Curse("Duck of Doom!", "A menacing presence makes you shiver.", "You now have a cursed armor.", ""));
+        r30C.setCurse(new Curse("Josef F. Ritzl?!", "He invites you in to his cellar and locks you up.", "You now have a cursed weapon.", ""));
+        r40C.setCurse(new Curse("Tar room.", "You jump into the room, only to find your feet getting stuck in the tar.", "You now have a cursed footgear.", ""));
 
         //Define the monsters in the rooms
         r1M.setMonster(new Monster("A Tiny Chicken", "Still looking for his friend: Chicken Little.", 0, "Calls you a chicken but nothing else happens.", 0, "\\pictures\\monster\\atinyechicken.png"));
@@ -254,46 +254,46 @@ public class Game implements IPlayGame {
 //        r39M.setMonster(new Monster("Brick Bad", "He sells you really good meth shaped as bricks.", 9, "Lose 4 levels.", -4));
 
         //Items connected to the rooms
-        r1M.setItem(new LeftHand("Cheese grater of peace", 1));
-r2C.setItem(new Armor("Cursed pants... REALLY pretty cursed pants! They look fancy but gives no bonuses", 0));
-r3M.setItem(new Headgear("Helm of courage", 1));
-r4M.setItem(new Armor("Goblin shitty shirt", 3));
-r5C.setItem(new Armor("Cursed armor of idiotic bravery", 0));
-r6M.setItem(new LeftHand("Tentacle", 2));
-r7M.setItem(new LeftHand("Wire cutter", 2));
-r8C.setItem(new Headgear("Cursed hat with feathers", -1));
-r9M.setItem(new Armor("Furry tail", 2));
-r10C.setItem(new Headgear("Cursed head do to E-tivity", -3));
-r11M.setItem(new OneTimeUse("A lot of small rocks", 2));
-r12M.setItem(new Armor("School bag full of pencils and paper", 2));
-r13M.setItem(new LeftHand("Bad ass spoon of wood", 3));
-r14C.setItem(new Headgear("Cursed rat whiskers", -3));
-r15M.setItem(new RightHand("Really big toothpick", 3));
-r16M.setItem(new LeftHand("A speaking sword who speaks really well", 3));
-r17M.setItem(new RightHand("A spear with a red point", 3));
-r18C.setItem(new LeftHand("Cursed cell phone with low signal", -3));
-r19M.setItem(new LeftHand("Orange rattle", 1));
-r20M.setItem(new Armor("Fancy looking cloak", 3));
-r21C.setItem(new LeftHand("A cursed tiny fork", -4));
-r22M.setItem(new OneTimeUse("Curling rock", 3));
-r23M.setItem(new Armor("Armour vest of rabbit fur", 3));
-r24C.setItem(new RightHand("Cursed chainsaw of bloody dismemberment", -3)); 
-r25C.setItem(new Armor("Cursed spiky knees", -3));
-r26M.setItem(new RightHand("Harp O' Molly", 2));
-r27M.setItem(new LeftHand("Microphone", 1));//+5 if used with cellphone
-r28M.setItem(new LeftHand("A Plastic Light Saber Toy", 1));
-r29M.setItem(new Armor("Shirt with check pattern", 3));
-r30C.setItem(new LeftHand("Cursed old used teddy bear", -3));
-r31M.setItem(new OneTimeUse("CHICKEN!!!", 6));
-r32M.setItem(new OneTimeUse("A dad joke book", 3));
-r33M.setItem(new Footgear("Your feet are dragon",4));
-r34M.setItem(new RightHand("Mannequin head, you can bash your opponents with", 2));
-r35M.setItem(new OneTimeUse("You scored with a hot chick", 1));
-r36M.setItem(new OneTimeUse("You kept some of the remaining fish, to startle your next opponent", 6));
-r37M.setItem(new OneTimeUse("Infestation", 5));
-r38M.setItem(new Armor("B.A.A.W.W.", 4));
-r39M.setItem(new Footgear("Boots of butt-kicking", 2));
-r40C.setItem(new Footgear("Cursed feet with blisters", -3));
+        r1M.setItem(new LeftHand("Cheese grater of peace", 1, ""));
+        r2C.setItem(new Armor("Cursed pants... REALLY pretty cursed pants! They look fancy but gives no bonuses", 0, ""));
+        r3M.setItem(new Headgear("Helm of courage", 1, ""));
+        r4M.setItem(new Armor("Goblin shitty shirt", 3, ""));
+        r5C.setItem(new Armor("Cursed armor of idiotic bravery", 0, ""));
+        r6M.setItem(new LeftHand("Tentacle", 2, ""));
+        r7M.setItem(new LeftHand("Wire cutter", 2, ""));
+        r8C.setItem(new Headgear("Cursed hat with feathers", -1, ""));
+        r9M.setItem(new Armor("Furry tail", 2, ""));
+        r10C.setItem(new Headgear("Cursed head do to E-tivity", -3, ""));
+        r11M.setItem(new OneTimeUse("A lot of small rocks", 2, ""));
+        r12M.setItem(new Armor("School bag full of pencils and paper", 2, ""));
+        r13M.setItem(new LeftHand("Bad ass spoon of wood", 3, ""));
+        r14C.setItem(new Headgear("Cursed rat whiskers", -3, ""));
+        r15M.setItem(new RightHand("Really big toothpick", 3, ""));
+        r16M.setItem(new LeftHand("A speaking sword who speaks really well", 3, ""));
+        r17M.setItem(new RightHand("A spear with a red point", 3, ""));
+        r18C.setItem(new LeftHand("Cursed cell phone with low signal", -3, ""));
+        r19M.setItem(new LeftHand("Orange rattle", 1, ""));
+        r20M.setItem(new Armor("Fancy looking cloak", 3, ""));
+        r21C.setItem(new LeftHand("A cursed tiny fork", -4, ""));
+        r22M.setItem(new OneTimeUse("Curling rock", 3, ""));
+        r23M.setItem(new Armor("Armour vest of rabbit fur", 3, ""));
+        r24C.setItem(new RightHand("Cursed chainsaw of bloody dismemberment", -3, "")); 
+        r25C.setItem(new Armor("Cursed spiky knees", -3, ""));
+        r26M.setItem(new RightHand("Harp O' Molly", 2, ""));
+        r27M.setItem(new LeftHand("Microphone", 1, ""));//+5 if used with cellphone
+        r28M.setItem(new LeftHand("A Plastic Light Saber Toy", 1, ""));
+        r29M.setItem(new Armor("Shirt with check pattern", 3, ""));
+        r30C.setItem(new LeftHand("Cursed old used teddy bear", -3, ""));
+        r31M.setItem(new OneTimeUse("CHICKEN!!!", 6, ""));
+        r32M.setItem(new OneTimeUse("A dad joke book", 3, ""));
+        r33M.setItem(new Footgear("Your feet are dragon",4, ""));
+        r34M.setItem(new RightHand("Mannequin head, you can bash your opponents with", 2, ""));
+        r35M.setItem(new OneTimeUse("You scored with a hot chick", 1, ""));
+        r36M.setItem(new OneTimeUse("You kept some of the remaining fish, to startle your next opponent", 6, ""));
+        r37M.setItem(new OneTimeUse("Infestation", 5, ""));
+        r38M.setItem(new Armor("B.A.A.W.W.", 4, ""));
+        r39M.setItem(new Footgear("Boots of butt-kicking", 2, ""));
+        r40C.setItem(new Footgear("Cursed feet with blisters", -3, ""));
         currentRoom = start;
     }
 

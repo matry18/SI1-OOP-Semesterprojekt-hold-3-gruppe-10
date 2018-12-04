@@ -51,6 +51,12 @@ public class Character {
         return bonus;
     }
 
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+    
+    
+
     public void addItem(Item item) { //Adds an item to the inventory. Always use a subclass to Item.
         if(item instanceof OneTimeUse){
             System.out.println("Sorry! One-time-use items are not available...");

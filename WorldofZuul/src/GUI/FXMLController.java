@@ -29,6 +29,7 @@ import Commands.*;
 import Bonuses.*;
 import static GUI.GUILaunch.game;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import worldofzuul.*;
 
 /**
@@ -108,6 +109,10 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Image image = new Image("\\pictures\\bAckground\\ENtrance.png");
+        imgRoomView.setFitHeight(320);
+        imgRoomView.setPreserveRatio(false);
+        imgRoomView.setImage(image);
     }
 
     @FXML
@@ -136,49 +141,25 @@ public class FXMLController implements Initializable {
     @FXML
     private void handleGoEastButtonAction(ActionEvent event) {
         command("go east");
-        txtOutput.setText(game.getCurrentRoom().getLongDescription());
-        if (game.isBattleMode()) {
-            txtOutput.setText("You are in battle mode you can only fight or flee!");
-        }
-        if (GUILaunch.game.isNoDoor()) {
-            txtOutput.setText("There is no door!");
-        }
+        roomSettings();
     }
 
     @FXML
     private void handleGoNorthButtonAction(ActionEvent event) {
         command("go north");
-        txtOutput.setText(game.getCurrentRoom().getLongDescription());
-        if (game.isBattleMode()) {
-            txtOutput.setText("You are in battle mode you can only fight or flee!");
-        }
-        if (GUILaunch.game.isNoDoor()) {
-            txtOutput.setText("There is no door!");
-        }
+        roomSettings();
     }
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
         command("go west");
-        txtOutput.setText(game.getCurrentRoom().getLongDescription());
-        if (game.isBattleMode()) {
-            txtOutput.setText("You are in battle mode you can only fight or flee!");
-        }
-        if (GUILaunch.game.isNoDoor()) {
-            txtOutput.setText("There is no door!");
-        }
+        roomSettings();
     }
 
     @FXML
     private void handleGoSouthButtonAction(ActionEvent event) {
         command("go south");
-        txtOutput.setText(game.getCurrentRoom().getLongDescription());
-        if (game.isBattleMode()) {
-            txtOutput.setText("You are in battle mode you can only fight or flee!");
-        }
-        if (GUILaunch.game.isNoDoor()) {
-            txtOutput.setText("There is no door!");
-        }
+        roomSettings();
     }
 
     @FXML
@@ -240,6 +221,21 @@ public class FXMLController implements Initializable {
         Parser parser = new Parser();
         parser.setGUICommand(input);
         GUILaunch.game.processCommand(parser.getCommand());
+    }
+    
+    private void roomSetImage(){
+        imgRoomView.setImage(new Image(game.getCurrentRoom().getShortDescription()));
+    }
 
+    private void roomSettings() {
+    txtOutput.setText(game.getCurrentRoom().getLongDescription());
+        if (game.isBattleMode()) {
+            txtOutput.setText("You are in battle mode you can only fight or flee!");
+        }
+        if (GUILaunch.game.isNoDoor()) {
+            txtOutput.setText("There is no door!");
+        } else {
+            roomSetImage();
+        }
     }
 }

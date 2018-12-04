@@ -41,7 +41,7 @@ public class Game implements IPlayGame {
 
         //Creating the rooms
         start = new Room("You are standing outside a scary house.");
-        r1M = new Room("");
+        r1M = new Room("\\pictures\\background\\mansion_backdrop.png");
         r2C = new Room("");
         r4M = new Room("");
         r3M = new Room("");

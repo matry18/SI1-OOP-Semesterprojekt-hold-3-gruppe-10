@@ -11,8 +11,8 @@ package Bonuses;
  */
 public class OneTimeUse extends Item implements Comparable<Item> {
     
-    public OneTimeUse(String name, int bonus) {
-        super(name, bonus, "Item",6);
+    public OneTimeUse(String name, int bonus, String imgPath) {
+        super(name, bonus, "Item",6, imgPath);
     }
     
 }

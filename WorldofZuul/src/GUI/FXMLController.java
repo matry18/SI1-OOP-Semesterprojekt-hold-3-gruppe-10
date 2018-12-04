@@ -160,6 +160,7 @@ public class FXMLController implements Initializable {
     private void handleFightButtonAction(ActionEvent event) {
         command("fight");
         checkForWinning();
+        setImgMonsterCurseItem();
         
     }
 
@@ -169,15 +170,20 @@ public class FXMLController implements Initializable {
         checkForLosing();
         if (lost) {
             ((Node)event.getSource()).getScene().getWindow().hide();
+        } else {
+            roomSettings();
         }
     }
 
     @FXML
     private void handleLootButtonAction(ActionEvent event) {
-        command("loot");
         if (game.isBattleMode()) {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
-        }
+            return;
+        } 
+        setInventory();
+        command("loot");
+        setImgMonsterCurseItem();
     }
     
     public void checkForWinning() {
@@ -226,8 +232,12 @@ public class FXMLController implements Initializable {
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getMonster().getImagePath()));
         } else if(game.getCurrentRoom().isContainsCurse()){
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getCurse().getImagePath()));
+            setInventory();
+            game.getCurrentRoom().setContainsCurse(false);//Removes curse after getting hit
         } else if(game.getCurrentRoom().isContainsItem()){
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+        } else {
+            imgMonsterCurseItem.setImage(null);
         }
     }
 
@@ -241,6 +251,22 @@ public class FXMLController implements Initializable {
         } else {
             roomSetImage();
             setImgMonsterCurseItem();
+        }
+    }
+    
+    private void setInventory() {
+        if (game.getCurrentRoom().getItem().getDataNum() == 1) {
+            imgHeadgear.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+        } else if (game.getCurrentRoom().getItem().getDataNum() == 2) {
+            imgArmor.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+        } else if (game.getCurrentRoom().getItem().getDataNum() == 3) {
+            imgFootgear.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+        } else if (game.getCurrentRoom().getItem().getDataNum() == 4) {
+            imgLeftHand.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+        } else if (game.getCurrentRoom().getItem().getDataNum() == 5) {
+            imgRightHand.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+        } else if (game.getCurrentRoom().getItem().getDataNum() == 6) {
+            imgOneTimeUse.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
         }
     }
 }

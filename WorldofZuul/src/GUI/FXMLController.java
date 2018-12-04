@@ -82,15 +82,9 @@ public class FXMLController implements Initializable {
     @FXML
     private GridPane GridPaneFightFleeLoot;
     @FXML
-    private TextField txtFight;
-    @FXML
     private Button btnFight;
     @FXML
-    private TextField txtFlee;
-    @FXML
     private Button bthFlee;
-    @FXML
-    private TextField txtLoot;
     @FXML
     private Button btnLoot;
     @FXML
@@ -98,10 +92,10 @@ public class FXMLController implements Initializable {
     @FXML
     private TextArea txtOutput;
     @FXML
-    private TextArea txtAreaHelp;
-    @FXML
     private ImageView imgRoomView;
     private boolean lost = false;
+    @FXML
+    private ImageView imgMonsterCurseItem;
 
     /**
      * Initializes the controller class.
@@ -109,8 +103,8 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Image image = new Image("\\pictures\\bAckground\\ENtrance.png");
-        imgRoomView.setFitHeight(320);
+        Image image = new Image("\\pictures\\background\\entrance.png");
+        imgRoomView.setFitHeight(338);
         imgRoomView.setPreserveRatio(false);
         imgRoomView.setImage(image);
     }

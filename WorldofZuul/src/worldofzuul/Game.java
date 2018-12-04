@@ -40,12 +40,12 @@ public class Game implements IPlayGame {
                 r40C;
 
         //Creating the rooms
-        start = new Room("You are standing outside a scary house.");
-        r1M = new Room("\\pictures\\background\\mansion_backdrop.png");
-        r2C = new Room("");
-        r4M = new Room("");
-        r3M = new Room("");
-        r5C = new Room("");
+        start = new Room("\\pictures\\background\\entrance.png");
+        r1M = new Room("\\pictures\\background\\combat_dungeon_1.png");
+        r2C = new Room("\\pictures\\background\\combat_backdrop_2.png");
+        r4M = new Room("\\pictures\\background\\combat_backdrop_3.png");
+        r3M = new Room("\\pictures\\background\\combat_backdrop_4.png");
+        r5C = new Room("\\pictures\\background\\combat_backdrop_5.png");
         r6M = new Room("");
         r7M = new Room("");
         r8C = new Room("");

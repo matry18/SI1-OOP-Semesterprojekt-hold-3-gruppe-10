@@ -19,7 +19,7 @@ public class Game implements IPlayGame {
     private Parser parser;
     private Room currentRoom;
     private Room previousRoom;
-    Character player = new Character(9,0);
+    Character player = new Character();
     Die die = new Die();
     private int maxLevel = 10;
     private int minLevel = 0;

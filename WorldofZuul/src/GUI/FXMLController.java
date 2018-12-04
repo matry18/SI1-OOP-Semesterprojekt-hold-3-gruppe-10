@@ -107,6 +107,8 @@ public class FXMLController implements Initializable {
         imgRoomView.setFitHeight(338);
         imgRoomView.setPreserveRatio(false);
         imgRoomView.setImage(image);
+        Image compass = new Image("\\pictures\\background\\compass.png");
+        imgCompass.setImage(compass);
     }
 
     @FXML

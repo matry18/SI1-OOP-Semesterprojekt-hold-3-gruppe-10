@@ -11,8 +11,8 @@ package Bonuses;
  */
 public class Headgear extends Item implements Comparable<Item> {
     
-    public Headgear(String name, int bonus) {
-        super(name, bonus, "Headgear", 1);
+    public Headgear(String name, int bonus,String imgPath) {
+        super(name, bonus, "Headgear", 1,imgPath);
     }
     
 }

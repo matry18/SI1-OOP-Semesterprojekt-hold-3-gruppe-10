@@ -17,14 +17,16 @@ public class Monster {
     private String badStuff;
     private int level;
     private int badStuffEffect;
+    private String imagePath;
 
     //Constructor
-    public Monster(String name, String description, int level, String badStuff, int badStuffEffect) {
+    public Monster(String name, String description, int level, String badStuff, int badStuffEffect, String imagePath) {
         this.name = name;
         this.description = description;
         this.level = level;
         this.badStuff = badStuff;
         this.badStuffEffect = badStuffEffect;
+        this.imagePath = imagePath;
     }
 
     //Accessors and modifiers
@@ -66,5 +68,9 @@ public class Monster {
 
     public void setBadStuff(String badStuff) {
         this.badStuff = badStuff;
+    }
+
+    public String getImagePath() {
+        return imagePath;
     }
 }

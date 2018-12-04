@@ -220,9 +220,19 @@ public class FXMLController implements Initializable {
     private void roomSetImage(){
         imgRoomView.setImage(new Image(game.getCurrentRoom().getShortDescription()));
     }
+    
+    private void setImgMonsterCurseItem() {
+        if (game.getCurrentRoom().isContainsMonster()) {
+            imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getMonster().getImagePath()));
+        } else if(game.getCurrentRoom().isContainsCurse()){
+            imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getCurse().getImagePath()));
+        } else if(game.getCurrentRoom().isContainsItem()){
+            imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+        }
+    }
 
     private void roomSettings() {
-    txtOutput.setText(game.getCurrentRoom().getLongDescription());
+        txtOutput.setText(game.getCurrentRoom().getLongDescription());
         if (game.isBattleMode()) {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
         }
@@ -230,6 +240,7 @@ public class FXMLController implements Initializable {
             txtOutput.setText("There is no door!");
         } else {
             roomSetImage();
+            setImgMonsterCurseItem();
         }
     }
 }

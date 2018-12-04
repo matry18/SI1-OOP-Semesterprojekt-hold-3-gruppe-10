@@ -5,11 +5,13 @@ public class Curse {
     private String name;
     private String description;
     private String badStuff;
+    private String imagePath;
 
-    public Curse(String name, String description, String badStuff) {
+    public Curse(String name, String description, String badStuff, String imagePath) {
         this.name = name;
         this.description = description;
         this.badStuff = badStuff;
+        this.imagePath = imagePath;
     }
 
     public void setName(String name) {
@@ -36,4 +38,7 @@ public class Curse {
         return badStuff;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
 }

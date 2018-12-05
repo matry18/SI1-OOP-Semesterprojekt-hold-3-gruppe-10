@@ -96,6 +96,8 @@ public class FXMLController implements Initializable {
     private boolean lost = false;
     @FXML
     private ImageView imgMonsterCurseItem;
+    @FXML
+    private Button btnShowCard;
 
     /**
      * Initializes the controller class.
@@ -141,24 +143,28 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleGoEastButtonAction(ActionEvent event) {
+        removeCurse();
         command("go east");
         roomSettings();
     }
 
     @FXML
     private void handleGoNorthButtonAction(ActionEvent event) {
+        removeCurse();
         command("go north");
         roomSettings();
     }
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
+        removeCurse();
         command("go west");
         roomSettings();
     }
 
     @FXML
     private void handleGoSouthButtonAction(ActionEvent event) {
+        removeCurse();
         command("go south");
         roomSettings();
     }
@@ -243,7 +249,6 @@ public class FXMLController implements Initializable {
         } else if(game.getCurrentRoom().isContainsCurse()){
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getCurse().getImagePath()));
             setInventory();
-            game.getCurrentRoom().setContainsCurse(false);//Removes curse after getting hit
         } else if(game.getCurrentRoom().isContainsItem()){
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
         } else {
@@ -286,5 +291,23 @@ public class FXMLController implements Initializable {
     
     private void setLevel(){
         txtPlayerLevel.setText(Integer.toString(game.getPlayer().getLevel()));
+    }
+
+    @FXML
+    private void handleShowCardButtonAction(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowCard.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Big card view");
+            stage.setScene(new Scene(root));
+            stage.show();
+            } catch (Exception e) {
+            System.err.println(e.getMessage());
+            }
+    } 
+    private void removeCurse() {
+        if (game.getCurrentRoom().isContainsCurse()) {
+            game.getCurrentRoom().setContainsCurse(false);//Removes curse after getting hit
+        }
     }
 }

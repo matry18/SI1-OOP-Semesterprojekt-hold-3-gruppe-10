@@ -27,8 +27,11 @@ public class HelpWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         txtAreaHelp.setText("You are lost. You are alone. You wander around in the dungeon.\n"+
                 "The rules are: You win the game by reaching level 10 or more.\n"+
-                "You lose the game if you reach level 0 or below.\nYou go up a level by defeating a monster.\nAfter defeating a monster you can loot the room for goods.\n"+
-                "When fighting a monster you have to be stronger than the monster.\nYour strength is your level and your bonuses combined which is your attack level.");
+                "You lose the game if you reach level 0 or below.\nYou go up a level by defeating a monster."
+                + "\nAfter defeating a monster you can loot the room for goods.\n"+
+                "When fighting a monster you have to be stronger than the monster."
+                + "\nYour strength is your level and your bonuses combined which is your attack level."
+                + "\nWhen encountering a monster card, a curse card or an item card you can click the card to see a bigger version of the card.");
     }    
     
 }

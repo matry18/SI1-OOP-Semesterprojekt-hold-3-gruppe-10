@@ -207,7 +207,7 @@ public class Game {
         r40C.setExit("west", r12M);
 
         //Define the curses in the rooms
-        r2C.setCurse(new Curse("BAM WAM SLAM!", "You get hit and you do not know by what.", "You now have a cursed armor.", "\\pictures\\monster\\bam wam slam! copy.png"));
+        r2C.setCurse(new Curse("BAM WAM SLAM!", "You get hit and you do not know by what.", "You now have a cursed armor.", "\\pictures\\curses\\bam wam slam!.png"));
         r5C.setCurse(new Curse("Curse!", "Immortality removed. You are now on your own!... MUHAHAHA!", "You are trapped in the dungeon, the only way out is reaching level 10. Good Luck.\n You now have a cursed armor.", ""));
         r8C.setCurse(new Curse("Fancy hat with feathers.", "The hat i fancy, because it got feathers!", "You now have a cursed headgear.", ""));
         r10C.setCurse(new Curse("E-tivity.", "A very difficult online activity, you rip your hair out of your head!", "You now have a cursed headgear.", ""));
@@ -221,8 +221,8 @@ public class Game {
 
         //Define the monsters in the rooms
         r1M.setMonster(new Monster("A Tiny Chicken", "Still looking for his friend: Chicken Little.", 0, "Calls you a chicken but nothing else happens.", 0, "\\pictures\\monster\\atinyechicken.png"));
-        r3M.setMonster(new Monster("The Bully", "He bullys you into submission(you notice a trap door behind him).", 4, "Lose 1 level.", -1, "\\pictures\\monster\\.png"));
-        r4M.setMonster(new Monster("Gobo the Goblin", "Iiiiit's Gobo everbody!", 1, "Nothing bad happens.", 0, "\\pictures\\monster\\.png"));
+        r3M.setMonster(new Monster("The Bully", "He bullys you into submission(you notice a trap door behind him).", 4, "Lose 1 level.", -1, "\\pictures\\monster\\thebully.png"));
+        r4M.setMonster(new Monster("Gobo the Goblin", "Iiiiit's Gobo everbody!", 1, "Nothing bad happens.", 0, "\\pictures\\monster\\gobothegoblin.png"));
         r6M.setMonster(new Monster("The Karate Squid", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
         r7M.setMonster(new Monster("Larry the Cable Guy", "+3 against Swagger Dagger.", 4, "You trip on his cable and get done. Lose 1 level.", -1, "\\pictures\\monster\\.png"));
         r9M.setMonster(new Monster("Harry the Hairy Wizard", "He whacks you with his wand.", 6, "He enchants you, making you grow hair all over your feet! Lose 1 level.", -1, "\\pictures\\monster\\.png"));
@@ -253,8 +253,8 @@ public class Game {
         //Items connected to the rooms
         r1M.setItem(new LeftHand("Cheese grater of peace", 1, "\\pictures\\items\\cheese_grater_of_peace.png"));
         r2C.setItem(new Armor("Cursed pants... REALLY pretty cursed pants! They look fancy but gives no bonuses", 0, "\\pictures\\items\\cursed_pants.png"));
-        r3M.setItem(new Headgear("Helm of courage", 1, "\\pictures\\items\\.png"));
-        r4M.setItem(new Armor("Goblin shitty shirt", 3, "\\pictures\\items\\.png"));
+        r3M.setItem(new Headgear("Helm of courage", 1, "\\pictures\\items\\helm_of_courage.png"));
+        r4M.setItem(new Armor("Goblin shitty shirt", 3, "\\pictures\\items\\goblin_shitty_shirt.png"));
         r5C.setItem(new Armor("Cursed armor of idiotic bravery", 0, "\\pictures\\items\\.png"));
         r6M.setItem(new LeftHand("Tentacle", 2, "\\pictures\\items\\.png"));
         r7M.setItem(new LeftHand("Wire cutter", 2, "\\pictures\\items\\.png"));
@@ -272,7 +272,7 @@ public class Game {
         r19M.setItem(new LeftHand("Orange rattle", 1, "\\pictures\\items\\.png"));
         r20M.setItem(new Armor("Fancy looking cloak", 3, "\\pictures\\items\\.png"));
         r21C.setItem(new LeftHand("A cursed tiny fork", -4, "\\pictures\\items\\.png"));
-        r22M.setItem(new OneTimeUse("Curling rock", 3, "\\pictures\\items\\.png"));
+        r22M.setItem(new OneTimeUse("Curling rock", 3, "\\pictures\\items\\curling_rock.png"));
         r23M.setItem(new Armor("Armour vest of rabbit fur", 3, "\\pictures\\items\\.png"));
         r24C.setItem(new RightHand("Cursed chainsaw of bloody dismemberment", -3, "\\pictures\\items\\.png")); 
         r25C.setItem(new Armor("Cursed spiky knees", -3, "\\pictures\\items\\.png"));

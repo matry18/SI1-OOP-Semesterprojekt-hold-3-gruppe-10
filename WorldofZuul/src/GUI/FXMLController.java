@@ -115,6 +115,9 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleOneTimeUseButtonAction(ActionEvent event) {
+        command("useitem");
+        imgOneTimeUse.setImage(null);
+        setAttackLevel();
     }
 
     @FXML

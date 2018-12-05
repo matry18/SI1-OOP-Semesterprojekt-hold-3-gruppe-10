@@ -11,8 +11,8 @@ package Bonuses;
  */
 public class LeftHand extends Item implements Comparable<Item> {
     
-    public LeftHand(String name, int bonus) {
-        super(name, bonus, "Left hand weapon",4);
+    public LeftHand(String name, int bonus, String imgPath) {
+        super(name, bonus, "Left hand weapon",4, imgPath);
     }
     
     

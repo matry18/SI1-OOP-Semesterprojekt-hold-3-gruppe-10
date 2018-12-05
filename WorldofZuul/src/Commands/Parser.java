@@ -6,12 +6,13 @@ import java.util.StringTokenizer;
 public class Parser 
 {
     private CommandWords commands;
-    private Scanner reader;
+   // private Scanner reader;
+    private String GUICommand;
 
     public Parser() 
     {
         commands = new CommandWords();
-        reader = new Scanner(System.in);
+        //reader = new Scanner(System.in);
     }
 
     public Command getCommand() 
@@ -22,7 +23,7 @@ public class Parser
 
         System.out.print("> "); 
 
-        inputLine = reader.nextLine();
+        inputLine = GUICommand;
 
         Scanner tokenizer = new Scanner(inputLine);
         if(tokenizer.hasNext()) {
@@ -39,4 +40,9 @@ public class Parser
     {
         commands.showAll();
     }
+
+    public void setGUICommand(String goDirection) {
+        this.GUICommand = goDirection;
+    }
+    
 }

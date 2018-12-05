@@ -69,6 +69,12 @@ public class Character {
         return null;
     }
 
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+    
+    
+
     public void addItem(Item item) { //Adds an item to the inventory. Always use a subclass to Item.
             if(item instanceof LeftHand || item instanceof RightHand){
                 System.out.println("The Player equips "+item.getName());

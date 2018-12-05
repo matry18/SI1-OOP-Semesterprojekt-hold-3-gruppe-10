@@ -109,6 +109,8 @@ public class FXMLController implements Initializable {
         imgRoomView.setImage(image);
         Image compass = new Image("\\pictures\\background\\compass.png");
         imgCompass.setImage(compass);
+        setLevel();
+        setAttackLevel();
     }
 
     @FXML
@@ -163,7 +165,7 @@ public class FXMLController implements Initializable {
         command("fight");
         checkForWinning();
         setImgMonsterCurseItem();
-        
+        setLevel();
     }
 
     @FXML
@@ -175,6 +177,8 @@ public class FXMLController implements Initializable {
         } else {
             roomSettings();
         }
+        setAttackLevel();
+        setLevel();
     }
 
     @FXML
@@ -186,6 +190,7 @@ public class FXMLController implements Initializable {
         setInventory();
         command("loot");
         setImgMonsterCurseItem();
+        setAttackLevel();
     }
     
     public void checkForWinning() {
@@ -270,5 +275,13 @@ public class FXMLController implements Initializable {
         } else if (game.getCurrentRoom().getItem().getDataNum() == 6) {
             imgOneTimeUse.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
         }
+    }
+    
+    private void setAttackLevel(){
+        lblAttackLevel.setText(Integer.toString(game.getPlayer().totalAttackValue()));
+    }
+    
+    private void setLevel(){
+        txtPlayerLevel.setText(Integer.toString(game.getPlayer().getLevel()));
     }
 }

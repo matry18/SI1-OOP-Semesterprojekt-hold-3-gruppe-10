@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Game {
 
     private Parser parser;
-    private Command command;
     private Room currentRoom;
     private Room previousRoom;
     private final int maxLevel = 10;
@@ -208,28 +207,28 @@ public class Game {
 
         //Define the curses in the rooms
         r2C.setCurse(new Curse("BAM WAM SLAM!", "You get hit and you do not know by what.", "You now have a cursed armor.", "\\pictures\\curses\\bam wam slam!.png"));
-        r5C.setCurse(new Curse("Curse!", "Immortality removed. You are now on your own!... MUHAHAHA!", "You are trapped in the dungeon, the only way out is reaching level 10. Good Luck.\n You now have a cursed armor.", ""));
-        r8C.setCurse(new Curse("Fancy hat with feathers.", "The hat i fancy, because it got feathers!", "You now have a cursed headgear.", ""));
-        r10C.setCurse(new Curse("E-tivity.", "A very difficult online activity, you rip your hair out of your head!", "You now have a cursed headgear.", ""));
-        r14C.setCurse(new Curse("Harsh Language!", "A rat says something very unpleasant about your mother.", "You now have a cursed haedgear.", ""));
-        r18C.setCurse(new Curse("Shitter Twitter Trump!?", "He hacks your Twitter account and posts shit.", "You now have a cursed weapon.", ""));
-        r21C.setCurse(new Curse("Tiny Hands!", "Tiny hands comes flying toward you, they taking your weapon!", "You now have a cursed weapon.", ""));
-        r24C.setCurse(new Curse("Rolling Stone!", "A huge round stone rolls towards you, INDIANA JONES STYLE!", "You now have a cursed weapon.", ""));
-        r25C.setCurse(new Curse("Duck of Doom!", "A menacing presence makes you shiver.", "You now have a cursed armor.", ""));
-        r30C.setCurse(new Curse("Josef F. Ritzl?!", "He invites you in to his cellar and locks you up.", "You now have a cursed weapon.", ""));
-        r40C.setCurse(new Curse("Tar room.", "You jump into the room, only to find your feet getting stuck in the tar.", "You now have a cursed footgear.", ""));
+        r5C.setCurse(new Curse("Curse!", "Immortality removed. You are now on your own!... MUHAHAHA!", "You are trapped in the dungeon, the only way out is reaching level 10. Good Luck.\n You now have a cursed armor.", "\\pictures\\curses\\curse!.png"));
+        r8C.setCurse(new Curse("Fancy hat with feathers.", "The hat i fancy, because it got feathers!", "You now have a cursed headgear.", "\\pictures\\curses\\fancy hat with feathers.png"));
+        r10C.setCurse(new Curse("E-tivity.", "A very difficult online activity, you rip your hair out of your head!", "You now have a cursed headgear.", "\\pictures\\curses\\e-tivity.png"));
+        r14C.setCurse(new Curse("Harsh Language!", "A rat says something very unpleasant about your mother.", "You now have a cursed haedgear.", "\\pictures\\curses\\harsh language!.png"));
+        r18C.setCurse(new Curse("Shitter Twitter Trump!?", "He hacks your Twitter account and posts shit.", "You now have a cursed weapon.", "\\pictures\\curses\\Shitter twitter trump!.png"));
+        r21C.setCurse(new Curse("Tiny Hands!", "Tiny hands comes flying toward you, they taking your weapon!", "You now have a cursed weapon.", "\\pictures\\curses\\tiny hands!.png"));
+        r24C.setCurse(new Curse("Rolling Stone!", "A huge round stone rolls towards you, INDIANA JONES STYLE!", "You now have a cursed weapon.", "\\pictures\\curses\\rolling stone!.png"));
+        r25C.setCurse(new Curse("Duck of Doom!", "A menacing presence makes you shiver.", "You now have a cursed armor.", "\\pictures\\curses\\duck of doom!.png"));
+        r30C.setCurse(new Curse("Josef F. Ritzl?!", "He invites you in to his cellar and locks you up.", "You now have a cursed weapon.", "\\pictures\\curses\\josef f ritzl.png"));
+        r40C.setCurse(new Curse("Tar room.", "You jump into the room, only to find your feet getting stuck in the tar.", "You now have a cursed footgear.", "\\pictures\\curses\\tar room.png"));
 
         //Define the monsters in the rooms
         r1M.setMonster(new Monster("A Tiny Chicken", "Still looking for his friend: Chicken Little.", 0, "Calls you a chicken but nothing else happens.", 0, "\\pictures\\monster\\atinyechicken.png"));
         r3M.setMonster(new Monster("The Bully", "He bullys you into submission(you notice a trap door behind him).", 4, "Lose 1 level.", -1, "\\pictures\\monster\\thebully.png"));
         r4M.setMonster(new Monster("Gobo the Goblin", "Iiiiit's Gobo everbody!", 1, "Nothing bad happens.", 0, "\\pictures\\monster\\gobothegoblin.png"));
-        r6M.setMonster(new Monster("The Karate Squid", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
-        r7M.setMonster(new Monster("Larry the Cable Guy", "+3 against Swagger Dagger.", 4, "You trip on his cable and get done. Lose 1 level.", -1, "\\pictures\\monster\\.png"));
-        r9M.setMonster(new Monster("Harry the Hairy Wizard", "He whacks you with his wand.", 6, "He enchants you, making you grow hair all over your feet! Lose 1 level.", -1, "\\pictures\\monster\\.png"));
-        r11M.setMonster(new Monster("The Stoned Golem", "He's sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level.", -1, "\\pictures\\monster\\.png"));
-        r12M.setMonster(new Monster("A group of 8378493.5 High Scool Students on Internship", "They ask you questions with no relevance and you do not care about answering.", 10, "They talk to you, even during your lunch break, until you lay flat on the ground. Lose 1 level.", -1, "\\pictures\\monster\\.png"));
-        r13M.setMonster(new Monster("An Angry Gnome", "He HATES!!! Christmas and he hates everybody who mentions Christmas… And he hates YOU!", 13, "He will suffocate you with rice porridge. Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
-        r15M.setMonster(new Monster("A Dragon with Halitosis", "It has periodontitis and it smells really bad.", 8, "The smell from his mouth alone kills you (figuratively). Lose 1 level.", -1, "\\pictures\\monster\\.png"));
+        r6M.setMonster(new Monster("The Karate Squid", "Makes sushi out of you. He will chop you up in small pieces!", 8, "His arm attacks you from behind. Lose 2 levels.", -2, "\\pictures\\monster\\thekaratesquid.png"));
+        r7M.setMonster(new Monster("Larry the Cable Guy", "+3 against Swagger Dagger.", 4, "You trip on his cable and get done. Lose 1 level.", -1, "\\pictures\\monster\\larrythecableguy.png"));
+        r9M.setMonster(new Monster("Harry the Hairy Wizard", "He whacks you with his wand.", 6, "He enchants you, making you grow hair all over your feet! Lose 1 level.", -1, "\\pictures\\monster\\harrythehairywizard.png"));
+        r11M.setMonster(new Monster("The Stoned Golem", "He's sooo stooned broo.", 7, "He falls over and lands on you left foot. Lose 1 level.", -1, "\\pictures\\monster\\thestonedgolem.png"));
+        r12M.setMonster(new Monster("A group of 8378493.5 High Scool Students on Internship", "They ask you questions with no relevance and you do not care about answering.", 10, "They talk to you, even during your lunch break, until you lay flat on the ground. Lose 1 level.", -1, "\\pictures\\monster\\Agroupof8378493.5HighScoolStudentsnnInternship.png"));
+        r13M.setMonster(new Monster("An Angry Gnome", "He HATES!!! Christmas and he hates everybody who mentions Christmas… And he hates YOU!", 13, "He will suffocate you with rice porridge. Lose 2 levels.", -2, "\\pictures\\monster\\anangrygnome.png"));
+        r15M.setMonster(new Monster("A Dragon with Halitosis", "It has periodontitis and it smells really bad.", 8, "The smell from his mouth alone kills you (figuratively). Lose 1 level.", -1, "\\pictures\\monster\\adragonwithhalitosis.png"));
         r16M.setMonster(new Monster("Pelvin the Elf and his slightly less known brother Melvin", "Pelvin and Melvin will continue each others sentences which irritates you a lot! You can not flee from this monster, you have to fight them.", 7, "They will include you in their debate club. Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
         r17M.setMonster(new Monster("Satan Claws", "Due to a typo and dyslexia it is Satan Claws who has been summoned instead of Santa Claus", 10, "He will gore you with his horns. Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
         r19M.setMonster(new Monster("A Stubborn Crying Child", "He's had to much stewed apples and he's not happy about it.", 4, "The baby throws its dirty diaper at you. Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
@@ -239,58 +238,58 @@ public class Game {
         r26M.setMonster(new Monster("Trubadourix", "He will sing you a song... which sounds awful!", 14, "Your eardrums inflate so much that your headgear cease to be able to fit your head! Lose 3 levels.", -3, "\\pictures\\monster\\.png"));
         r27M.setMonster(new Monster("Katty Purry", "Great singer but gets distracted easily (typical cat stuff). -5 If you have the Vest of Rabbit Fur.", 18, "She deafens you with her cat wailing! Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
         r28M.setMonster(new Monster("Daft Vader", "He flails his arms around while wielding his red lightsaber, trying to intimidate you, while mumbling mumbo jumbo about some 'force'.", 6, "He uses the force to choke you. Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
-        r29M.setMonster(new Monster("A Shrieking Geek from RobTech", "He is a geek and it is infectious.", 19, "Lose 3 levels.", -3, "\\pictures\\monster\\.png"));
-        r31M.setMonster(new Monster("LEEEEEROYY JENKINSSSS", "He rushes out of the room, yelling about whelplings. He leaves something behind.", 17, "Nothing, he is already gone.", 0, "\\pictures\\monster\\.png"));
-        r32M.setMonster(new Monster("Dorky Dragon of Doom", "He tells stupid jokes, which are not funny at all. He bores you to death (figuratively).", 16, "Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
-        r33M.setMonster(new Monster("The Doom Donuts", "They have an affinity for everything with a 0 in it.", 7, "Lose 0 levels.", 0, "\\pictures\\monster\\.png"));
-        r34M.setMonster(new Monster("Topless Dancer", "He/she shakes em'.", 9, "Lose 2 levels.", -2, "\\pictures\\monster\\.png"));
+        r29M.setMonster(new Monster("A Shrieking Geek from RobTech", "He is a geek and it is infectious.", 19, "Lose 3 levels.", -3, "\\pictures\\monster\\ashriekinggeekfromrobtech.png"));
+        r31M.setMonster(new Monster("LEEEEEROYY JENKINSSSS", "He rushes out of the room, yelling about whelplings. He leaves something behind.", 17, "Nothing, he is already gone.", 0, "\\pictures\\monster\\leeroyjenkins.png"));
+        r32M.setMonster(new Monster("Dorky Dragon of Doom", "He tells stupid jokes, which are not funny at all. He bores you to death (figuratively).", 16, "Lose 2 levels.", -2, "\\pictures\\monster\\dorkydragonofdoom.png"));
+        r33M.setMonster(new Monster("The Doom Donuts", "They have an affinity for everything with a 0 in it.", 7, "Lose 0 levels.", 0, "\\pictures\\monster\\thedoomdonuts.png"));
+        r34M.setMonster(new Monster("Topless Dancer", "He/she shakes em'.", 9, "Lose 2 levels.", -2, "\\pictures\\monster\\topless_dancer.png"));
         r35M.setMonster(new Monster("The Great Cornholio", "Hehehehh… Heheheheh.", 8, "You lose a level… or something.", -1, "\\pictures\\monster\\.png"));
-        r36M.setMonster(new Monster("Flying Surströmming", "The smell is EVERYWHERE.", 12, "You throw up from the smell alone. Lose 3 levels.", -3, "\\pictures\\monster\\.png"));
+        r36M.setMonster(new Monster("Flying Surströmming", "The smell is EVERYWHERE.", 12, "You throw up from the smell alone. Lose 3 levels.", -3, "\\pictures\\monster\\flyingsurstromming.png"));
         r37M.setMonster(new Monster("G'huunies", "They seem cute at first, but they just keep coming.", 11, "Lose 5 levels.", -5, "\\pictures\\monster\\.png"));
-        r38M.setMonster(new Monster("Moon Maidens", "They moon you.", 9, "Lose 5 levels.", -5, "\\pictures\\monster\\.png"));
-        r39M.setMonster(new Monster("Brick Bad", "He sells you really good meth shaped as bricks.", 9, "Lose 4 levels.", -4, "\\pictures\\monster\\.png"));
+        r38M.setMonster(new Monster("Moon Maidens", "They moon you.", 9, "Lose 5 levels.", -5, "\\pictures\\monster\\moonmaidens.png"));
+        r39M.setMonster(new Monster("Brick Bad", "He sells you really good meth shaped as bricks.", 9, "Lose 4 levels.", -4, "\\pictures\\monster\\brickbad.png"));
 
         //Items connected to the rooms
         r1M.setItem(new LeftHand("Cheese grater of peace", 1, "\\pictures\\items\\cheese_grater_of_peace.png"));
         r2C.setItem(new Armor("Cursed pants... REALLY pretty cursed pants! They look fancy but gives no bonuses", 0, "\\pictures\\items\\cursed_pants.png"));
         r3M.setItem(new Headgear("Helm of courage", 1, "\\pictures\\items\\helm_of_courage.png"));
         r4M.setItem(new Armor("Goblin shitty shirt", 3, "\\pictures\\items\\goblin_shitty_shirt.png"));
-        r5C.setItem(new Armor("Cursed armor of idiotic bravery", 0, "\\pictures\\items\\.png"));
-        r6M.setItem(new LeftHand("Tentacle", 2, "\\pictures\\items\\.png"));
-        r7M.setItem(new LeftHand("Wire cutter", 2, "\\pictures\\items\\.png"));
-        r8C.setItem(new Headgear("Cursed hat with feathers", -1, "\\pictures\\items\\.png"));
-        r9M.setItem(new Armor("Furry tail", 2, "\\pictures\\items\\.png"));
-        r10C.setItem(new Headgear("Cursed head do to E-tivity", -3, "\\pictures\\items\\.png"));
-        r11M.setItem(new OneTimeUse("A lot of small rocks", 2, "\\pictures\\items\\.png"));
-        r12M.setItem(new Armor("School bag full of pencils and paper", 2, "\\pictures\\items\\.png"));
-        r13M.setItem(new LeftHand("Bad ass spoon of wood", 3, "\\pictures\\items\\.png"));
-        r14C.setItem(new Headgear("Cursed rat whiskers", -3, "\\pictures\\items\\.png"));
-        r15M.setItem(new RightHand("Really big toothpick", 3, "\\pictures\\items\\.png"));
-        r16M.setItem(new LeftHand("A speaking sword who speaks really well", 3, "\\pictures\\items\\.png"));
-        r17M.setItem(new RightHand("A spear with a red point", 3, "\\pictures\\items\\.png"));
-        r18C.setItem(new LeftHand("Cursed cell phone with low signal", -3, "\\pictures\\items\\.png"));
-        r19M.setItem(new LeftHand("Orange rattle", 1, "\\pictures\\items\\.png"));
-        r20M.setItem(new Armor("Fancy looking cloak", 3, "\\pictures\\items\\.png"));
-        r21C.setItem(new LeftHand("A cursed tiny fork", -4, "\\pictures\\items\\.png"));
+        r5C.setItem(new Armor("Cursed armor of idiotic bravery", 0, "\\pictures\\items\\cursed_armor_of_idiotic_bravery.png"));
+        r6M.setItem(new LeftHand("Tentacle", 2, "\\pictures\\items\\tentacle.png"));
+        r7M.setItem(new LeftHand("Wire cutter", 2, "\\pictures\\items\\wire_cutter.png"));
+        r8C.setItem(new Headgear("Cursed hat with feathers", -1, "\\pictures\\items\\cursed_hat_with_feathers.png"));
+        r9M.setItem(new Armor("Furry tail", 2, "\\pictures\\items\\furry_tail.png"));
+        r10C.setItem(new Headgear("Cursed head do to E-tivity", -3, "\\pictures\\items\\incredible_headache.png"));
+        r11M.setItem(new OneTimeUse("A lot of small rocks", 2, "\\pictures\\items\\a_lot_of_small_rocks.png"));
+        r12M.setItem(new Armor("School bag full of pencils and paper", 2, "\\pictures\\items\\school_bag_full_of_pencils_and_paper.png"));
+        r13M.setItem(new LeftHand("Bad ass spoon of wood", 3, "\\pictures\\items\\bad_ass_spoon_of_wood.png"));
+        r14C.setItem(new Headgear("Cursed rat whiskers", -3, "\\pictures\\items\\cursed_rat_whiskers.png"));
+        r15M.setItem(new RightHand("Really big toothpick", 3, "\\pictures\\items\\really_big_toothpick.png"));
+        r16M.setItem(new LeftHand("A speaking sword who speaks really well", 3, "\\pictures\\items\\a_speaking_sword_which_speaks_really_well.png"));
+        r17M.setItem(new RightHand("A spear with a red point", 3, "\\pictures\\items\\a_spear_with_red_point.png"));
+        r18C.setItem(new LeftHand("Cursed cell phone with low signal", -3, "\\pictures\\items\\cursed_cellphone_with_low_signal.png"));
+        r19M.setItem(new LeftHand("Orange rattle", 1, "\\pictures\\items\\orange_rattle.png"));
+        r20M.setItem(new Armor("Fancy looking cloak", 3, "\\pictures\\items\\fancy_looking_cloak.png"));
+        r21C.setItem(new LeftHand("A cursed tiny fork", -4, "\\pictures\\items\\cursed_tiny_fork.png"));
         r22M.setItem(new OneTimeUse("Curling rock", 3, "\\pictures\\items\\curling_rock.png"));
-        r23M.setItem(new Armor("Armour vest of rabbit fur", 3, "\\pictures\\items\\.png"));
-        r24C.setItem(new RightHand("Cursed chainsaw of bloody dismemberment", -3, "\\pictures\\items\\.png")); 
-        r25C.setItem(new Armor("Cursed spiky knees", -3, "\\pictures\\items\\.png"));
-        r26M.setItem(new RightHand("Harp O' Molly", 2, "\\pictures\\items\\.png"));
-        r27M.setItem(new LeftHand("Microphone", 1, "\\pictures\\items\\.png"));//+5 if used with cellphone
-        r28M.setItem(new LeftHand("A Plastic Light Saber Toy", 1, "\\pictures\\items\\.png"));
-        r29M.setItem(new Armor("Shirt with check pattern", 3, "\\pictures\\items\\.png"));
-        r30C.setItem(new LeftHand("Cursed old used teddy bear", -3, "\\pictures\\items\\.png"));
-        r31M.setItem(new OneTimeUse("CHICKEN!!!", 6, "\\pictures\\items\\.png"));
-        r32M.setItem(new OneTimeUse("A dad joke book", 3, "\\pictures\\items\\.png"));
-        r33M.setItem(new Footgear("Your feet are dragon",4, "\\pictures\\items\\.png"));
-        r34M.setItem(new RightHand("Mannequin head, you can bash your opponents with", 2, "\\pictures\\items\\.png"));
-        r35M.setItem(new OneTimeUse("You scored with a hot chick", 1, "\\pictures\\items\\.png"));
-        r36M.setItem(new OneTimeUse("You kept some of the remaining fish, to startle your next opponent", 6, "\\pictures\\items\\.png"));
-        r37M.setItem(new OneTimeUse("Infestation", 5, "\\pictures\\items\\.png"));
-        r38M.setItem(new Armor("B.A.A.W.W.", 4, "\\pictures\\items\\.png"));
-        r39M.setItem(new Footgear("Boots of butt-kicking", 2, "\\pictures\\items\\.png"));
-        r40C.setItem(new Footgear("Cursed feet with blisters", -3, "\\pictures\\items\\.png"));
+        r23M.setItem(new Armor("Armour vest of rabbit fur", 3, "\\pictures\\items\\armor_vest_of_rabbit_fur.png"));
+        r24C.setItem(new RightHand("Cursed chainsaw of bloody dismemberment", -3, "\\pictures\\items\\cursed_chainsaw_of_bloody_dismemberment.png")); 
+        r25C.setItem(new Armor("Cursed spiky knees", -3, "\\pictures\\items\\cursed_spiky_knees.png"));
+        r26M.setItem(new RightHand("Harp O' Molly", 2, "\\pictures\\items\\harp_o_molly.png"));
+        r27M.setItem(new LeftHand("Microphone", 1, "\\pictures\\items\\micropwn.png"));//+5 if used with cellphone
+        r28M.setItem(new LeftHand("A Plastic Light Saber Toy", 1, "\\pictures\\items\\plastic_lightsaber_toy.png"));
+        r29M.setItem(new Armor("Shirt with check pattern", 3, "\\pictures\\items\\shirt_with_check_pattern.png"));
+        r30C.setItem(new LeftHand("Cursed old used teddy bear", -3, "\\pictures\\items\\cursed_used_teddybear.png"));
+        r31M.setItem(new OneTimeUse("CHICKEN!!!", 6, "\\pictures\\items\\chicken.png"));
+        r32M.setItem(new OneTimeUse("A dad joke book", 3, "\\pictures\\items\\a_dad_joke_book.png"));
+        r33M.setItem(new Footgear("Your feet are dragon",4, "\\pictures\\items\\your_feet_are_dragon.png")); //Item?
+        r34M.setItem(new RightHand("Mannequin head, you can bash your opponents with", 2, "\\pictures\\items\\mannequin_head.png"));
+        r35M.setItem(new OneTimeUse("You scored with a hot chick", 1, "\\pictures\\items\\hot_chick.png"));
+        r36M.setItem(new OneTimeUse("You kept some of the remaining fish, to startle your next opponent", 6, "\\pictures\\items\\fish_remains.png"));
+        r37M.setItem(new OneTimeUse("Infestation", 5, "\\pictures\\items\\infestation.png"));
+        r38M.setItem(new Armor("B.A.A.W.W.", 4, "\\pictures\\items\\baaww.png"));
+        r39M.setItem(new Footgear("Boots of butt-kicking", 2, "\\pictures\\items\\boots_of_buttkicking.png"));
+        r40C.setItem(new Footgear("Cursed feet with blisters", -3, "\\pictures\\items\\cursed_feet_with_blisters.png"));
         currentRoom = start;
     }
 

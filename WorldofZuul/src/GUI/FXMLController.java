@@ -327,6 +327,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleShowHeadGearButtonAction(ActionEvent event) {
+        
     }
 
     @FXML

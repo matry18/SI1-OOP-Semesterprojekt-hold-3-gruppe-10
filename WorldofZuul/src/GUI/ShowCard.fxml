@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowCardController">
    <children>
-      <ImageView fx:id="imgShowCard" fitHeight="600.0" fitWidth="378.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgShowCard" fitHeight="600.0" fitWidth="378.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="btnCloseWindow" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCloseWindowButtonAction" opacity="0.0" prefHeight="600.0" prefWidth="378.0" text="Close window" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Windlass" size="12.0" />

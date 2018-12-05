@@ -60,7 +60,7 @@
                         <Font name="Windlass" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="lblAttackLevel" editable="false" />
+                  <TextField fx:id="lblAttackLevel" alignment="CENTER" editable="false" />
                   <Label fx:id="lblLevel" text="Level:">
                      <VBox.margin>
                         <Insets />
@@ -72,10 +72,7 @@
                         <Font name="Windlass" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPlayerLevel" editable="false">
-                     <padding>
-                        <Insets bottom="1.0" top="1.0" />
-                     </padding>
+                  <TextField fx:id="txtPlayerLevel" alignment="CENTER" editable="false">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>

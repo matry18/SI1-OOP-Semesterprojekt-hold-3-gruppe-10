@@ -16,7 +16,7 @@ public class Play {
         System.out.print("Choose your gamemode: ");
         String gamemode = sc.next();
         if(gamemode.equals("singleplayer") || gamemode.equals("Singleplayer")){
-            singleplayer.play();
+            //singleplayer.play();
         } else if (gamemode.equals("multiplayer") || gamemode.equals("Multiplayer")) {
             multiplayer2.play();
         } else {

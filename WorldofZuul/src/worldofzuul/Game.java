@@ -522,14 +522,6 @@ public class Game {
         this.changePlayer = changePlayer;
     }
 
-    public boolean isFinished() {
-        return finished;
-    }
-
-    public void setFinished(boolean finished) {
-        this.finished = finished;
-    }
-
     public boolean isBattleMode() {
         return battleMode;
     }

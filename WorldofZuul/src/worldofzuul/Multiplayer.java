@@ -23,7 +23,6 @@ public class Multiplayer {
     
     
     public void play(){
-      currentGame.printWelcome();
       
       boolean finished = false;
         

@@ -10,7 +10,7 @@ import worldofzuul.Game;
 
 public class GUILaunch extends Application {
 
-    static Game game = new Game();
+    static Game game = new Game(false);
     //game.play();
     @Override
     public void start(Stage stage) throws Exception {

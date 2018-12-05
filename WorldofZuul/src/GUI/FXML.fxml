@@ -35,12 +35,18 @@
             <Point3D />
          </rotationAxis>
          <children>
-            <ImageView fx:id="imgHeadgear" fitHeight="160.0" fitWidth="91.4" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-            <ImageView fx:id="imgArmor" fitHeight="160.0" fitWidth="91.4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ImageView fx:id="imgLeftHand" fitHeight="160.0" fitWidth="91.4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ImageView fx:id="imgRightHand" fitHeight="160.0" fitWidth="91.4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ImageView fx:id="imgFootgear" fitHeight="160.0" fitWidth="91.4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <ImageView fx:id="imgOneTimeUse" fitHeight="160.0" fitWidth="91.4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ImageView fx:id="imgHeadgear" fitHeight="133.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+            <Button fx:id="btnShowHeadGear" mnemonicParsing="false" onAction="#handleShowHeadGearButtonAction" opacity="0.0" prefHeight="133.0" prefWidth="91.0" text="Head Gear" GridPane.rowIndex="2" />
+            <ImageView fx:id="imgArmor" fitHeight="133.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btnShowArmor" mnemonicParsing="false" onAction="#handleShowArmorButtonAction" opacity="0.0" prefHeight="133.0" prefWidth="91.0" text="Armor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fx:id="imgLeftHand" fitHeight="133.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="btnShowLeftHand" mnemonicParsing="false" onAction="#handleShowLeftHandButtonAction" opacity="0.0" prefHeight="133.0" prefWidth="91.0" text="Left Hand" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fx:id="imgRightHand" fitHeight="133.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="btnShowRightHand" mnemonicParsing="false" onAction="#handleShowRightHandButtonAction" opacity="0.0" prefHeight="133.0" prefWidth="91.0" text="Right Hand" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ImageView fx:id="imgFootgear" fitHeight="133.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="btnShowFootGear" mnemonicParsing="false" onAction="#handleShowFootGearButtonAction" opacity="0.0" prefHeight="133.0" prefWidth="91.0" text="Foot Gear" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ImageView fx:id="imgOneTimeUse" fitHeight="133.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Button fx:id="btnShowOneTimeUse" mnemonicParsing="false" onAction="#handleShowOneTimeUseButtonAction" opacity="0.0" prefHeight="133.0" prefWidth="91.0" text="OneTimeUse" GridPane.columnIndex="5" GridPane.rowIndex="2" />
             <VBox fx:id="VBoxAttackLevelOneTimeUseHelpQuit" prefHeight="162.0" prefWidth="92.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lblAttack" text="Attack level:">

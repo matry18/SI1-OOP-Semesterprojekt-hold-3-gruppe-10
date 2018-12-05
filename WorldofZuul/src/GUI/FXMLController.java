@@ -98,6 +98,18 @@ public class FXMLController implements Initializable {
     private ImageView imgMonsterCurseItem;
     @FXML
     private Button btnShowCard;
+    @FXML
+    private Button btnShowHeadGear;
+    @FXML
+    private Button btnShowArmor;
+    @FXML
+    private Button btnShowLeftHand;
+    @FXML
+    private Button btnShowRightHand;
+    @FXML
+    private Button btnShowFootGear;
+    @FXML
+    private Button btnShowOneTimeUse;
 
     /**
      * Initializes the controller class.
@@ -311,5 +323,29 @@ public class FXMLController implements Initializable {
         if (game.getCurrentRoom().isContainsCurse()) {
             game.getCurrentRoom().setContainsCurse(false);//Removes curse after getting hit
         }
+    }
+
+    @FXML
+    private void handleShowHeadGearButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleShowArmorButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleShowLeftHandButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleShowRightHandButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleShowFootGearButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleShowOneTimeUseButtonAction(ActionEvent event) {
     }
 }

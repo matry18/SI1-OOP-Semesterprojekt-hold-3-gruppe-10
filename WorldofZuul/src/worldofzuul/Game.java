@@ -3,33 +3,30 @@ package worldofzuul;
 import Commands.Parser;
 import Commands.CommandWord;
 import Commands.Command;
-import Bonuses.Item;
-import Bonuses.OneTimeUse;
-import Bonuses.RightHand;
-import Bonuses.LeftHand;
-import Bonuses.Headgear;
-import Bonuses.Footgear;
-import Bonuses.Armor;
-import interfaces.IPlayGame;
+import Bonuses.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Game implements IPlayGame {
+public class Game {
 
     private Parser parser;
+    private Command command;
     private Room currentRoom;
     private Room previousRoom;
-    Character player = new Character();
-    Die die = new Die();
-    private int maxLevel = 10;
-    private int minLevel = 0;
-    private boolean finished = false;
+    private final int maxLevel = 10;
+    private final int minLevel = 0;
     private boolean noDoor = false;
     private boolean battleMode = false;
-    
-    public Game() {
+    private final boolean isMultiplayer;
+    private boolean changePlayer = false;
+    private int moves = 3;
+    Character player = new Character();
+    Die die = new Die();
+
+    public Game(boolean isMultiplayer) {
         createRooms();
         parser = new Parser();
+        this.isMultiplayer = isMultiplayer;
     }
 
     private void createRooms() {
@@ -297,6 +294,7 @@ public class Game implements IPlayGame {
         currentRoom = start;
     }
 
+
         public boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
@@ -312,6 +310,10 @@ public class Game implements IPlayGame {
             loot(command);
         } else if(commandWord == CommandWord.CHARACTER) {
             character(command);
+        } else if(commandWord == CommandWord.ENDTURN) {
+            endTurn(command);
+        } else if(commandWord == CommandWord.USEITEM) {
+            useItem(command);
         }
         return wantToQuit;
     }
@@ -332,7 +334,24 @@ public class Game implements IPlayGame {
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
+            System.out.println("There is no door!");
             noDoor = true;
+        } else if(moves <= 0 && isMultiplayer){
+            System.out.println("You cannot move anymore, change player by using the command: 'endturn'");
+        } else if (isMultiplayer) {
+            previousRoom = currentRoom;
+            currentRoom = nextRoom;
+            moves--;
+            System.out.println(currentRoom.getLongDescription());
+            if (currentRoom.isContainsMonster()) {
+                System.out.println("Battle mode activated. You have an attack value of: "+ player.totalAttackValue()+". You can only fight or flee!");
+            } else if (currentRoom.isContainsCurse()) {
+                currentRoom.setContainsCurse(false);//Removes curse after getting hit
+                currentRoom.setHadCurse(true);
+                currentRoom.setContainsItem(true);
+                lootRoom();
+                currentRoom.setContainsItem(false);
+            } 
         } else {
             previousRoom = currentRoom;
             currentRoom = nextRoom;
@@ -348,6 +367,16 @@ public class Game implements IPlayGame {
             }
         }
     }
+
+    private boolean quit(Command command) {
+        if (command.hasSecondWord()) {
+            System.out.println("Quit what?");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     private boolean fight(Command command) { //When the player wants to fight the monster.
         battleMode = false;
         if (command.hasSecondWord()) {
@@ -364,6 +393,7 @@ public class Game implements IPlayGame {
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
             System.out.println("To loot the room type 'loot' or else leave the room."+"\n"+currentRoom.getExitString());
+            player.resetTemporaryBonus();
             return true;
         } else {
             return false;
@@ -447,6 +477,51 @@ public class Game implements IPlayGame {
             }
         }
 
+    private void endTurn(Command command){ //(Multiplayer Only) When player has 0 moves left this indicates the players wants to change.
+        if (command.hasSecondWord()) {
+            System.out.println("Wrong expression!");
+            
+        }
+        if (isMultiplayer) {
+            moves = 3;
+            changePlayer = true;
+        } else {
+            System.out.println("This command can only be used in multiplayer");
+        }
+    }
+    
+    private boolean useItem(Command command) {
+        if (command.hasSecondWord()) {
+            System.out.println("lol");
+            return false;
+        }
+        if (player.getOneTimeUse() == null) {
+            System.out.println("You have none, fool!");
+            return false;
+        } else {
+            player.addTemporaryBonus(player.getOneTimeUse().getBonus());
+            System.out.println("You used the item and it went puff");
+            player.inventory.remove(player.getOneTimeUse());
+            return true;
+        }
+    }
+    
+    public Parser getParser() {
+        return parser;
+    }
+
+    public boolean isMultiplayer() {
+        return isMultiplayer;
+    }
+    
+    public boolean getChangePlayer() {
+        return changePlayer;
+    }
+    
+    public void setChangePlayer(boolean changePlayer) {
+        this.changePlayer = changePlayer;
+    }
+
     public boolean isFinished() {
         return finished;
     }
@@ -471,7 +546,6 @@ public class Game implements IPlayGame {
         return minLevel;
     }
 
-    @Override
     public Room getCurrentRoom() {
         return currentRoom;
     }

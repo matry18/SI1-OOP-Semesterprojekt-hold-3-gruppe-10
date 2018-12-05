@@ -13,6 +13,7 @@ public class Character {
 
     private int level = 1;
     private int bonus = 0;
+    private int temporaryBonus = 0;
     ArrayList<Item> inventory = new ArrayList<>();
 
     public Character() {
@@ -43,12 +44,29 @@ public class Character {
         this.level = this.level + level;
     }
 
+    public void addTemporaryBonus(int temporaryBonus) {
+        this.temporaryBonus += temporaryBonus;
+    }
+
+    public void resetTemporaryBonus() {
+        this.temporaryBonus = 0;
+    }
+    
     public void setBonus(int bonus) {
         this.bonus = bonus;
     }
 
     public int getBonus() {
         return bonus;
+    }
+    
+    public OneTimeUse getOneTimeUse() {
+        for(Item item : inventory){
+            if(item instanceof OneTimeUse){
+                return (OneTimeUse)item;
+            }
+        }
+        return null;
     }
 
     public ArrayList<Item> getInventory() {
@@ -58,11 +76,6 @@ public class Character {
     
 
     public void addItem(Item item) { //Adds an item to the inventory. Always use a subclass to Item.
-        if(item instanceof OneTimeUse){
-            System.out.println("Sorry! One-time-use items are not available...");
-            return;
-        }
-        else {
             if(item instanceof LeftHand || item instanceof RightHand){
                 System.out.println("The Player equips "+item.getName());
             }
@@ -70,7 +83,7 @@ public class Character {
                 System.out.println("The Player puts on the "+item.getDataType()+" "+item.getName());
             }
             inventory.add(item);
-        }
+        
     }
 
     public String stringInventory() { //Returns the inventory in a string. Headgear printet first, then armor and so on.
@@ -91,8 +104,13 @@ public class Character {
     public int totalAttackValue() { //Adds the player level with the combined bonus of all items.
         int totalValue = 0;
         for (Item gear : inventory) {
+            if(gear instanceof OneTimeUse){
+                continue;
+            }
             totalValue += gear.getBonus();
         }
-        return totalValue + level + bonus;
+        return totalValue + level + bonus + temporaryBonus;
     }
+    
+    
 }

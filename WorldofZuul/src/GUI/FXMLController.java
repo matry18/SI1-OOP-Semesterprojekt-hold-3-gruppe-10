@@ -223,7 +223,7 @@ public class FXMLController implements Initializable {
         GUILaunch.game.processCommand(parser.getCommand());
     }
     
-    private void roomSetImage(){
+    private void setImgRoom(){
         imgRoomView.setImage(new Image(game.getCurrentRoom().getShortDescription()));
     }
     
@@ -249,7 +249,7 @@ public class FXMLController implements Initializable {
         if (GUILaunch.game.isNoDoor()) {
             txtOutput.setText("There is no door!");
         } else {
-            roomSetImage();
+            setImgRoom();
             setImgMonsterCurseItem();
         }
     }

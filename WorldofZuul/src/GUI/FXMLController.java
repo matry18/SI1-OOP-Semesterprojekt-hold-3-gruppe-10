@@ -295,6 +295,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleShowCardButtonAction(ActionEvent event) {
+        if (game.getCurrentRoom().isContainsItem() || game.getCurrentRoom().isContainsMonster() || game.getCurrentRoom().isContainsCurse()) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("ShowCard.fxml"));
             Stage stage = new Stage();
@@ -304,6 +305,7 @@ public class FXMLController implements Initializable {
             } catch (Exception e) {
             System.err.println(e.getMessage());
             }
+        }
     } 
     private void removeCurse() {
         if (game.getCurrentRoom().isContainsCurse()) {

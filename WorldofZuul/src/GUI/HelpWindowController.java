@@ -7,9 +7,12 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -19,6 +22,8 @@ import javafx.scene.control.TextArea;
 public class HelpWindowController implements Initializable {
     @FXML
     private TextArea txtAreaHelp;
+    @FXML
+    private Button btnCloseWindow;
 
     /**
      * Initializes the controller class.
@@ -31,7 +36,15 @@ public class HelpWindowController implements Initializable {
                 + "\nAfter defeating a monster you can loot the room for goods.\n"+
                 "When fighting a monster you have to be stronger than the monster."
                 + "\nYour strength is your level and your bonuses combined which is your attack level."
-                + "\nWhen encountering a monster card, a curse card or an item card you can click the card to see a bigger version of the card.");
+                + "\nWhen encountering a monster card, a curse card or an item card you can click the card to see a bigger version of the card in a new window."
+                + "\nYou can close the window by clicking on the card.");
+        
     }    
+
+    @FXML
+    private void handleCloseWindowButtonAction(ActionEvent event) {
+        Stage stage = (Stage) btnCloseWindow.getScene().getWindow();
+        stage.close();
+    }
     
 }

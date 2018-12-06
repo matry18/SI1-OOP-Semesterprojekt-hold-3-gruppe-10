@@ -30,7 +30,7 @@ public class ShowFootGearController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        imgShowFootGear.setPreserveRatio(true);
     }    
 
     @FXML

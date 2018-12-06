@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  */
 public class ShowOneTimeUseController implements Initializable {
     @FXML
-    private ImageView imgShotOneTimeUse;
+    private ImageView imgShowOneTimeUse;
     @FXML
     private Button btnCloseWindow;
 
@@ -30,7 +30,7 @@ public class ShowOneTimeUseController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        imgShowOneTimeUse.setPreserveRatio(true);
     }    
 
     @FXML

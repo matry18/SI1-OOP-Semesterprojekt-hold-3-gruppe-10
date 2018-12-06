@@ -30,7 +30,7 @@ public class ShowLeftHandController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        imgShowLeftHand.setPreserveRatio(true);
     }    
 
     @FXML

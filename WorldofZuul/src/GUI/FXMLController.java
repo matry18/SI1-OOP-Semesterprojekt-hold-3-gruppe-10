@@ -194,7 +194,7 @@ public class FXMLController implements Initializable {
         command("flee");
         checkForLosing();
         if (lost) {
-            ((Node)event.getSource()).getScene().getWindow().hide();
+            ((Node) event.getSource()).getScene().getWindow().hide();
         } else {
             roomSettings();
         }
@@ -207,41 +207,135 @@ public class FXMLController implements Initializable {
         if (game.isBattleMode()) {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
             return;
-        } 
+        }
         setInventory();
         command("loot");
         setImgMonsterCurseItem();
         setAttackLevel();
     }
-    
-    public void checkForWinning() {
-        if (game.getPlayer().getLevel() == game.getMaxLevel()) {
+
+    @FXML
+    private void handleShowCardButtonAction(ActionEvent event) {
+        if (game.getCurrentRoom().isContainsItem() || game.getCurrentRoom().isContainsMonster() || game.getCurrentRoom().isContainsCurse()) {
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("ShowCard.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Big card view");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+    }
+
+    @FXML
+    private void handleShowHeadGearButtonAction(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Winner.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("ShowHeadGear.fxml"));
             Stage stage = new Stage();
-            stage.setTitle("Won the game");
+            stage.setTitle("Show Head Gear");
             stage.setScene(new Scene(root));
-            
             stage.show();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }
-           }
-    public void checkForLosing() {
-        if (game.getPlayer().getLevel() <= game.getMinLevel()) {
-            try {
-            
-            Parent root = FXMLLoader.load(getClass().getResource("Losing.fxml"));
+
+    @FXML
+    private void handleShowArmorButtonAction(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowArmor.fxml"));
             Stage stage = new Stage();
-            stage.setTitle("Lose the game");
+            stage.setTitle("Show Armor");
             stage.setScene(new Scene(root));
-            
             stage.show();
-            lost = true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    @FXML
+    private void handleShowLeftHandButtonAction(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowLeftHand.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show Left Hand Weapon");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void handleShowRightHandButtonAction(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowRightHand.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show Right Hand Weapon");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void handleShowFootGearButtonAction(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowFootGear.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show Foot Gear");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void handleShowOneTimeUseButtonAction(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowOneTimeUse.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show One Time Use Items");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void checkForWinning() {
+        if (game.getPlayer().getLevel() == game.getMaxLevel()) {
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("Winner.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Won the game");
+                stage.setScene(new Scene(root));
+
+                stage.show();
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+    }
+
+    public void checkForLosing() {
+        if (game.getPlayer().getLevel() <= game.getMinLevel()) {
+            try {
+
+                Parent root = FXMLLoader.load(getClass().getResource("Losing.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Lose the game");
+                stage.setScene(new Scene(root));
+
+                stage.show();
+                lost = true;
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
         }
     }
 
@@ -250,19 +344,19 @@ public class FXMLController implements Initializable {
         parser.setGUICommand(input);
         GUILaunch.game.processCommand(parser.getCommand());
     }
-    
-    private void setImgRoom(){
+
+    private void setImgRoom() {
         imgRoomView.setImage(new Image(game.getCurrentRoom().getShortDescription()));
     }
-    
+
     private void setImgMonsterCurseItem() {
         if (game.getCurrentRoom().isContainsMonster()) {
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getMonster().getImagePath()));
-        } else if(game.getCurrentRoom().isContainsCurse()){
+        } else if (game.getCurrentRoom().isContainsCurse()) {
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getCurse().getImagePath()));
             setInventory();
             setAttackLevel();
-        } else if(game.getCurrentRoom().isContainsItem()){
+        } else if (game.getCurrentRoom().isContainsItem()) {
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
         } else {
             imgMonsterCurseItem.setImage(null);
@@ -281,7 +375,7 @@ public class FXMLController implements Initializable {
             setImgMonsterCurseItem();
         }
     }
-    
+
     private void setInventory() {
         if (game.getCurrentRoom().getItem().getDataNum() == 1) {
             imgHeadgear.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
@@ -297,118 +391,24 @@ public class FXMLController implements Initializable {
             imgOneTimeUse.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
         }
     }
-    
-    private void setAttackLevel(){
+
+    private void setAttackLevel() {
         lblAttackLevel.setText(Integer.toString(game.getPlayer().totalAttackValue()));
     }
-    
-    private void setLevel(){
+
+    private void setLevel() {
         txtPlayerLevel.setText(Integer.toString(game.getPlayer().getLevel()));
     }
 
-    @FXML
-    private void handleShowCardButtonAction(ActionEvent event) {
-        if (game.getCurrentRoom().isContainsItem() || game.getCurrentRoom().isContainsMonster() || game.getCurrentRoom().isContainsCurse()) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("ShowCard.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Big card view");
-            stage.setScene(new Scene(root));
-            stage.show();
-            } catch (Exception e) {
-            System.err.println(e.getMessage());
-            }
-        }
-    } 
     private void removeCurse() {
         if (game.getCurrentRoom().isContainsCurse()) {
             game.getCurrentRoom().setContainsCurse(false);//Removes curse after getting hit
         }
     }
 
-    @FXML
-    private void handleShowHeadGearButtonAction(ActionEvent event) {
-         try {
-            Parent root = FXMLLoader.load(getClass().getResource("ShowHeadGear.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Show Head Gear");
-            stage.setScene(new Scene(root));
-            stage.show();
-            } catch (Exception e) {
-            System.err.println(e.getMessage());
-            }
-    }
-
-    @FXML
-    private void handleShowArmorButtonAction(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("ShowArmor.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Show Armor");
-            stage.setScene(new Scene(root));
-            stage.show();
-            } catch (Exception e) {
-            System.err.println(e.getMessage());
-            }
-        }
-    
-
-    @FXML
-    private void handleShowLeftHandButtonAction(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("ShowLeftHand.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Show Left Hand Weapon");
-            stage.setScene(new Scene(root));
-            stage.show();
-            } catch (Exception e) {
-            System.err.println(e.getMessage());
-            }
-        }
-    
-
-    @FXML
-    private void handleShowRightHandButtonAction(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("ShowRightHand.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Show Right Hand Weapon");
-            stage.setScene(new Scene(root));
-            stage.show();
-            } catch (Exception e) {
-            System.err.println(e.getMessage());
-            }
-    }
-
-    @FXML
-    private void handleShowFootGearButtonAction(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("ShowFootGear.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Show Foot Gear");
-            stage.setScene(new Scene(root));
-            stage.show();
-            } catch (Exception e) {
-            System.err.println(e.getMessage());
-            }
-    }
-
-    @FXML
-    private void handleShowOneTimeUseButtonAction(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("ShowOneTimeUse.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Show One Time Use Items");
-            stage.setScene(new Scene(root));
-            stage.show();
-            } catch (Exception e) {
-            System.err.println(e.getMessage());
-            }
-    }
-    
-        protected static String findInventoryItem(String dataType){
-        for(Item item : game.getPlayer().getInventory()){
-            if(item.getDataType().equals(dataType)){
+    protected static String findInventoryItem(String dataType) {
+        for (Item item : game.getPlayer().getInventory()) {
+            if (item.getDataType().equals(dataType)) {
                 return item.getImgPath();
             }
         }

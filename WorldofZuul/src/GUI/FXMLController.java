@@ -123,6 +123,13 @@ public class FXMLController implements Initializable {
         imgRoomView.setImage(image);
         Image compass = new Image("\\pictures\\background\\compass.png");
         imgCompass.setImage(compass);
+        Image noItem = new Image("\\pictures\\items\\default.png");
+        imgHeadgear.setImage(noItem);
+        imgArmor.setImage(noItem);
+        imgLeftHand.setImage(noItem);
+        imgRightHand.setImage(noItem);
+        imgFootgear.setImage(noItem);
+        imgOneTimeUse.setImage(noItem);
         setLevel();
         setAttackLevel();
     }
@@ -412,6 +419,6 @@ public class FXMLController implements Initializable {
                 return item.getImgPath();
             }
         }
-        return "";
+        return null;
     }
 }

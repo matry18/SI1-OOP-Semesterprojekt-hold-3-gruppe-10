@@ -261,6 +261,7 @@ public class FXMLController implements Initializable {
         } else if(game.getCurrentRoom().isContainsCurse()){
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getCurse().getImagePath()));
             setInventory();
+            setAttackLevel();
         } else if(game.getCurrentRoom().isContainsItem()){
             imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
         } else {

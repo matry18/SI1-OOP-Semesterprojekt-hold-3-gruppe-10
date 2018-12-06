@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HelpWindowController">
+<AnchorPane id="AnchorPane" prefHeight="310.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HelpWindowController">
    <children>
-      <TextArea fx:id="txtAreaHelp" editable="false" prefHeight="180.0" prefWidth="600.0" wrapText="true">
+      <TextArea fx:id="txtAreaHelp" editable="false" prefHeight="290.0" prefWidth="600.0" wrapText="true">
          <font>
             <Font name="Garamond" size="14.0" />
          </font>
       </TextArea>
-      <Button fx:id="btnCloseWindow" alignment="CENTER" contentDisplay="CENTER" layoutX="244.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleCloseWindowButtonAction" text="Close Window" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="btnCloseWindow" alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleCloseWindowButtonAction" text="Close Window" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Windlass" size="12.0" />
          </font>

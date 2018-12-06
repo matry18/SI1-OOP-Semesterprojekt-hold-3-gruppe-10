@@ -8,8 +8,10 @@ package GUI;
 import static GUI.GUILaunch.game;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -22,17 +24,17 @@ import javafx.stage.Stage;
 public class DiceRollController implements Initializable {
     @FXML
     private ImageView imgShowDiceRoll;
+    @FXML
+    private Button btnCloseWindow;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    imgShowDiceRoll.setPreserveRatio(true);
     game.getDie().roll();   
     setDiePicture();
-    for (long i=0 ; i<1000000000 ; i++) {}
-    /*Stage stage = (Stage) imgShowDiceRoll.getScene().getWindow();
-    stage.close();*/
         
     }
 private void setDiePicture() {
@@ -50,4 +52,10 @@ private void setDiePicture() {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\6.png"));
     }
 }
+
+    @FXML
+    private void handleCloseWindowButtonAction(ActionEvent event) {
+        Stage stage = (Stage) btnCloseWindow.getScene().getWindow();
+        stage.close();
+    }
 }

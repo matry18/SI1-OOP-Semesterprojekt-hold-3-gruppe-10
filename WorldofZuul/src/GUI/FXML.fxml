@@ -53,65 +53,53 @@
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
-                     <padding>
-                        <Insets bottom="1.0" top="1.0" />
-                     </padding>
                      <font>
                         <Font name="Windlass" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="lblAttackLevel" alignment="CENTER" editable="false" />
+                  <TextField fx:id="lblAttackLevel" alignment="CENTER" editable="false" prefHeight="10.0" prefWidth="92.0" />
                   <Label fx:id="lblLevel" text="Level:">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
-                     <padding>
-                        <Insets bottom="1.0" top="1.0" />
-                     </padding>
                      <font>
                         <Font name="Windlass" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPlayerLevel" alignment="CENTER" editable="false">
+                  <TextField fx:id="txtPlayerLevel" alignment="CENTER" editable="false" prefHeight="10.0" prefWidth="92.0">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </TextField>
-                  <Button fx:id="btnOneTimeUse" mnemonicParsing="false" onAction="#handleOneTimeUseButtonAction" text="Activate scroll" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="btnOneTimeUse" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleOneTimeUseButtonAction" prefHeight="36.0" prefWidth="92.0" text="Activate scroll" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
-                        <Insets top="1.0" />
+                        <Insets />
                      </VBox.margin>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <font>
-                        <Font name="Windlass" size="12.0" />
+                        <Font name="Windlass" size="10.0" />
                      </font>
                   </Button>
                   <Button fx:id="btnHelp" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleHelpButtonAction" prefHeight="18.0" prefWidth="92.0" text="Help" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets top="1.0" />
+                        <Insets />
                      </VBox.margin>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
-                     <padding>
-                        <Insets bottom="1.0" top="1.0" />
-                     </padding>
                      <font>
                         <Font name="Windlass" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnQuit" mnemonicParsing="false" onAction="#handleQuitButtonAction" prefHeight="16.0" prefWidth="91.0" text="Quit">
+                  <Button fx:id="btnQuit" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleQuitButtonAction" prefHeight="16.0" prefWidth="91.0" text="Quit">
                      <VBox.margin>
-                        <Insets top="1.0" />
+                        <Insets />
                      </VBox.margin>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
-                     <padding>
-                        <Insets bottom="1.0" top="1.0" />
-                     </padding>
                      <font>
             <Font name="Windlass" size="14.0" />
          </font>
@@ -202,9 +190,9 @@
                   <TextArea fx:id="txtOutput" editable="false" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
-            <ImageView fx:id="imgRoomView" fitHeight="340.0" fitWidth="456.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+            <ImageView fx:id="imgRoomView" fitHeight="344.0" fitWidth="456.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets bottom="178.0" />
+                  <Insets bottom="186.0" />
                </GridPane.margin>
             </ImageView>
             <ImageView fx:id="imgMonsterCurseItem" fitHeight="113.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowSpan="2" />

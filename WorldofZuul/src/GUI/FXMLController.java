@@ -328,7 +328,15 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleShowHeadGearButtonAction(ActionEvent event) {
-        
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowHeadGear.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show Head Gear");
+            stage.setScene(new Scene(root));
+            stage.show();
+            } catch (Exception e) {
+            System.err.println(e.getMessage());
+            }
     }
 
     @FXML

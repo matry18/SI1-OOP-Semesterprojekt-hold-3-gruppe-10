@@ -191,6 +191,9 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleFleeButtonAction(ActionEvent event) {
+        game.getDie().roll();
+        setDiePicture();
+        for (long i=0 ; i<1000000000 ; i++) {}
         command("flee");
         checkForLosing();
         if (lost) {
@@ -413,5 +416,30 @@ public class FXMLController implements Initializable {
             }
         }
         return "";
+    }
+    private void setDiePicture() {
+        System.out.println(game.getDie().getDie());
+        imgMonsterCurseItem.setImage(null);
+       Image Dice1 = new Image("\\Pictures\\Dice\\1.png");
+       Image Dice2 = new Image("\\Pictures\\Dice\\2.png");
+       Image Dice3 = new Image("\\Pictures\\Dice\\3.png");
+       Image Dice4 = new Image("\\Pictures\\Dice\\4.png");
+       Image Dice5 = new Image("\\Pictures\\Dice\\5.png");
+       Image Dice6 = new Image("\\Pictures\\Dice\\6.png");
+        if (game.getDie().getDie() == 1) {
+            imgMonsterCurseItem.setImage(Dice1);
+        } else if (game.getDie().getDie() == 2) {
+            imgMonsterCurseItem.setImage(Dice2);
+        } else if (game.getDie().getDie() == 3) {
+            imgMonsterCurseItem.setImage(Dice3);
+        } else if (game.getDie().getDie() == 4) {
+            imgMonsterCurseItem.setImage(Dice4);
+        } else if (game.getDie().getDie() == 5) {
+            imgMonsterCurseItem.setImage(Dice5);
+        } else if (game.getDie().getDie() == 6) {
+            imgMonsterCurseItem.setImage(Dice6);
+        } else {
+            System.out.println("tilfældigt");
+        }
     }
 }

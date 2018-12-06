@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -31,6 +32,7 @@ public class ShowFootGearController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         imgShowFootGear.setPreserveRatio(true);
+        imgShowFootGear.setImage(new Image(FXMLController.findInventoryItem("Footgear")));
     }    
 
     @FXML

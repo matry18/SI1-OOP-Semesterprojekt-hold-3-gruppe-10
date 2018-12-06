@@ -397,4 +397,13 @@ public class FXMLController implements Initializable {
             System.err.println(e.getMessage());
             }
     }
+    
+        protected static String findInventoryItem(String dataType){
+        for(Item item : game.getPlayer().getInventory()){
+            if(item.getDataType().equals(dataType)){
+                return item.getImgPath();
+            }
+        }
+        return "";
+    }
 }

@@ -333,21 +333,68 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleShowArmorButtonAction(ActionEvent event) {
-    }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowArmor.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show Armor");
+            stage.setScene(new Scene(root));
+            stage.show();
+            } catch (Exception e) {
+            System.err.println(e.getMessage());
+            }
+        }
+    
 
     @FXML
     private void handleShowLeftHandButtonAction(ActionEvent event) {
-    }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowLeftHand.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show Left Hand Weapon");
+            stage.setScene(new Scene(root));
+            stage.show();
+            } catch (Exception e) {
+            System.err.println(e.getMessage());
+            }
+        }
+    
 
     @FXML
     private void handleShowRightHandButtonAction(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowRightHand.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show Right Hand Weapon");
+            stage.setScene(new Scene(root));
+            stage.show();
+            } catch (Exception e) {
+            System.err.println(e.getMessage());
+            }
     }
 
     @FXML
     private void handleShowFootGearButtonAction(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowFootGear.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show Foot Gear");
+            stage.setScene(new Scene(root));
+            stage.show();
+            } catch (Exception e) {
+            System.err.println(e.getMessage());
+            }
     }
 
     @FXML
     private void handleShowOneTimeUseButtonAction(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ShowOneTimeUse.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Show One Time Use Items");
+            stage.setScene(new Scene(root));
+            stage.show();
+            } catch (Exception e) {
+            System.err.println(e.getMessage());
+            }
     }
 }

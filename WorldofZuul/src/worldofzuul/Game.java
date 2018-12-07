@@ -19,7 +19,7 @@ public class Game {
     private final boolean isMultiplayer;
     private boolean changePlayer = false;
     private int moves = 3;
-    Character player = new Character();
+    Character player = new Character(1,20);
     Die die = new Die();
 
     public Game(boolean isMultiplayer) {
@@ -178,7 +178,7 @@ public class Game {
 
         r30C.setExit("west", r29M);
         r30C.setExit("south", r31M);
-        r30C.setExit("east", r33M);
+        r30C.setExit("east", r32M);
 
         r31M.setExit("north", r30C);
 

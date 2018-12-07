@@ -36,10 +36,10 @@ public class HelpWindowController implements Initializable {
                 + "\nAfter defeating a monster you can loot the room for goods.\n"+
                 "When fighting a monster you have to be stronger than the monster."
                 + "\nYour strength is your level and your bonuses combined which is your attack level."
-                + "\nWhen encountering a monster card, a curse card or an item card you can click the card to see an enlarged version of the card in a new window."
-                + "\nYou can close the window by clicking on the card.\nSame goes for the cards in your inventory."
-                + "\nSome item cards may only be used once and thereafter they will disapear.\nYou can choose to you use the usable once only items by pressing the 'Active Scrool' button in a fight."
-                + "\nWhen encountering a monster in stead of fighting it you may flee by pressing the flee button."
+                + "\nAny card you see can be enlargened if you click on it. To close it again you just have to click on the new window."
+                + "\nSome item cards may only be used once and thereafter they will disapear."
+                + "\nYou can choose to use the \"usable once only\" items by pressing the \"Active Scroll\" button in a fight."
+                + "\nWhen encountering a monster instead of fighting it you may flee by pressing the flee button."
                 + "\nYou flee for free if you roll 5 or 6 on a die."
                 + "\nIf you roll anything else you will suffer from the bad stuff of the monster (lose levels).");
         

@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import Commands.CommandWord;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -21,16 +20,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import static jdk.nashorn.tools.ShellFunctions.input;
-import worldofzuul.Game;
 import Commands.*;
 import Bonuses.*;
 import static GUI.GUILaunch.game;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
-import worldofzuul.*;
 
 /**
  * FXML Controller class
@@ -203,8 +198,10 @@ public class FXMLController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Dice Roll");
             stage.setScene(new Scene(root));
-
+            
+            if(game.getCurrentRoom().isContainsMonster()){ //Only show die if theres's a monster in the room
             stage.show();
+            }
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }        

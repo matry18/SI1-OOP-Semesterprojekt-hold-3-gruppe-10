@@ -442,7 +442,7 @@ public class Game {
     private void roll(Command command){ //Rolls a die and activates bad stuff if the roll is under 5.
         if (command.getCommandWord()==CommandWord.FLEE){
             System.out.println("Roll the die to flee. You escape on a 5 or more.");
-            int dieResult=die.getDie();
+            int dieResult=die.getDieResult();
             System.out.println("You have rolled: " + dieResult);
             if (dieResult <5) {
                 System.out.println(currentRoom.getMonster().getBadStuff());

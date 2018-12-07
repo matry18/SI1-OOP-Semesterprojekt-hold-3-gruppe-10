@@ -16,7 +16,7 @@ public int roll() {
     return die;
 }
 
-    public int getDie() {
+    public int getDieResult() {
         return die;
     }
 

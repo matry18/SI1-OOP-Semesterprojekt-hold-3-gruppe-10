@@ -261,7 +261,7 @@ public class Game {
         r9M.setItem(new Armor("Furry tail", 2, "\\pictures\\items\\furry_tail.png"));
         r10C.setItem(new Headgear("Cursed head do to E-tivity", -3, "\\pictures\\items\\incredible_headache.png"));
         r11M.setItem(new OneTimeUse("A lot of small rocks", 2, "\\pictures\\items\\a_lot_of_small_rocks.png"));
-        r12M.setItem(new Armor("School bag full of pencils and paper", 2, "\\pictures\\items\\school_bag_full_of_pencils_and_paper.png"));
+        r12M.setItem(new Armor("School bag full of pencils and paper", 2, "\\pictures\\items\\school_bag_full_of_pencils_and_papers.png"));
         r13M.setItem(new LeftHand("Bad ass spoon of wood", 3, "\\pictures\\items\\bad_ass_spoon_of_wood.png"));
         r14C.setItem(new Headgear("Cursed rat whiskers", -3, "\\pictures\\items\\cursed_rat_whiskers.png"));
         r15M.setItem(new RightHand("Really big toothpick", 3, "\\pictures\\items\\really_big_toothpick.png"));

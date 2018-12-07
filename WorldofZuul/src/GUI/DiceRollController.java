@@ -38,17 +38,17 @@ public class DiceRollController implements Initializable {
         
     }
 private void setDiePicture() {
-    if(game.getDie().getDie()==1) {
+    if(game.getDie().getDieResult()==1) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\1.png"));
-    } else if(game.getDie().getDie()==2) {
+    } else if(game.getDie().getDieResult()==2) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\2.png"));
-    } else if(game.getDie().getDie()==3) {
+    } else if(game.getDie().getDieResult()==3) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\3.png"));
-    } else if(game.getDie().getDie()==4) {
+    } else if(game.getDie().getDieResult()==4) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\4.png"));
-    } else if(game.getDie().getDie()==5) {
+    } else if(game.getDie().getDieResult()==5) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\5.png"));
-    } else if(game.getDie().getDie()==6) {
+    } else if(game.getDie().getDieResult()==6) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\6.png"));
     }
 }

@@ -188,7 +188,7 @@ public class Game {
         r33M.setExit("south", r35M);
 
         r34M.setExit("north", r28M);
-        r34M.setExit("south", r26M);
+        r34M.setExit("south", r36M);
 
         r35M.setExit("north", r33M);
         r35M.setExit("south", r38M);
@@ -388,7 +388,7 @@ public class Game {
             currentRoom.setContainsMonster(false);
             currentRoom.setHadMonster(true);
             currentRoom.setContainsItem(true);
-            player.addLevel();
+            //player.addLevel();
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
             System.out.println("To loot the room type 'loot' or else leave the room."+"\n"+currentRoom.getExitString());

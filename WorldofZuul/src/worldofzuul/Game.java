@@ -19,7 +19,7 @@ public class Game {
     private final boolean isMultiplayer;
     private boolean changePlayer = false;
     private int moves = 3;
-    Character player = new Character(1,20);
+    Character player = new Character();
     Die die = new Die();
 
     public Game(boolean isMultiplayer) {
@@ -157,7 +157,7 @@ public class Game {
         r23M.setExit("south", r25C);
 
         r24C.setExit("east", r23M);
-        r24C.setExit("sout", r26M);
+        r24C.setExit("south", r26M);
 
         r25C.setExit("north", r23M);
         r25C.setExit("west", r26M);
@@ -388,7 +388,7 @@ public class Game {
             currentRoom.setContainsMonster(false);
             currentRoom.setHadMonster(true);
             currentRoom.setContainsItem(true);
-            //player.addLevel();
+            player.addLevel();
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
             System.out.println("To loot the room type 'loot' or else leave the room."+"\n"+currentRoom.getExitString());

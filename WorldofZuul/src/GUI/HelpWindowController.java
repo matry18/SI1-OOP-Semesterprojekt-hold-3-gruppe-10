@@ -30,6 +30,13 @@ public class HelpWindowController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        btnCloseWindow.setStyle("-fx-padding: 5;" + 
+                      "-fx-border-style: solid inside;" + 
+                      "-fx-border-width: 2;" +
+                      "-fx-border-insets: 0;" + 
+                      "-fx-border-radius: 3;" + 
+                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
+                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
         txtAreaHelp.setText("You are lost. You are alone. You wander around in the dungeon.\n"+
                 "The rules are: You win the game by reaching level 10 or more.\n"+
                 "You lose the game if you reach level 0 or below.\nYou go up a level by defeating a monster."

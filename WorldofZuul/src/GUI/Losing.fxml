@@ -25,7 +25,7 @@
          <children>
               <TextArea fx:id="txtAreaLosing" editable="false" prefHeight="122.0" prefWidth="600.0" wrapText="true" GridPane.columnSpan="3" GridPane.rowSpan="2">
                <font>
-                  <Font name="Garamond Bold" size="14.0" />
+                  <Font name="Windlass" size="14.0" />
                </font>
             </TextArea>
             <Button fx:id="btnQuitFromLosinge" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleQuitButtonAction" text="Quit game" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.rowIndex="2">

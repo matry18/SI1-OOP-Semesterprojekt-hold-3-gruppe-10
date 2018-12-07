@@ -26,6 +26,8 @@ public class Game {
         createRooms();
         parser = new Parser();
         this.isMultiplayer = isMultiplayer;
+        //Debugging metode
+        //unWinAble();
     }
 
     private void createRooms() {
@@ -377,7 +379,6 @@ public class Game {
     }
 
     private boolean fight(Command command) { //When the player wants to fight the monster.
-        battleMode = false;
         if (command.hasSecondWord()) {
             System.out.println("Don't be silly now");
             return false;
@@ -388,6 +389,7 @@ public class Game {
             currentRoom.setContainsMonster(false);
             currentRoom.setHadMonster(true);
             currentRoom.setContainsItem(true);
+            battleMode = false;
             player.addLevel();
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
@@ -544,5 +546,10 @@ public class Game {
         return die;
     }
     
+    //This method makes you character above maxLevel, and makes so you can't win.
+    private void unWinAble() {
+        player.setLevel(11);
+        player.setBonus(9);
+    }
     
 }

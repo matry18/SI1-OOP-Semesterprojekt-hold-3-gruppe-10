@@ -26,6 +26,7 @@ import Bonuses.*;
 import static GUI.GUILaunch.game;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
+import sun.audio.AudioPlayer;
 
 /**
  * FXML Controller class

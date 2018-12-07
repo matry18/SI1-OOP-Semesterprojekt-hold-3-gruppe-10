@@ -181,7 +181,7 @@
                      <font>
                         <Font name="Windlass" size="14.0" />
                      </font></Button>
-                  <Button fx:id="bthFlee" mnemonicParsing="false" onAction="#handleFleeButtonAction" prefHeight="53.0" prefWidth="92.0" text="Flee" textFill="#56171a" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                  <Button fx:id="btnFlee" mnemonicParsing="false" onAction="#handleFleeButtonAction" prefHeight="53.0" prefWidth="92.0" text="Flee" textFill="#56171a" GridPane.columnSpan="2" GridPane.rowIndex="1">
                      <font>
                         <Font name="Windlass" size="14.0" />
                      </font></Button>

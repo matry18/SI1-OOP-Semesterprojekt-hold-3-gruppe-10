@@ -132,7 +132,7 @@ public class FXMLController implements Initializable {
     @FXML
     private void handleOneTimeUseButtonAction(ActionEvent event) {
         command("useitem");
-        imgOneTimeUse.setImage(null);
+        imgOneTimeUse.setImage(new Image("\\pictures\\items\\default.png"));
         setAttackLevel();
     }
 
@@ -189,6 +189,7 @@ public class FXMLController implements Initializable {
         checkForWinning();
         setImgMonsterCurseItem();
         setLevel();
+        setAttackLevel();
     }
 
     @FXML

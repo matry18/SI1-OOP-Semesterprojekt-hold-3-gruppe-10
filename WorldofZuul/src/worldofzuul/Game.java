@@ -19,7 +19,7 @@ public class Game {
     private final boolean isMultiplayer;
     private boolean changePlayer = false;
     private int moves = 3;
-    Character player = new Character();
+    Character player = new Character(1,20);
     Die die = new Die();
 
     public Game(boolean isMultiplayer) {
@@ -178,7 +178,7 @@ public class Game {
 
         r30C.setExit("west", r29M);
         r30C.setExit("south", r31M);
-        r30C.setExit("east", r33M);
+        r30C.setExit("east", r32M);
 
         r31M.setExit("north", r30C);
 
@@ -188,7 +188,7 @@ public class Game {
         r33M.setExit("south", r35M);
 
         r34M.setExit("north", r28M);
-        r34M.setExit("south", r26M);
+        r34M.setExit("south", r36M);
 
         r35M.setExit("north", r33M);
         r35M.setExit("south", r38M);
@@ -243,9 +243,9 @@ public class Game {
         r32M.setMonster(new Monster("Dorky Dragon of Doom", "He tells stupid jokes, which are not funny at all. He bores you to death (figuratively).", 16, "Lose 2 levels.", -2, "\\pictures\\monster\\dorkydragonofdoom.png"));
         r33M.setMonster(new Monster("The Doom Donuts", "They have an affinity for everything with a 0 in it.", 7, "Lose 0 levels.", 0, "\\pictures\\monster\\thedoomdonuts.png"));
         r34M.setMonster(new Monster("Topless Dancer", "He/she shakes em'.", 9, "Lose 2 levels.", -2, "\\pictures\\monster\\topless_dancer.png"));
-        r35M.setMonster(new Monster("The Great Cornholio", "Hehehehh… Heheheheh.", 8, "You lose a level… or something.", -1, "\\pictures\\monster\\.png"));
+        r35M.setMonster(new Monster("The Great Cornholio", "Hehehehh… Heheheheh.", 8, "You lose a level… or something.", -1, "\\pictures\\monster\\the_great_cornholio.png"));
         r36M.setMonster(new Monster("Flying Surströmming", "The smell is EVERYWHERE.", 12, "You throw up from the smell alone. Lose 3 levels.", -3, "\\pictures\\monster\\flyingsurstromming.png"));
-        r37M.setMonster(new Monster("G'huunies", "They seem cute at first, but they just keep coming.", 11, "Lose 5 levels.", -5, "\\pictures\\monster\\.png"));
+        r37M.setMonster(new Monster("G'huunies", "They seem cute at first, but they just keep coming.", 11, "Lose 5 levels.", -5, "\\pictures\\monster\\ghuunies.png"));
         r38M.setMonster(new Monster("Moon Maidens", "They moon you.", 9, "Lose 5 levels.", -5, "\\pictures\\monster\\moonmaidens.png"));
         r39M.setMonster(new Monster("Brick Bad", "He sells you really good meth shaped as bricks.", 9, "Lose 4 levels.", -4, "\\pictures\\monster\\brickbad.png"));
 
@@ -388,7 +388,7 @@ public class Game {
             currentRoom.setContainsMonster(false);
             currentRoom.setHadMonster(true);
             currentRoom.setContainsItem(true);
-            player.addLevel();
+            //player.addLevel();
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
             System.out.println("To loot the room type 'loot' or else leave the room."+"\n"+currentRoom.getExitString());

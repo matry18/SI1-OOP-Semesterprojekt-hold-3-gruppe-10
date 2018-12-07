@@ -36,6 +36,7 @@ public class StartMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        btnStartGame.setStyle("-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
         imgStartMenu.setImage(new Image("\\pictures\\background\\munchkinwelcome vers 2.jpg"));
     }    
 

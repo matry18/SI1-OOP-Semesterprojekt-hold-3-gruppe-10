@@ -113,76 +113,11 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        btnOneTimeUse.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        btnFight.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        btnFlee.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        btnLoot.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        btnHelp.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        btnQuit.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        btnGoNorth.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        btnGoSouth.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        btnGoWest.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        btnGoEast.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
+        Button[] buttons = {btnOneTimeUse, btnFight, btnFlee, btnLoot, btnHelp, btnQuit, btnGoNorth, btnGoSouth,btnGoWest,btnGoEast};
+        for(Button button : buttons){
+            setBtnStyle(button);
+        }
+        
         Image image = new Image("\\pictures\\background\\entrance.png");
         imgRoomView.setFitHeight(338);
         imgRoomView.setPreserveRatio(false);
@@ -499,5 +434,15 @@ public class FXMLController implements Initializable {
             }
         }
         return null;
+    }
+    
+    private void setBtnStyle(Button b){
+        b.setStyle("-fx-padding: 5;" + 
+                      "-fx-border-style: solid inside;" + 
+                      "-fx-border-width: 2;" +
+                      "-fx-border-insets: 0;" + 
+                      "-fx-border-radius: 3;" + 
+                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
+                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
     }
 }

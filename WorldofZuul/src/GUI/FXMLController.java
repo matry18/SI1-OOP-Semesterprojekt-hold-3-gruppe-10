@@ -29,6 +29,7 @@ import javafx.scene.image.Image;
 import sun.audio.AudioPlayer;
 import worldofzuul.Room;
 import static GUI.GUILaunch.multiplayer;
+import worldofzuul.Game;
 
 /**
  * FXML Controller class
@@ -116,28 +117,28 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleGoEastButtonAction(ActionEvent event) {
-        removeCurse(gamemodeCheckRoom());
+        removeCurse(getGame().getCurrentRoom());
         command("go east");
         roomSettings();
     }
 
     @FXML
     private void handleGoNorthButtonAction(ActionEvent event) {
-        removeCurse(gamemodeCheckRoom());
+        removeCurse(getGame().getCurrentRoom());
         command("go north");
         roomSettings();
     }
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
-        removeCurse(gamemodeCheckRoom());
+        removeCurse(getGame().getCurrentRoom());
         command("go west");
         roomSettings();
     }
 
     @FXML
     private void handleGoSouthButtonAction(ActionEvent event) {
-        removeCurse(gamemodeCheckRoom());
+        removeCurse(getGame().getCurrentRoom());
         command("go south");
         roomSettings();
     }
@@ -146,7 +147,7 @@ public class FXMLController implements Initializable {
     private void handleFightButtonAction(ActionEvent event) {
         command("fight");
         checkForWinning();
-        setImgMonsterCurseItem(gamemodeCheckRoom());
+        setImgMonsterCurseItem(getGame().getCurrentRoom());
         setLevel();
         setAttackLevel();
     }
@@ -159,7 +160,7 @@ public class FXMLController implements Initializable {
             stage.setTitle("Dice Roll");
             stage.setScene(new Scene(root));
             
-            if(gamemodeCheckRoom().isContainsMonster()){ //Only show die if theres's a monster in the room
+            if(getGame().getCurrentRoom().isContainsMonster()){ //Only show die if theres's a monster in the room
             stage.show();
             }
         } catch (Exception e) {
@@ -178,19 +179,19 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleLootButtonAction(ActionEvent event) {
-        if (game.isBattleMode()) {
+        if (getGame().isBattleMode()) {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
             return;
         }
-        setInventory(gamemodeCheckRoom());
+        setInventory(getGame().getCurrentRoom());
         command("loot");
-        setImgMonsterCurseItem(gamemodeCheckRoom());
+        setImgMonsterCurseItem(getGame().getCurrentRoom());
         setAttackLevel();
     }
 
     @FXML
     private void handleShowCardButtonAction(ActionEvent event) {
-        if (gamemodeCheckRoom().isContainsItem() || gamemodeCheckRoom().isContainsMonster() || gamemodeCheckRoom().isContainsCurse()) {
+        if (getGame().getCurrentRoom().isContainsItem() || getGame().getCurrentRoom().isContainsMonster() || getGame().getCurrentRoom().isContainsCurse()) {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("ShowCard.fxml"));
                 Stage stage = new Stage();
@@ -282,7 +283,7 @@ public class FXMLController implements Initializable {
     }
 
     public void checkForWinning() {
-        if (game.getPlayer().getLevel() == game.getMaxLevel()) {
+        if (getGame().getPlayer().getLevel() == getGame().getMaxLevel()) {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("Winner.fxml"));
                 Stage stage = new Stage();
@@ -297,7 +298,7 @@ public class FXMLController implements Initializable {
     }
 
     public void checkForLosing() {
-        if (game.getPlayer().getLevel() <= game.getMinLevel()) {
+        if (getGame().getPlayer().getLevel() <= getGame().getMinLevel()) {
             try {
 
                 Parent root = FXMLLoader.load(getClass().getResource("Losing.fxml"));
@@ -316,11 +317,11 @@ public class FXMLController implements Initializable {
     private void command(String input) {
         Parser parser = new Parser();
         parser.setGUICommand(input);
-        GUILaunch.game.processCommand(parser.getCommand());
+        getGame().processCommand(parser.getCommand());
     }
 
     private void setImgRoom() {
-        imgRoomView.setImage(new Image(gamemodeCheckRoom().getShortDescription()));
+        imgRoomView.setImage(new Image(getGame().getCurrentRoom().getShortDescription()));
     }
 
     private void setImgMonsterCurseItem(Room room) {
@@ -338,15 +339,15 @@ public class FXMLController implements Initializable {
     }
 
     private void roomSettings() {
-        txtOutput.setText(gamemodeCheckRoom().getLongDescription());
-        if (game.isBattleMode()) {
+        txtOutput.setText(getGame().getCurrentRoom().getLongDescription());
+        if (getGame().isBattleMode()) {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
         }
-        if (GUILaunch.game.isNoDoor()) {
+        if (getGame().isNoDoor()) {
             txtOutput.setText("There is no door!");
         } else {
             setImgRoom();
-            setImgMonsterCurseItem(gamemodeCheckRoom());
+            setImgMonsterCurseItem(getGame().getCurrentRoom());
         }
     }
 
@@ -367,11 +368,11 @@ public class FXMLController implements Initializable {
     }
 
     private void setAttackLevel() {
-        lblAttackLevel.setText(Integer.toString(game.getPlayer().totalAttackValue()));
+        lblAttackLevel.setText(Integer.toString(getGame().getPlayer().totalAttackValue()));
     }
 
     private void setLevel() {
-        txtPlayerLevel.setText(Integer.toString(game.getPlayer().getLevel()));
+        txtPlayerLevel.setText(Integer.toString(getGame().getPlayer().getLevel()));
     }
 
     private void removeCurse(Room room) {
@@ -381,7 +382,7 @@ public class FXMLController implements Initializable {
     }
 
     protected static String findInventoryItem(String dataType) {
-        for (Item item : game.getPlayer().getInventory()) {
+        for (Item item : getGame().getPlayer().getInventory()) {
             if (item.getDataType().equals(dataType)) {
                 return item.getImgPath();
             }
@@ -401,20 +402,31 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleEndTurnButtonAction(ActionEvent event) {
+        command("endturn");
     }
-    private Room gamemodeCheckRoom() {
-        if(isMultiplayer) {
-            return multiplayer.getCurrentGame().getCurrentRoom();
-        } else {
-            return game.getCurrentRoom();
-        }
-    }
+    
+//    private Room gamemodeCheckRoom() {
+//        if(isMultiplayer) {
+//            return multiplayer.getCurrentGame().getCurrentRoom();
+//        } else {
+//            return game.getCurrentRoom();
+//        }
+//    }
+    
     protected static void setIsMultiplayer(boolean state){
         isMultiplayer = state;
     }
 
     public static boolean isIsMultiplayer() {
         return isMultiplayer;
+    }
+    
+    protected static Game getGame(){
+        if(isIsMultiplayer()){
+            return multiplayer.getCurrentGame();
+        } else {
+            return game;
+        }
     }
     
 }

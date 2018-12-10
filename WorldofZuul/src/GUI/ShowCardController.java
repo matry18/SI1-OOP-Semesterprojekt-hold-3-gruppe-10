@@ -33,12 +33,12 @@ public class ShowCardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         imgShowCard.setPreserveRatio(true);
-        if (game.getCurrentRoom().isContainsMonster()) {
-            imgShowCard.setImage(new Image(game.getCurrentRoom().getMonster().getImagePath()));
-        } else if(game.getCurrentRoom().isContainsCurse()){
-            imgShowCard.setImage(new Image(game.getCurrentRoom().getCurse().getImagePath()));
-        } else if(game.getCurrentRoom().isContainsItem()){
-            imgShowCard.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+        if (FXMLController.getGame().getCurrentRoom().isContainsMonster()) {
+            imgShowCard.setImage(new Image(FXMLController.getGame().getCurrentRoom().getMonster().getImagePath()));
+        } else if(FXMLController.getGame().getCurrentRoom().isContainsCurse()){
+            imgShowCard.setImage(new Image(FXMLController.getGame().getCurrentRoom().getCurse().getImagePath()));
+        } else if(FXMLController.getGame().getCurrentRoom().isContainsItem()){
+            imgShowCard.setImage(new Image(FXMLController.getGame().getCurrentRoom().getItem().getImgPath()));
         }
     }    
 

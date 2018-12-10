@@ -67,10 +67,8 @@ public class FXMLController implements Initializable {
         }
         if (isIsMultiplayer()) {
             btnEndTurn.setOpacity(1);
-            System.out.println("Er synlig");
         } else {
             btnEndTurn.setOpacity(0);
-            System.out.println("Er ikke synlig");
         }
         
         Image image = new Image("\\pictures\\background\\entrance.png");

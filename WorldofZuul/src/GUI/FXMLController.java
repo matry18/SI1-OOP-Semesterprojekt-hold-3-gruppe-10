@@ -26,9 +26,9 @@ import Bonuses.*;
 import static GUI.GUILaunch.game;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
-import sun.audio.AudioPlayer;
 import worldofzuul.Room;
 import static GUI.GUILaunch.multiplayer;
+import java.util.HashMap;
 import worldofzuul.Game;
 
 /**
@@ -55,6 +55,10 @@ public class FXMLController implements Initializable {
             btnFight, btnLoot, btnQuit, btnHelp, btnOneTimeUse;
     private boolean lost = false;
     private static boolean isMultiplayer = false;
+    private Button[] buttons;
+    private String[] datatypes;
+    private HashMap<ImageView, String> imageInventory = new HashMap<>();
+    private ImageView[] inventoryViews;
 
     /**
      * Initializes the controller class.
@@ -62,7 +66,13 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Button[] buttons = {btnOneTimeUse, btnFight, btnFlee, btnLoot, btnHelp, btnQuit, btnGoNorth, btnGoSouth,btnGoWest,btnGoEast, btnEndTurn};
+        inventoryViews = new ImageView[]{imgHeadgear, imgArmor, imgLeftHand, imgRightHand, imgFootgear, imgOneTimeUse};
+        datatypes = new String[] {"Headgear","Armor","Left hand weapon", "Right hand weapon", "Footgear", "Item"};
+        for(int i = 0; i < inventoryViews.length; i++){
+            imageInventory.put(inventoryViews[i], datatypes[i]);
+        }
+        
+        buttons = new Button[] {btnOneTimeUse, btnFight, btnFlee, btnLoot, btnHelp, btnQuit, btnGoNorth, btnGoSouth,btnGoWest,btnGoEast, btnEndTurn};
         for(Button button : buttons){
             setBtnStyle(button);
         }
@@ -183,8 +193,8 @@ public class FXMLController implements Initializable {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
             return;
         }
-        setInventory(getGame().getCurrentRoom());
         command("loot");
+        setInventory();
         setImgMonsterCurseItem(getGame().getCurrentRoom());
         setAttackLevel();
     }
@@ -329,7 +339,7 @@ public class FXMLController implements Initializable {
             imgMonsterCurseItem.setImage(new Image(room.getMonster().getImagePath()));
         } else if (room.isContainsCurse()) {
             imgMonsterCurseItem.setImage(new Image(room.getCurse().getImagePath()));
-            setInventory(room);
+            setInventory();
             setAttackLevel();
         } else if (room.isContainsItem()) {
             imgMonsterCurseItem.setImage(new Image(room.getItem().getImgPath()));
@@ -351,19 +361,27 @@ public class FXMLController implements Initializable {
         }
     }
 
-    private void setInventory(Room room) {
-        if (room.getItem().getDataNum() == 1) {
-            imgHeadgear.setImage(new Image(room.getItem().getImgPath()));
-        } else if (room.getItem().getDataNum() == 2) {
-            imgArmor.setImage(new Image(room.getItem().getImgPath()));
-        } else if (room.getItem().getDataNum() == 3) {
-            imgFootgear.setImage(new Image(room.getItem().getImgPath()));
-        } else if (room.getItem().getDataNum() == 4) {
-            imgLeftHand.setImage(new Image(room.getItem().getImgPath()));
-        } else if (room.getItem().getDataNum() == 5) {
-            imgRightHand.setImage(new Image(room.getItem().getImgPath()));
-        } else if (room.getItem().getDataNum() == 6) {
-            imgOneTimeUse.setImage(new Image(room.getItem().getImgPath()));
+    private void setInventory() {
+//        if (room.getItem().getDataNum() == 1) {
+//            imgHeadgear.setImage(new Image(room.getItem().getImgPath()));
+//        } else if (room.getItem().getDataNum() == 2) {
+//            imgArmor.setImage(new Image(room.getItem().getImgPath()));
+//        } else if (room.getItem().getDataNum() == 3) {
+//            imgFootgear.setImage(new Image(room.getItem().getImgPath()));
+//        } else if (room.getItem().getDataNum() == 4) {
+//            imgLeftHand.setImage(new Image(room.getItem().getImgPath()));
+//        } else if (room.getItem().getDataNum() == 5) {
+//            imgRightHand.setImage(new Image(room.getItem().getImgPath()));
+//        } else if (room.getItem().getDataNum() == 6) {
+//            imgOneTimeUse.setImage(new Image(room.getItem().getImgPath()));
+//        }
+        
+        for(HashMap.Entry<ImageView, String> entry : imageInventory.entrySet()){
+            if(findInventoryItem(entry.getValue()) != null){
+            entry.getKey().setImage(new Image(findInventoryItem(entry.getValue())));
+            } else {
+                entry.getKey().setImage(new Image("\\pictures\\items\\default.png"));
+            }
         }
     }
 
@@ -405,6 +423,7 @@ public class FXMLController implements Initializable {
         command("endturn");
         multiplayer.getChangePlayer();
         roomSettings();
+        setInventory();
         setAttackLevel();
         setLevel();
     }

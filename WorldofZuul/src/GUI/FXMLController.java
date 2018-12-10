@@ -107,6 +107,8 @@ public class FXMLController implements Initializable {
     private Button btnShowOneTimeUse;
     @FXML
     private Button btnFlee;
+    @FXML
+    private Button btnEndTurn;
 
     /**
      * Initializes the controller class.
@@ -114,7 +116,7 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Button[] buttons = {btnOneTimeUse, btnFight, btnFlee, btnLoot, btnHelp, btnQuit, btnGoNorth, btnGoSouth,btnGoWest,btnGoEast};
+        Button[] buttons = {btnOneTimeUse, btnFight, btnFlee, btnLoot, btnHelp, btnQuit, btnGoNorth, btnGoSouth,btnGoWest,btnGoEast, btnEndTurn};
         for(Button button : buttons){
             setBtnStyle(button);
         }
@@ -445,5 +447,9 @@ public class FXMLController implements Initializable {
                       "-fx-border-radius: 3;" + 
                       "-fx-border-color: rgb("+86+","+23+","+26+");"+
                       "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
+    }
+
+    @FXML
+    private void handleEndTurnButtonAction(ActionEvent event) {
     }
 }

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -131,7 +132,18 @@
                   <ImageView fx:id="imgCompass" fitHeight="176.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="3" GridPane.rowSpan="3">
                      <GridPane.margin>
                         <Insets />
-                     </GridPane.margin></ImageView>
+                     </GridPane.margin>
+                     <image>
+                        <Image url="@../Pictures/BackGround/compass.png" />
+                     </image></ImageView>
+                  <Button fx:id="btnEndTurn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleEndTurnButtonAction" opacity="0.0" prefHeight="29.0" prefWidth="68.0" text="End Turn" textAlignment="CENTER" textFill="#56171a" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Windlass" size="12.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="21.0" left="7.0" right="5.0" />
+                     </GridPane.margin>
+                  </Button>
                   <Button fx:id="btnGoEast" mnemonicParsing="false" onAction="#handleGoEastButtonAction" text="East" textAlignment="CENTER" textFill="#56171a" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="16.0" />

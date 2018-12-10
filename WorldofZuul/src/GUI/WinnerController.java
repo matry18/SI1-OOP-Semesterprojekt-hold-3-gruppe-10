@@ -31,7 +31,7 @@ public class WinnerController implements Initializable {
                       "-fx-border-radius: 3;" + 
                       "-fx-border-color: rgb("+86+","+23+","+26+");"+
                       "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-        txtAreaWinning.setText("Hurra!!! You have won the game! Go celebrate...\n" +
+        txtAreaWinning.setText("Hurray!!! You have won the game! Go celebrate...\n" +
 "Thank you for playing. Good bye.");
     }   
     @FXML

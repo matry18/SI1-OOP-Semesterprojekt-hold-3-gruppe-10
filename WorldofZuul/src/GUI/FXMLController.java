@@ -361,21 +361,7 @@ public class FXMLController implements Initializable {
         }
     }
 
-    private void setInventory() {
-//        if (room.getItem().getDataNum() == 1) {
-//            imgHeadgear.setImage(new Image(room.getItem().getImgPath()));
-//        } else if (room.getItem().getDataNum() == 2) {
-//            imgArmor.setImage(new Image(room.getItem().getImgPath()));
-//        } else if (room.getItem().getDataNum() == 3) {
-//            imgFootgear.setImage(new Image(room.getItem().getImgPath()));
-//        } else if (room.getItem().getDataNum() == 4) {
-//            imgLeftHand.setImage(new Image(room.getItem().getImgPath()));
-//        } else if (room.getItem().getDataNum() == 5) {
-//            imgRightHand.setImage(new Image(room.getItem().getImgPath()));
-//        } else if (room.getItem().getDataNum() == 6) {
-//            imgOneTimeUse.setImage(new Image(room.getItem().getImgPath()));
-//        }
-        
+    private void setInventory() {       
         for(HashMap.Entry<ImageView, String> entry : imageInventory.entrySet()){
             if(findInventoryItem(entry.getValue()) != null){
             entry.getKey().setImage(new Image(findInventoryItem(entry.getValue())));
@@ -396,6 +382,7 @@ public class FXMLController implements Initializable {
     private void removeCurse(Room room) {
         if (room.isContainsCurse()) {
             room.setContainsCurse(false);//Removes curse after getting hit
+            System.out.println("Curse removed");
         }
     }
 
@@ -443,5 +430,4 @@ public class FXMLController implements Initializable {
             return game;
         }
     }
-    
 }

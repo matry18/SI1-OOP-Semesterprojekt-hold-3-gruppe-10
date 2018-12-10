@@ -33,22 +33,22 @@ public class DiceRollController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     imgShowDiceRoll.setPreserveRatio(true);
-    game.getDie().roll();   
+    FXMLController.getGame().getDie().roll();   
     setDiePicture();
         
     }
 private void setDiePicture() {
-    if(game.getDie().getDieResult()==1) {
+    if(FXMLController.getGame().getDie().getDieResult()==1) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\1.png"));
-    } else if(game.getDie().getDieResult()==2) {
+    } else if(FXMLController.getGame().getDie().getDieResult()==2) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\2.png"));
-    } else if(game.getDie().getDieResult()==3) {
+    } else if(FXMLController.getGame().getDie().getDieResult()==3) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\3.png"));
-    } else if(game.getDie().getDieResult()==4) {
+    } else if(FXMLController.getGame().getDie().getDieResult()==4) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\4.png"));
-    } else if(game.getDie().getDieResult()==5) {
+    } else if(FXMLController.getGame().getDie().getDieResult()==5) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\5.png"));
-    } else if(game.getDie().getDieResult()==6) {
+    } else if(FXMLController.getGame().getDie().getDieResult()==6) {
         imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\6.png"));
     }
 }

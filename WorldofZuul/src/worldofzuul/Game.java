@@ -346,7 +346,6 @@ public class Game {
             if (currentRoom.isContainsMonster()) {
                 System.out.println("Battle mode activated. You have an attack value of: "+ player.totalAttackValue()+". You can only fight or flee!");
             } else if (currentRoom.isContainsCurse()) {
-                currentRoom.setContainsCurse(false);//Removes curse after getting hit
                 currentRoom.setHadCurse(true);
                 currentRoom.setContainsItem(true);
                 lootRoom();
@@ -481,6 +480,7 @@ public class Game {
             System.out.println("Wrong expression!");
             
         }
+        noDoor = false;
         if (isMultiplayer) {
             moves = 3;
             changePlayer = true;

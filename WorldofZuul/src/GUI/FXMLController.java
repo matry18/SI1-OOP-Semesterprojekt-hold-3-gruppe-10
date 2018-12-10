@@ -405,14 +405,6 @@ public class FXMLController implements Initializable {
         command("endturn");
     }
     
-//    private Room gamemodeCheckRoom() {
-//        if(isMultiplayer) {
-//            return multiplayer.getCurrentGame().getCurrentRoom();
-//        } else {
-//            return game.getCurrentRoom();
-//        }
-//    }
-    
     protected static void setIsMultiplayer(boolean state){
         isMultiplayer = state;
     }

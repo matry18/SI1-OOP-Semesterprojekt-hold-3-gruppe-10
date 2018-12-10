@@ -403,6 +403,10 @@ public class FXMLController implements Initializable {
     @FXML
     private void handleEndTurnButtonAction(ActionEvent event) {
         command("endturn");
+        multiplayer.getChangePlayer();
+        roomSettings();
+        setAttackLevel();
+        setLevel();
     }
     
     protected static void setIsMultiplayer(boolean state){

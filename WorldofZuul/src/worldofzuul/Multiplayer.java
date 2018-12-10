@@ -22,60 +22,66 @@ public class Multiplayer {
     private boolean startOfTurn;
     
     
-    public void play(){
-      
-      boolean finished = false;
-        
-        while (!finished && currentGame.player.getLevel() < maxLevel && currentGame.player.getLevel() > minLevel) {
-            
-            if (currentGame == player1) {
-                if (startOfTurn) {
-                    player1.getCurrentRoom().getLongDescription();
-                }
-                System.out.println("Player 1's TURN!");
-                command = player1.getParser().getCommand();
-                finished = player1.processCommand(command);
-                startOfTurn = false;
-                if (currentGame.getChangePlayer()) {
-                    changePlayer();
-                    
-                }
-            } else if (currentGame == player2) {
-                if (startOfTurn) {
-                    player2.getCurrentRoom().getLongDescription();
-                }
-                System.out.println("Player 2's TURN! ");
-                command = player2.getParser().getCommand();
-                finished = player2.processCommand(command);
-                startOfTurn = false;
-                if (currentGame.getChangePlayer()) {
-                    changePlayer();
-                }
-            } else {
-                System.out.println("Wow");
-            }
-        }
-        if (currentGame.player.getLevel() >= maxLevel) {
-            System.out.println("Hurra!!! You have won the game! Go celebrate...");
-        } else if (currentGame.player.getLevel() <= minLevel) {
-            System.out.println("You have reached level "+currentGame.player.getLevel()+" and you are dead! Better luck next time.");
-        }
-        System.out.println("Thank you for playing.  Good bye.");
-
-    }
+//    public void play(){
+//      
+//      boolean finished = false;
+//        
+//        while (!finished && currentGame.player.getLevel() < maxLevel && currentGame.player.getLevel() > minLevel) {
+//            
+//            if (currentGame == player1) {
+//                if (startOfTurn) {
+//                    player1.getCurrentRoom().getLongDescription();
+//                }
+//                System.out.println("Player 1's TURN!");
+//                command = player1.getParser().getCommand();
+//                finished = player1.processCommand(command);
+//                startOfTurn = false;
+//                if (currentGame.getChangePlayer()) {
+//                    changePlayer();
+//                    
+//                }
+//            } else if (currentGame == player2) {
+//                if (startOfTurn) {
+//                    player2.getCurrentRoom().getLongDescription();
+//                }
+//                System.out.println("Player 2's TURN! ");
+//                command = player2.getParser().getCommand();
+//                finished = player2.processCommand(command);
+//                startOfTurn = false;
+//                if (currentGame.getChangePlayer()) {
+//                    changePlayer();
+//                }
+//            } else {
+//                System.out.println("Wow");
+//            }
+//        }
+//        if (currentGame.player.getLevel() >= maxLevel) {
+//            System.out.println("Hurra!!! You have won the game! Go celebrate...");
+//        } else if (currentGame.player.getLevel() <= minLevel) {
+//            System.out.println("You have reached level "+currentGame.player.getLevel()+" and you are dead! Better luck next time.");
+//        }
+//        System.out.println("Thank you for playing.  Good bye.");
+//
+//    }
     
     private void changePlayer() {
-        if (currentGame == player1) {
-            currentGame.setChangePlayer(false);
-            currentGame = player2;
-            startOfTurn = true;
-        } else {
-            currentGame.setChangePlayer(false);
-            currentGame = player1;
-            startOfTurn = true;
+        if (getCurrentGame().getChangePlayer()) {
+            if (currentGame == player1) {
+                currentGame.setChangePlayer(false);
+                currentGame = player2;
+                startOfTurn = true;
+            } else {
+                currentGame.setChangePlayer(false);
+                currentGame = player1;
+                startOfTurn = true;
+            }
         }
     }
-
+    
+    public void getChangePlayer(){
+        changePlayer();
+    }
+    
     public Game getCurrentGame() {
         return currentGame;
     }

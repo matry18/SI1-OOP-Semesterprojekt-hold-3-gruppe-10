@@ -475,7 +475,7 @@ public class Game {
                 System.out.println(player.stringInventory()+currentRoom.getExitString());
             }
         }
-    //Code should show that the current player is ready to change to the next player.
+    //Code should make that the current player is ready to change to the next player.
     private void endTurn(Command command){ //(Multiplayer Only) When player has 0 moves left this indicates the players wants to change.
         if (command.hasSecondWord()) {
             System.out.println("Wrong expression!");

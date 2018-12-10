@@ -45,7 +45,7 @@ public class HelpWindowController implements Initializable {
                 + "\nYour strength is your level and your bonuses combined which is your attack level."
                 + "\nAny card you see can be enlargened if you click on it. To close it again you just have to click on the new window."
                 + "\nSome item cards may only be used once and thereafter they will disapear."
-                + "\nYou can choose to use the \"usable once only\" items by pressing the \"Active Scroll\" button in a fight."
+                + "\nYou can choose to use the \"usable once only\" items by pressing the \"Scroll\" button in a fight."
                 + "\nWhen encountering a monster instead of fighting it you may flee by pressing the flee button."
                 + "\nYou flee for free if you roll 5 or 6 on a die."
                 + "\nIf you roll anything else you will suffer from the bad stuff of the monster (lose levels).");

@@ -34,17 +34,17 @@ public class Room {
 
     public String getLongDescription() {
         if (containsMonster) {
-            return description + "In here you meet the monster '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff();
+            return "In here you meet the monster '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff();
         } else if (containsCurse) {
-            return description + "In this room you are getting hit by the curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff();
+            return "In this room you are getting hit by the curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff();
         } else if (hadMonster && containsItem){
-            return description + "In here you met and defeated the monster '" + getMonster().getName() + "'." + "\nOn the ground you find '"+ getItem().getName() + "' with an attack bonus of "+ getItem().getBonus() + "\nTo loot the room type 'loot' or else leave the room.\n" + getExitString();
+            return "In here you met and defeated the monster '" + getMonster().getName() + "'." + "\nOn the ground you find '"+ getItem().getName() + "' with an attack bonus of "+ getItem().getBonus() + "\nTo loot the room type 'loot' or else leave the room.\n" + getExitString();
         } else if (hadCurse) {
-            return description + "In here you met and got hit by the curse '" + getCurse().getName() + "'." + "\n" + getExitString();
+            return "In here you met and got hit by the curse '" + getCurse().getName() + "'." + "\n" + getExitString();
         } else if (hadMonster) {
-            return description + "In here you met and defeated the monster '" + getMonster().getName() + "'." + "\n" + getExitString();
+            return "In here you met and defeated the monster '" + getMonster().getName() + "'." + "\n" + getExitString();
         } else {
-            return description + "\n" + getExitString();
+            return getExitString();
         }
     }
 

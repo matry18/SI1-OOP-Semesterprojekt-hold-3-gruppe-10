@@ -63,6 +63,7 @@ public class FXMLController implements Initializable {
         for(Button button : buttons){
             setBtnStyle(button);
         }
+        btnEndTurn.setOpacity(0);
         
         Image image = new Image("\\pictures\\background\\entrance.png");
         imgRoomView.setFitHeight(338);

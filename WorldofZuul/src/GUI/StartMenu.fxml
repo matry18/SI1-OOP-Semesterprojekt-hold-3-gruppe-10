@@ -17,7 +17,7 @@
          <font>
             <Font name="Windlass" size="20.0" />
          </font></Button>
-      <Button fx:id="btnStartMultiplayer" alignment="CENTER" contentDisplay="CENTER" layoutX="264.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleStartMultiplayerButtonAction" text="Start Multiplayer Game" textFill="#56171a">
+      <Button fx:id="btnStartMultiplayer" alignment="CENTER" contentDisplay="CENTER" layoutX="266.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleStartMultiplayerButtonAction" text="Start Multiplayer Game" textFill="#56171a">
          <font>
             <Font name="Windlass" size="20.0" />
          </font>
@@ -25,7 +25,7 @@
             <Insets bottom="6.0" left="15.5" right="15.5" top="6.0" />
          </padding>
       </Button>
-      <Button fx:id="btnQuitGame" layoutX="264.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleQuitGameButtonAction" text="Quit Game" textFill="#56171a">
+      <Button fx:id="btnQuitGame" layoutX="346.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleQuitGameButtonAction" text="Quit Game" textFill="#56171a">
          <font>
             <Font name="Windlass" size="20.0" />
          </font>

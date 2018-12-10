@@ -5,7 +5,6 @@ import Commands.CommandWord;
 import Commands.Command;
 import Bonuses.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Game {
 
@@ -32,10 +31,10 @@ public class Game {
 
     private void createRooms() {
         Room start, r1M, r2C, r3M, r4M, r5C, r6M, r7M, r8C, r9M,
-                r10C, r11M, r12M, r13M, r14C, r15M, r16M, r17M, r18C, r19M,
-                r20M, r21C, r22M, r23M, r24C, r25C, r26M, r27M, r28M, r29M,
-                r30C, r31M, r32M, r33M, r34M, r35M, r36M, r37M, r38M, r39M,
-                r40C;
+        r10C, r11M, r12M, r13M, r14C, r15M, r16M, r17M, r18C, r19M,
+        r20M, r21C, r22M, r23M, r24C, r25C, r26M, r27M, r28M, r29M,
+        r30C, r31M, r32M, r33M, r34M, r35M, r36M, r37M, r38M, r39M,
+        r40C;
 
         //Creating the rooms
         start = new Room("\\pictures\\background\\entrance.png");
@@ -377,7 +376,7 @@ public class Game {
             return true;
         }
     }
-
+    //Code is used to find difference between monsters level and players total attack value and removes monster if player is higher value.
     private boolean fight(Command command) { //When the player wants to fight the monster.
         if (command.hasSecondWord()) {
             System.out.println("Don't be silly now");
@@ -412,7 +411,7 @@ public class Game {
         return true;
     }
 
-
+    //Code is used to pickup items set on a room after defeating a monster.
     private boolean loot(Command command){ //Calls lootRoom() and removes the item from the room.
         if(command.hasSecondWord()){
             System.out.println("What?");
@@ -429,7 +428,7 @@ public class Game {
             return false;
         }
     }
-    
+    //Code is used to print out the characters values and Items equipped.
     private boolean character(Command command) { //Prints out the level, combined attack and inventory of the player.
         if(command.hasSecondWord()) {
             System.out.println("Not true statement");
@@ -476,7 +475,7 @@ public class Game {
                 System.out.println(player.stringInventory()+currentRoom.getExitString());
             }
         }
-
+    //Code should show that the current player is ready to change to the next player.
     private void endTurn(Command command){ //(Multiplayer Only) When player has 0 moves left this indicates the players wants to change.
         if (command.hasSecondWord()) {
             System.out.println("Wrong expression!");
@@ -489,7 +488,7 @@ public class Game {
             System.out.println("This command can only be used in multiplayer");
         }
     }
-    
+    //Code uses OneTimeUse Item equipped and removes it from inventory.
     private boolean useItem(Command command) {
         if (command.hasSecondWord()) {
             System.out.println("lol");

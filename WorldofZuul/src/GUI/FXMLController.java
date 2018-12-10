@@ -27,6 +27,7 @@ import static GUI.GUILaunch.game;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import sun.audio.AudioPlayer;
+import worldofzuul.Room;
 
 /**
  * FXML Controller class
@@ -163,28 +164,28 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleGoEastButtonAction(ActionEvent event) {
-        removeCurse();
+        removeCurse(game.getCurrentRoom());
         command("go east");
         roomSettings();
     }
 
     @FXML
     private void handleGoNorthButtonAction(ActionEvent event) {
-        removeCurse();
+        removeCurse(game.getCurrentRoom());
         command("go north");
         roomSettings();
     }
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
-        removeCurse();
+        removeCurse(game.getCurrentRoom());
         command("go west");
         roomSettings();
     }
 
     @FXML
     private void handleGoSouthButtonAction(ActionEvent event) {
-        removeCurse();
+        removeCurse(game.getCurrentRoom());
         command("go south");
         roomSettings();
     }
@@ -193,7 +194,7 @@ public class FXMLController implements Initializable {
     private void handleFightButtonAction(ActionEvent event) {
         command("fight");
         checkForWinning();
-        setImgMonsterCurseItem();
+        setImgMonsterCurseItem(game.getCurrentRoom());
         setLevel();
         setAttackLevel();
     }
@@ -229,9 +230,9 @@ public class FXMLController implements Initializable {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
             return;
         }
-        setInventory();
+        setInventory(game.getCurrentRoom());
         command("loot");
-        setImgMonsterCurseItem();
+        setImgMonsterCurseItem(game.getCurrentRoom());
         setAttackLevel();
     }
 
@@ -370,15 +371,15 @@ public class FXMLController implements Initializable {
         imgRoomView.setImage(new Image(game.getCurrentRoom().getShortDescription()));
     }
 
-    private void setImgMonsterCurseItem() {
-        if (game.getCurrentRoom().isContainsMonster()) {
-            imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getMonster().getImagePath()));
-        } else if (game.getCurrentRoom().isContainsCurse()) {
-            imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getCurse().getImagePath()));
-            setInventory();
+    private void setImgMonsterCurseItem(Room room) {
+        if (room.isContainsMonster()) {
+            imgMonsterCurseItem.setImage(new Image(room.getMonster().getImagePath()));
+        } else if (room.isContainsCurse()) {
+            imgMonsterCurseItem.setImage(new Image(room.getCurse().getImagePath()));
+            setInventory(room);
             setAttackLevel();
-        } else if (game.getCurrentRoom().isContainsItem()) {
-            imgMonsterCurseItem.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+        } else if (room.isContainsItem()) {
+            imgMonsterCurseItem.setImage(new Image(room.getItem().getImgPath()));
         } else {
             imgMonsterCurseItem.setImage(null);
         }
@@ -393,23 +394,23 @@ public class FXMLController implements Initializable {
             txtOutput.setText("There is no door!");
         } else {
             setImgRoom();
-            setImgMonsterCurseItem();
+            setImgMonsterCurseItem(game.getCurrentRoom());
         }
     }
 
-    private void setInventory() {
-        if (game.getCurrentRoom().getItem().getDataNum() == 1) {
-            imgHeadgear.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
-        } else if (game.getCurrentRoom().getItem().getDataNum() == 2) {
-            imgArmor.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
-        } else if (game.getCurrentRoom().getItem().getDataNum() == 3) {
-            imgFootgear.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
-        } else if (game.getCurrentRoom().getItem().getDataNum() == 4) {
-            imgLeftHand.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
-        } else if (game.getCurrentRoom().getItem().getDataNum() == 5) {
-            imgRightHand.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
-        } else if (game.getCurrentRoom().getItem().getDataNum() == 6) {
-            imgOneTimeUse.setImage(new Image(game.getCurrentRoom().getItem().getImgPath()));
+    private void setInventory(Room room) {
+        if (room.getItem().getDataNum() == 1) {
+            imgHeadgear.setImage(new Image(room.getItem().getImgPath()));
+        } else if (room.getItem().getDataNum() == 2) {
+            imgArmor.setImage(new Image(room.getItem().getImgPath()));
+        } else if (room.getItem().getDataNum() == 3) {
+            imgFootgear.setImage(new Image(room.getItem().getImgPath()));
+        } else if (room.getItem().getDataNum() == 4) {
+            imgLeftHand.setImage(new Image(room.getItem().getImgPath()));
+        } else if (room.getItem().getDataNum() == 5) {
+            imgRightHand.setImage(new Image(room.getItem().getImgPath()));
+        } else if (room.getItem().getDataNum() == 6) {
+            imgOneTimeUse.setImage(new Image(room.getItem().getImgPath()));
         }
     }
 
@@ -421,9 +422,9 @@ public class FXMLController implements Initializable {
         txtPlayerLevel.setText(Integer.toString(game.getPlayer().getLevel()));
     }
 
-    private void removeCurse() {
-        if (game.getCurrentRoom().isContainsCurse()) {
-            game.getCurrentRoom().setContainsCurse(false);//Removes curse after getting hit
+    private void removeCurse(Room room) {
+        if (room.isContainsCurse()) {
+            room.setContainsCurse(false);//Removes curse after getting hit
         }
     }
 

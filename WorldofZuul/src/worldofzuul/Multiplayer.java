@@ -75,5 +75,10 @@ public class Multiplayer {
             startOfTurn = true;
         }
     }
+
+    public Game getCurrentGame() {
+        return currentGame;
+    }
+    
     
 }

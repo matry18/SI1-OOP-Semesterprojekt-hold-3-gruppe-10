@@ -28,6 +28,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import sun.audio.AudioPlayer;
 import worldofzuul.Room;
+import static GUI.GUILaunch.multiplayer;
 
 /**
  * FXML Controller class
@@ -52,6 +53,7 @@ public class FXMLController implements Initializable {
     private Button btnShowCard, btnShowHeadGear, btnShowArmor, btnShowLeftHand, btnShowRightHand, btnShowFootGear, btnShowOneTimeUse, btnFlee, btnEndTurn, btnGoWest, btnGoNorth, btnGoEast, btnGoSouth,
             btnFight, btnLoot, btnQuit, btnHelp, btnOneTimeUse;
     private boolean lost = false;
+    private static boolean isMultiplayer = false;
 
     /**
      * Initializes the controller class.
@@ -110,28 +112,28 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleGoEastButtonAction(ActionEvent event) {
-        removeCurse(game.getCurrentRoom());
+        removeCurse(gamemodeCheckRoom());
         command("go east");
         roomSettings();
     }
 
     @FXML
     private void handleGoNorthButtonAction(ActionEvent event) {
-        removeCurse(game.getCurrentRoom());
+        removeCurse(gamemodeCheckRoom());
         command("go north");
         roomSettings();
     }
 
     @FXML
     private void handleGoWestButtonAction(ActionEvent event) {
-        removeCurse(game.getCurrentRoom());
+        removeCurse(gamemodeCheckRoom());
         command("go west");
         roomSettings();
     }
 
     @FXML
     private void handleGoSouthButtonAction(ActionEvent event) {
-        removeCurse(game.getCurrentRoom());
+        removeCurse(gamemodeCheckRoom());
         command("go south");
         roomSettings();
     }
@@ -140,7 +142,7 @@ public class FXMLController implements Initializable {
     private void handleFightButtonAction(ActionEvent event) {
         command("fight");
         checkForWinning();
-        setImgMonsterCurseItem(game.getCurrentRoom());
+        setImgMonsterCurseItem(gamemodeCheckRoom());
         setLevel();
         setAttackLevel();
     }
@@ -153,7 +155,7 @@ public class FXMLController implements Initializable {
             stage.setTitle("Dice Roll");
             stage.setScene(new Scene(root));
             
-            if(game.getCurrentRoom().isContainsMonster()){ //Only show die if theres's a monster in the room
+            if(gamemodeCheckRoom().isContainsMonster()){ //Only show die if theres's a monster in the room
             stage.show();
             }
         } catch (Exception e) {
@@ -176,15 +178,15 @@ public class FXMLController implements Initializable {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
             return;
         }
-        setInventory(game.getCurrentRoom());
+        setInventory(gamemodeCheckRoom());
         command("loot");
-        setImgMonsterCurseItem(game.getCurrentRoom());
+        setImgMonsterCurseItem(gamemodeCheckRoom());
         setAttackLevel();
     }
 
     @FXML
     private void handleShowCardButtonAction(ActionEvent event) {
-        if (game.getCurrentRoom().isContainsItem() || game.getCurrentRoom().isContainsMonster() || game.getCurrentRoom().isContainsCurse()) {
+        if (gamemodeCheckRoom().isContainsItem() || gamemodeCheckRoom().isContainsMonster() || gamemodeCheckRoom().isContainsCurse()) {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("ShowCard.fxml"));
                 Stage stage = new Stage();
@@ -314,7 +316,7 @@ public class FXMLController implements Initializable {
     }
 
     private void setImgRoom() {
-        imgRoomView.setImage(new Image(game.getCurrentRoom().getShortDescription()));
+        imgRoomView.setImage(new Image(gamemodeCheckRoom().getShortDescription()));
     }
 
     private void setImgMonsterCurseItem(Room room) {
@@ -332,7 +334,7 @@ public class FXMLController implements Initializable {
     }
 
     private void roomSettings() {
-        txtOutput.setText(game.getCurrentRoom().getLongDescription());
+        txtOutput.setText(gamemodeCheckRoom().getLongDescription());
         if (game.isBattleMode()) {
             txtOutput.setText("You are in battle mode you can only fight or flee!");
         }
@@ -340,7 +342,7 @@ public class FXMLController implements Initializable {
             txtOutput.setText("There is no door!");
         } else {
             setImgRoom();
-            setImgMonsterCurseItem(game.getCurrentRoom());
+            setImgMonsterCurseItem(gamemodeCheckRoom());
         }
     }
 
@@ -395,5 +397,15 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleEndTurnButtonAction(ActionEvent event) {
+    }
+    private Room gamemodeCheckRoom() {
+        if(isMultiplayer) {
+            return multiplayer.getCurrentGame().getCurrentRoom();
+        } else {
+            return game.getCurrentRoom();
+        }
+    }
+    protected static void setIsMultiplayer(boolean state){
+        isMultiplayer = state;
     }
 }

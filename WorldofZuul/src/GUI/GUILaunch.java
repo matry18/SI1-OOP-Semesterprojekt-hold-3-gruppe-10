@@ -7,9 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import worldofzuul.Game;
+import worldofzuul.Multiplayer;
 
 public class GUILaunch extends Application {
 
+    static Multiplayer multiplayer = new Multiplayer();
     static Game game = new Game(false);
     //game.play();
     @Override

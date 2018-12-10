@@ -65,7 +65,13 @@ public class FXMLController implements Initializable {
         for(Button button : buttons){
             setBtnStyle(button);
         }
-        btnEndTurn.setOpacity(0);
+        if (isIsMultiplayer()) {
+            btnEndTurn.setOpacity(1);
+            System.out.println("Er synlig");
+        } else {
+            btnEndTurn.setOpacity(0);
+            System.out.println("Er ikke synlig");
+        }
         
         Image image = new Image("\\pictures\\background\\entrance.png");
         imgRoomView.setFitHeight(338);
@@ -408,4 +414,9 @@ public class FXMLController implements Initializable {
     protected static void setIsMultiplayer(boolean state){
         isMultiplayer = state;
     }
+
+    public static boolean isIsMultiplayer() {
+        return isMultiplayer;
+    }
+    
 }

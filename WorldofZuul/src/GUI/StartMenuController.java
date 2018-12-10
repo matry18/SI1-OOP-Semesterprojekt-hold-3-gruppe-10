@@ -64,6 +64,7 @@ public class StartMenuController implements Initializable {
 
     @FXML
     private void handleStartMultiplayerButtonAction(ActionEvent event) {
+        FXMLController.setIsMultiplayer(true);
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
             Stage stage = new Stage();

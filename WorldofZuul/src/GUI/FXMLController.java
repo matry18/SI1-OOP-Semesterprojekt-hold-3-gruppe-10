@@ -37,78 +37,21 @@ import worldofzuul.Room;
 public class FXMLController implements Initializable {
 
     @FXML
-    private ImageView imgHeadgear;
+    private ImageView imgHeadgear, imgArmor, imgLeftHand, imgRightHand, imgFootgear, imgOneTimeUse, imgCompass, imgRoomView, imgMonsterCurseItem;
     @FXML
-    private ImageView imgArmor;
+    private VBox VBoxAttackLevelOneTimeUseHelpQuit, VBoxOutput;
     @FXML
-    private ImageView imgLeftHand;
+    private Label lblAttack, lblLevel;
     @FXML
-    private ImageView imgRightHand;
+    private TextField lblAttackLevel, txtPlayerLevel;
     @FXML
-    private ImageView imgFootgear;
-    @FXML
-    private ImageView imgOneTimeUse;
-    @FXML
-    private VBox VBoxAttackLevelOneTimeUseHelpQuit;
-    @FXML
-    private Label lblAttack;
-    @FXML
-    private TextField lblAttackLevel;
-    @FXML
-    private Label lblLevel;
-    @FXML
-    private TextField txtPlayerLevel;
-    @FXML
-    private Button btnOneTimeUse;
-    @FXML
-    private Button btnHelp;
-    @FXML
-    private Button btnQuit;
-    @FXML
-    private GridPane GridPaneCompass;
-    @FXML
-    private Button btnGoEast;
-    @FXML
-    private Button btnGoNorth;
-    @FXML
-    private Button btnGoWest;
-    @FXML
-    private Button btnGoSouth;
-    @FXML
-    private ImageView imgCompass;
-    @FXML
-    private GridPane GridPaneFightFleeLoot;
-    @FXML
-    private Button btnFight;
-    @FXML
-    private Button btnLoot;
-    @FXML
-    private VBox VBoxOutput;
+    private GridPane GridPaneCompass, GridPaneFightFleeLoot;
     @FXML
     private TextArea txtOutput;
     @FXML
-    private ImageView imgRoomView;
+    private Button btnShowCard, btnShowHeadGear, btnShowArmor, btnShowLeftHand, btnShowRightHand, btnShowFootGear, btnShowOneTimeUse, btnFlee, btnEndTurn, btnGoWest, btnGoNorth, btnGoEast, btnGoSouth,
+            btnFight, btnLoot, btnQuit, btnHelp, btnOneTimeUse;
     private boolean lost = false;
-    @FXML
-    private ImageView imgMonsterCurseItem;
-    @FXML
-    private Button btnShowCard;
-    @FXML
-    private Button btnShowHeadGear;
-    @FXML
-    private Button btnShowArmor;
-    @FXML
-    private Button btnShowLeftHand;
-    @FXML
-    private Button btnShowRightHand;
-    @FXML
-    private Button btnShowFootGear;
-    @FXML
-    private Button btnShowOneTimeUse;
-    @FXML
-    private Button btnFlee;
-    @FXML
-    private Button btnEndTurn;
 
     /**
      * Initializes the controller class.

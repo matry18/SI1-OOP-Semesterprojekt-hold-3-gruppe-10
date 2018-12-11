@@ -16,7 +16,7 @@ public class GUILaunch extends Application {
     //game.play();
     @Override
     public void start(Stage stage) throws Exception {
-
+        
         Parent root = FXMLLoader.load(getClass().getResource("StartMenu.fxml"));
 
         Scene scene = new Scene(root);
@@ -24,6 +24,7 @@ public class GUILaunch extends Application {
         stage.setScene(scene);
         stage.setTitle("World of Munchkin");
         stage.show();
+        
     }
 
     /**

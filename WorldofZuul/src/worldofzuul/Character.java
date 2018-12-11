@@ -39,6 +39,10 @@ public class Character {
     public void addLevel() {
         this.level++;
     }
+    
+    public void addBonusHelp() {
+        this.bonus++;
+    }
 
     public void removeLevel(int level) {
         this.level = this.level + level;

@@ -40,8 +40,10 @@ public class Multiplayer {
     public void helpPlayer() {
         if (currentGame == player1) {
             currentGame.getPlayer().addTemporaryBonus(player2.getPlayer().getLevel());
+            player2.getPlayer().addBonusHelp();
         } else {
             currentGame.getPlayer().addTemporaryBonus(player1.getPlayer().getLevel());
+            player1.getPlayer().addBonusHelp();
         }
     }
 }

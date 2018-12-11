@@ -127,12 +127,12 @@ public class Room {
         this.item = item;
     }
     
-//    public String getExits() {
-//        Set<String> keys = exits.keySet();
-//        for (String exit : keys){
-//            return exit;
-//        }
-//        return "";
-//    }
+    public String getExits() {
+        Set<String> keys = exits.keySet();
+        for (String exit : keys){
+            return exit;
+        }
+        return "";
+    }
 
 }

@@ -160,6 +160,18 @@ public class FXMLController implements Initializable {
         setImgMonsterCurseItem(getGame().getCurrentRoom());
         setLevel();
         setAttackLevel();
+        if (getGame().getCurrentRoom().isContainsMonster()) {
+            try {
+            Parent root = FXMLLoader.load(getClass().getResource("HelpFromOtherPlayer.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Begging for HELP!");
+            stage.setScene(new Scene(root));
+
+            stage.show();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        }
     }
 
     @FXML

@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -44,10 +45,15 @@ public class AskingForHelpController implements Initializable {
 
     @FXML
     private void handleYesButtonAction(ActionEvent event) {
+        GUILaunch.multiplayer.helpPlayer();
+        Stage stage = (Stage) btnYes.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     private void handleNoButtonAction(ActionEvent event) {
+        Stage stage = (Stage) btnNo.getScene().getWindow();
+        stage.close();
     }
  private void setBtnStyle(Button b){
         b.setStyle("-fx-padding: 5;" + 

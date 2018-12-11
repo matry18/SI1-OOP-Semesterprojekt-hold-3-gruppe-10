@@ -41,7 +41,7 @@ public class HelpFromOtherPlayerController implements Initializable {
         }
         txtAreaAskingForHelp.setText("You can ask the other player for help to fight the monster."
                 + "\nThe character level of the other player will be added to your attack level in this current fight."
-                + "\nYou will gain the level up by defeating the monsterS, but the other player will gain a permanent +1 bonus.");
+                + "\nYou will gain the level up by defeating the monster, but the other player will gain a permanent +1 bonus.");
     }    
 
     @FXML

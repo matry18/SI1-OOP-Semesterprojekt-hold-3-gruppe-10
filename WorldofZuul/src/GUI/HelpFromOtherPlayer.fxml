@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="280.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HelpFromOtherPlayerController">
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HelpFromOtherPlayerController">
    <children>
-      <TextArea fx:id="txtAreaAskingForHelp" editable="false" prefHeight="200.0" prefWidth="340.0">
+      <TextArea fx:id="txtAreaAskingForHelp" editable="false" prefHeight="120.0" prefWidth="340.0" wrapText="true">
          <font>
             <Font name="Windlass" size="14.0" />
          </font></TextArea>
-      <Button fx:id="btnBegForHelp" alignment="CENTER" contentDisplay="CENTER" layoutY="200.0" mnemonicParsing="false" onAction="#handleBegForHelpButtonAction" prefHeight="40.0" prefWidth="340.0" text="ASKING FOR HELP" textAlignment="CENTER" textFill="#56171a">
+      <Button fx:id="btnBegForHelp" alignment="CENTER" contentDisplay="CENTER" layoutY="120.0" mnemonicParsing="false" onAction="#handleBegForHelpButtonAction" prefHeight="40.0" prefWidth="340.0" text="ASKING FOR HELP" textAlignment="CENTER" textFill="#56171a">
          <font>
             <Font name="Windlass" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnNoNeedHelp" alignment="CENTER" contentDisplay="CENTER" layoutY="240.0" mnemonicParsing="false" onAction="#handleNoHelpButtonAction" prefHeight="40.0" prefWidth="340.0" text="I DON'T NEED ANY HELP" textAlignment="CENTER" textFill="#56171a">
+      <Button fx:id="btnNoNeedHelp" alignment="CENTER" contentDisplay="CENTER" layoutY="160.0" mnemonicParsing="false" onAction="#handleNoHelpButtonAction" prefHeight="40.0" prefWidth="340.0" text="I DON'T NEED ANY HELP" textAlignment="CENTER" textFill="#56171a">
          <font>
             <Font name="Windlass" size="16.0" />
          </font>

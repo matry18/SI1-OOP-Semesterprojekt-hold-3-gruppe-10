@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 /**
@@ -26,7 +26,7 @@ public class AskingForHelpController implements Initializable {
     @FXML
     private Button btnNo;
     @FXML
-    private TextField txtAreaWillYouHelp;
+    private TextArea txtAreaWillYouHelp;
 
     /**
      * Initializes the controller class.
@@ -38,8 +38,8 @@ public class AskingForHelpController implements Initializable {
             setBtnStyle(button);
         }
         txtAreaWillYouHelp.setText("Will you help out the other player in the current fight?"
-                + "\nYou can assist by adding your character level to the other players attack level."
-                + "\nThe other player will gain a level by defeating the monster\n"
+                + "\nYou can assist by adding your character level to the other players attack level. "
+                + "The other player will gain a level by defeating the monster "
                 + "and you will gain a permanent 1+ bonus.");
     }    
 

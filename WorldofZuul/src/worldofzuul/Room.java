@@ -126,5 +126,13 @@ public class Room {
     public void setItem(Item item) {
         this.item = item;
     }
+    
+//    public String getExits() {
+//        Set<String> keys = exits.keySet();
+//        for (String exit : keys){
+//            return exit;
+//        }
+//        return "";
+//    }
 
 }

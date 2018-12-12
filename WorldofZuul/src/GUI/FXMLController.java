@@ -82,13 +82,13 @@ public class FXMLController implements Initializable {
             btnEndTurn.setOpacity(0);
         }
         
-        Image image = new Image("\\pictures\\background\\entrance.png");
+        Image image = new Image(getClass().getResourceAsStream("/Pictures/BackGround/Entrance.png"));
         imgRoomView.setFitHeight(338);
         imgRoomView.setPreserveRatio(false);
         imgRoomView.setImage(image);
-        Image compass = new Image("\\pictures\\background\\compass.png");
+        Image compass = new Image(getClass().getResourceAsStream("/Pictures/BackGround/compass.png"));
         imgCompass.setImage(compass);
-        Image noItem = new Image("\\pictures\\items\\default.png");
+        Image noItem = new Image(getClass().getResourceAsStream("/Pictures/Items/default.png"));
         imgHeadgear.setImage(noItem);
         imgArmor.setImage(noItem);
         imgLeftHand.setImage(noItem);
@@ -102,7 +102,7 @@ public class FXMLController implements Initializable {
     @FXML
     private void handleOneTimeUseButtonAction(ActionEvent event) {
         command("useitem");
-        imgOneTimeUse.setImage(new Image("\\pictures\\items\\default.png"));
+        imgOneTimeUse.setImage(new Image(getClass().getResourceAsStream("/Pictures/Items/default.png")));
         setAttackLevel();
     }
 
@@ -160,6 +160,7 @@ public class FXMLController implements Initializable {
         setImgMonsterCurseItem(getGame().getCurrentRoom());
         setLevel();
         setAttackLevel();
+        resetAskedForHelp();
         if (getGame().getCurrentRoom().isContainsMonster() && !multiplayer.isHasAskedForHelp()) {
             try {
             Parent root = FXMLLoader.load(getClass().getResource("HelpFromOtherPlayer.fxml"));
@@ -195,9 +196,7 @@ public class FXMLController implements Initializable {
         } else {
             roomSettings();
         }
-        if (multiplayer.isHasAskedForHelp()) {
-            multiplayer.getCurrentGame().getPlayer().resetTemporaryBonus();
-        }
+        resetAskedForHelp();
         setAttackLevel();
         setLevel();
     }
@@ -346,18 +345,18 @@ public class FXMLController implements Initializable {
     }
 
     private void setImgRoom() {
-        imgRoomView.setImage(new Image(getGame().getCurrentRoom().getShortDescription()));
+        imgRoomView.setImage(new Image(getClass().getResourceAsStream(getGame().getCurrentRoom().getShortDescription())));
     }
 
     private void setImgMonsterCurseItem(Room room) {
         if (room.isContainsMonster()) {
-            imgMonsterCurseItem.setImage(new Image(room.getMonster().getImagePath()));
+            imgMonsterCurseItem.setImage(new Image(getClass().getResourceAsStream(room.getMonster().getImagePath())));
         } else if (room.isContainsCurse()) {
-            imgMonsterCurseItem.setImage(new Image(room.getCurse().getImagePath()));
+            imgMonsterCurseItem.setImage(new Image(getClass().getResourceAsStream(room.getCurse().getImagePath())));
             setInventory();
             setAttackLevel();
         } else if (room.isContainsItem()) {
-            imgMonsterCurseItem.setImage(new Image(room.getItem().getImgPath()));
+            imgMonsterCurseItem.setImage(new Image(getClass().getResourceAsStream(room.getItem().getImgPath())));
         } else {
             imgMonsterCurseItem.setImage(null);
         }
@@ -379,9 +378,9 @@ public class FXMLController implements Initializable {
     private void setInventory() {       
         for(HashMap.Entry<ImageView, String> entry : imageInventory.entrySet()){
             if(findInventoryItem(entry.getValue()) != null){
-            entry.getKey().setImage(new Image(findInventoryItem(entry.getValue())));
+            entry.getKey().setImage(new Image(getClass().getResourceAsStream(findInventoryItem(entry.getValue()))));
             } else {
-                entry.getKey().setImage(new Image("\\pictures\\items\\default.png"));
+                entry.getKey().setImage(new Image(getClass().getResourceAsStream("/Pictures/Items/default.png")));
             }
         }
     }
@@ -443,6 +442,13 @@ public class FXMLController implements Initializable {
             return multiplayer.getCurrentGame();
         } else {
             return game;
+        }
+    }
+    
+    private void resetAskedForHelp(){
+        if (multiplayer.isHasAskedForHelp() && !multiplayer.getCurrentGame().getCurrentRoom().isContainsMonster()) {
+            multiplayer.getCurrentGame().getPlayer().resetTemporaryBonus();
+            multiplayer.setHasAskedForHelp(false);
         }
     }
 }

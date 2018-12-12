@@ -32,7 +32,7 @@ public class ShowRightHandController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         imgShowRightHand.setPreserveRatio(true);
-        imgShowRightHand.setImage(new Image(FXMLController.findInventoryItem("Right hand weapon")));
+        imgShowRightHand.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Right hand weapon"))));
     }    
 
     @FXML

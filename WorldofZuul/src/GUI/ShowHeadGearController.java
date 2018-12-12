@@ -32,7 +32,7 @@ public class ShowHeadGearController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         imgShowHeadGear.setPreserveRatio(true);
-        imgShowHeadGear.setImage(new Image(FXMLController.findInventoryItem("Headgear")));
+        imgShowHeadGear.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Headgear"))));
     }    
 
     @FXML

@@ -32,7 +32,7 @@ public class ShowArmorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         imgShowArmor.setPreserveRatio(true);
-        imgShowArmor.setImage(new Image(FXMLController.findInventoryItem("Armor")));
+        imgShowArmor.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Armor"))));
     }    
 
     @FXML

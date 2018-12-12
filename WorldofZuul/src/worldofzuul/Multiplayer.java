@@ -57,4 +57,8 @@ public class Multiplayer {
     public void setHasAskedForHelp(boolean hasAskedForHelp) {
         this.hasAskedForHelp = hasAskedForHelp;
     }
+    
+    public void helpBadStuff(){
+        
+    }
 }

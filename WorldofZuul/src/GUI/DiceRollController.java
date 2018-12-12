@@ -39,17 +39,17 @@ public class DiceRollController implements Initializable {
     }
 private void setDiePicture() {
     if(FXMLController.getGame().getDie().getDieResult()==1) {
-        imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\1.png"));
+        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/1.png")));
     } else if(FXMLController.getGame().getDie().getDieResult()==2) {
-        imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\2.png"));
+        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/2.png")));
     } else if(FXMLController.getGame().getDie().getDieResult()==3) {
-        imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\3.png"));
+        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/3.png")));
     } else if(FXMLController.getGame().getDie().getDieResult()==4) {
-        imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\4.png"));
+        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/4.png")));
     } else if(FXMLController.getGame().getDie().getDieResult()==5) {
-        imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\5.png"));
+        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/5.png")));
     } else if(FXMLController.getGame().getDie().getDieResult()==6) {
-        imgShowDiceRoll.setImage(new Image("\\Pictures\\Dice\\6.png"));
+        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/6.png")));
     }
 }
 

@@ -32,7 +32,7 @@ public class ShowOneTimeUseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         imgShowOneTimeUse.setPreserveRatio(true);
-        imgShowOneTimeUse.setImage(new Image(FXMLController.findInventoryItem("Item")));
+        imgShowOneTimeUse.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Item"))));
     }    
 
     @FXML

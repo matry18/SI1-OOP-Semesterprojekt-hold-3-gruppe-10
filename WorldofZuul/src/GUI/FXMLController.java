@@ -97,6 +97,7 @@ public class FXMLController implements Initializable {
         imgOneTimeUse.setImage(noItem);
         setLevel();
         setAttackLevel();
+        txtOutput.setText("Welcome to World of Munchkin\nYou're standing outside an old house. Use the compass to move.\n"+getGame().getCurrentRoom().getExitString());
     }
 
     @FXML
@@ -160,6 +161,9 @@ public class FXMLController implements Initializable {
         setImgMonsterCurseItem(getGame().getCurrentRoom());
         setLevel();
         setAttackLevel();
+        if(multiplayer.getCurrentGame().getCurrentRoom().isContainsMonster() && multiplayer.isHasAskedForHelp()){
+            multiplayer.bonusHelp();
+        }
         resetAskedForHelp();
         if (getGame().getCurrentRoom().isContainsMonster() && !multiplayer.isHasAskedForHelp()) {
             try {
@@ -196,6 +200,12 @@ public class FXMLController implements Initializable {
         } else {
             roomSettings();
         }
+        if(multiplayer.isHasAskedForHelp() && 5 > multiplayer.getCurrentGame().getDie().getDieResult()){
+            System.out.println(multiplayer.getCurrentGame().getDie().getDieResult());
+            System.out.println(multiplayer.getCurrentGame().getDie().getDieResult());
+            multiplayer.helpBadStuff();
+        }
+        System.out.println(multiplayer.getCurrentGame().getDie().getDieResult());
         resetAskedForHelp();
         setAttackLevel();
         setLevel();

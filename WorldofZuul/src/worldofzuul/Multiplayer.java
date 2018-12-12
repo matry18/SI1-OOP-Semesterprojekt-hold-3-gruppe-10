@@ -41,12 +41,18 @@ public class Multiplayer {
     public void helpPlayer() {
         if (currentGame == player1) {
             currentGame.getPlayer().addTemporaryBonus(player2.getPlayer().getLevel());
-            player2.getPlayer().addBonusHelp();
             setHasAskedForHelp(true);
         } else {
             currentGame.getPlayer().addTemporaryBonus(player1.getPlayer().getLevel());
-            player1.getPlayer().addBonusHelp();
             setHasAskedForHelp(true);
+        }
+    }
+    
+    public void bonusHelp() {
+        if (currentGame == player1){
+            player2.getPlayer().addBonusHelp();
+        }else {
+            player1.getPlayer().addBonusHelp();
         }
     }
 
@@ -59,6 +65,10 @@ public class Multiplayer {
     }
     
     public void helpBadStuff(){
-        
+        if(currentGame == player1){
+            player2.getPlayer().removeLevel(currentGame.getFleeRoom().getMonster().getBadStuffEffect());
+        } else {
+            player1.getPlayer().removeLevel(currentGame.getFleeRoom().getMonster().getBadStuffEffect());
+        }
     }
 }

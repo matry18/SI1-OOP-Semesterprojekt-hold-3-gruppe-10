@@ -11,6 +11,7 @@ public class Game {
     private Parser parser;
     private Room currentRoom;
     private Room previousRoom;
+    private Room fleeRoom;
     private final int maxLevel = 10;
     private final int minLevel = 0;
     private boolean noDoor = false;
@@ -457,6 +458,7 @@ public class Game {
                 System.out.println(currentRoom.getMonster().getBadStuff());
                 player.removeLevel(currentRoom.getMonster().getBadStuffEffect());
                 System.out.println("You are now level: "+player.getLevel());
+                fleeRoom = currentRoom;
                 currentRoom = previousRoom;
         System.out.println(currentRoom.getLongDescription());
             }
@@ -558,11 +560,19 @@ public class Game {
     public String getOutputDesc() {
         return outputDesc;
     }
+
+    public void setOutputDesc(String outputDesc) {
+        this.outputDesc = outputDesc;
+    }
     
     //This method makes you character above maxLevel, and makes so you can't win.
     private void unWinAble() {
         player.setLevel(11);
         player.setBonus(9);
+    }
+
+    public Room getFleeRoom() {
+        return fleeRoom;
     }
     
 }

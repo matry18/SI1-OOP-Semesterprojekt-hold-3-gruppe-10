@@ -160,7 +160,7 @@ public class FXMLController implements Initializable {
         setImgMonsterCurseItem(getGame().getCurrentRoom());
         setLevel();
         setAttackLevel();
-        if (getGame().getCurrentRoom().isContainsMonster()) {
+        if (getGame().getCurrentRoom().isContainsMonster() && !multiplayer.isHasAskedForHelp()) {
             try {
             Parent root = FXMLLoader.load(getClass().getResource("HelpFromOtherPlayer.fxml"));
             Stage stage = new Stage();
@@ -194,6 +194,9 @@ public class FXMLController implements Initializable {
             ((Node) event.getSource()).getScene().getWindow().hide();
         } else {
             roomSettings();
+        }
+        if (multiplayer.isHasAskedForHelp()) {
+            multiplayer.getCurrentGame().getPlayer().resetTemporaryBonus();
         }
         setAttackLevel();
         setLevel();

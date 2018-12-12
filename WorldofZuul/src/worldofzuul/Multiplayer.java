@@ -16,6 +16,7 @@ public class Multiplayer {
     Game player1 = new Game(true);
     Game player2 = new Game(true);
     private Game currentGame = player1;
+    private boolean hasAskedForHelp = false;
 
     private void changePlayer() {
         if (getCurrentGame().getChangePlayer()) {
@@ -41,9 +42,19 @@ public class Multiplayer {
         if (currentGame == player1) {
             currentGame.getPlayer().addTemporaryBonus(player2.getPlayer().getLevel());
             player2.getPlayer().addBonusHelp();
+            setHasAskedForHelp(true);
         } else {
             currentGame.getPlayer().addTemporaryBonus(player1.getPlayer().getLevel());
             player1.getPlayer().addBonusHelp();
+            setHasAskedForHelp(true);
         }
+    }
+
+    public boolean isHasAskedForHelp() {
+        return hasAskedForHelp;
+    }
+
+    public void setHasAskedForHelp(boolean hasAskedForHelp) {
+        this.hasAskedForHelp = hasAskedForHelp;
     }
 }

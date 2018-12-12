@@ -44,7 +44,7 @@ public class StartMenuController implements Initializable {
         for (Button button: buttons) {
             setBtnStyle(button);
         }
-        imgStartMenu.setImage(new Image("\\pictures\\background\\munchkinwelcome vers 2.jpg"));
+        imgStartMenu.setImage(new Image(getClass().getResourceAsStream("/Pictures/BackGround/MunchkinWelcomeVers2.jpg")));
     }    
 
     @FXML

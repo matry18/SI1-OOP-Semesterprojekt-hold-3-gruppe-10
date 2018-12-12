@@ -421,12 +421,14 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleEndTurnButtonAction(ActionEvent event) {
-        command("endturn");
-        multiplayer.getChangePlayer();
-        roomSettings();
-        setInventory();
-        setAttackLevel();
-        setLevel();
+        if (!getGame().isBattleMode()) {
+            command("endturn");
+            multiplayer.getChangePlayer();
+            roomSettings();
+            setInventory();
+            setAttackLevel();
+            setLevel();
+        }         
     }
     
     protected static void setIsMultiplayer(boolean state){

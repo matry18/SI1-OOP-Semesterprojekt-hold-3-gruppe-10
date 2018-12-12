@@ -205,7 +205,7 @@ public class FXMLController implements Initializable {
     @FXML
     private void handleLootButtonAction(ActionEvent event) {
         if (getGame().isBattleMode()) {
-            txtOutput.setText("You are in battle mode you can only fight or flee!");
+            //txtOutput.setText("You are in battle mode you can only fight or flee!");
             return;
         }
         command("loot");
@@ -343,6 +343,7 @@ public class FXMLController implements Initializable {
         Parser parser = new Parser();
         parser.setGUICommand(input);
         getGame().processCommand(parser.getCommand());
+        txtOutput.setText(getGame().getOutputDesc());
     }
 
     private void setImgRoom() {
@@ -364,12 +365,12 @@ public class FXMLController implements Initializable {
     }
 
     private void roomSettings() {
-        txtOutput.setText(getGame().getCurrentRoom().getLongDescription());
+        //txtOutput.setText(getGame().getCurrentRoom().getExitString());
         if (getGame().isBattleMode()) {
-            txtOutput.setText("You are in battle mode you can only fight or flee!");
+            //txtOutput.setText("You are in battle mode you can only fight or flee!");
         }
         if (getGame().isNoDoor()) {
-            txtOutput.setText("There is no door!");
+            //txtOutput.setText("There is no door!");
         } else {
             setImgRoom();
             setImgMonsterCurseItem(getGame().getCurrentRoom());

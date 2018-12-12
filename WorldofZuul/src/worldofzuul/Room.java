@@ -48,7 +48,7 @@ public class Room {
         }
     }
 
-    protected String getExitString() {
+    public String getExitString() {
         String returnString = "Exit directions:";
         Set<String> keys = exits.keySet();
         for (String exit : keys) {

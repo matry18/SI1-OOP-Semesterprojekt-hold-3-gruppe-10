@@ -18,6 +18,7 @@ public class Game {
     private final boolean isMultiplayer;
     private boolean changePlayer = false;
     private int moves = 3;
+    private String outputDesc;
     Character player = new Character();
     Die die = new Die();
 
@@ -335,9 +336,11 @@ public class Game {
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
+            outputDesc = "There is no door!";
             noDoor = true;
         } else if(moves <= 0 && isMultiplayer){
             System.out.println("You cannot move anymore, change player by using the command: 'endturn'");
+            outputDesc = "You cannot move anymore, change player by using the 'end turn' command";
         } else if (isMultiplayer) {
             previousRoom = currentRoom;
             currentRoom = nextRoom;
@@ -345,6 +348,7 @@ public class Game {
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom.isContainsMonster()) {
                 System.out.println("Battle mode activated. You have an attack value of: "+ player.totalAttackValue()+". You can only fight or flee!");
+                outputDesc = "Battle mode activated. You can only fight or flee!";
             } else if (currentRoom.isContainsCurse()) {
                 currentRoom.setHadCurse(true);
                 currentRoom.setContainsItem(true);
@@ -355,8 +359,10 @@ public class Game {
             previousRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            outputDesc = currentRoom.getExitString();
             if (currentRoom.isContainsMonster()) {
                 System.out.println("Battle mode activated. You have an attack value of: "+ player.totalAttackValue()+". You can only fight or flee!");
+                outputDesc = "Battle mode activated. You can only fight or flee!";
                 battleMode = true;
             } else if (currentRoom.isContainsCurse()) {
                 currentRoom.setHadCurse(true);
@@ -382,6 +388,7 @@ public class Game {
             return false;
         } else if (player.totalAttackValue() <= currentRoom.getMonster().getLevel()) {
             System.out.println("You are not strong enough");
+            outputDesc = "You are not strong enough.";
             return false;
         } else if (player.totalAttackValue() > currentRoom.getMonster().getLevel()) { //If the player has a larger comebined attack value than the monster, it will be defeated and "removed" from the room.
             currentRoom.setContainsMonster(false);
@@ -392,6 +399,7 @@ public class Game {
             System.out.println("The monster '"+currentRoom.getMonster().getName() + "' has been defeated and you go up a level. You are now level: "+player.getLevel());
             System.out.println("In the room you find a '"+currentRoom.getItem().getName()+"' with an attack bonus of "+currentRoom.getItem().getBonus()+"."); //Skal måske rykkes til lootRoom()
             System.out.println("To loot the room type 'loot' or else leave the room."+"\n"+currentRoom.getExitString());
+            outputDesc = "You defeated the monster! You can either loot the room or leave.\n\n"+currentRoom.getExitString();
             player.resetTemporaryBonus();
             return true;
         } else {
@@ -424,6 +432,7 @@ public class Game {
             return true;
         } else{
             System.out.println("There is nothing to loot.");
+            outputDesc = "There is nothing to loot.\n\n"+currentRoom.getExitString();
             return false;
         }
     }
@@ -458,6 +467,7 @@ public class Game {
     }
     }
     private void lootRoom(){ //When the player wants to pick up an item from the room. Method call in loot().
+        outputDesc = currentRoom.getExitString();
         ArrayList<Item> equippedItems = new ArrayList<>();
         for(Item item : player.inventory){
             if(currentRoom.getItem().getClass().equals(item.getClass())){
@@ -543,6 +553,10 @@ public class Game {
 
     public Die getDie() {
         return die;
+    }
+
+    public String getOutputDesc() {
+        return outputDesc;
     }
     
     //This method makes you character above maxLevel, and makes so you can't win.

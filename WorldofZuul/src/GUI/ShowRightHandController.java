@@ -21,6 +21,7 @@ import javafx.stage.Stage;
  * @author Mathias
  */
 public class ShowRightHandController implements Initializable {
+
     @FXML
     private ImageView imgShowRightHand;
     @FXML
@@ -33,12 +34,12 @@ public class ShowRightHandController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         imgShowRightHand.setPreserveRatio(true);
         imgShowRightHand.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Right hand weapon"))));
-    }    
+    }
 
     @FXML
     private void handleCloseWindowButtonAction(ActionEvent event) {
         Stage stage = (Stage) btnCloseWindow.getScene().getWindow();
         stage.close();
     }
-    
+
 }

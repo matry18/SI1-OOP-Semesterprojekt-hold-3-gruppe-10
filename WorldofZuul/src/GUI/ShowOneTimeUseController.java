@@ -21,6 +21,7 @@ import javafx.stage.Stage;
  * @author Mathias
  */
 public class ShowOneTimeUseController implements Initializable {
+
     @FXML
     private ImageView imgShowOneTimeUse;
     @FXML
@@ -33,12 +34,12 @@ public class ShowOneTimeUseController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         imgShowOneTimeUse.setPreserveRatio(true);
         imgShowOneTimeUse.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Item"))));
-    }    
+    }
 
     @FXML
     private void handleCloseWindowButtonAction(ActionEvent event) {
         Stage stage = (Stage) btnCloseWindow.getScene().getWindow();
         stage.close();
     }
-    
+
 }

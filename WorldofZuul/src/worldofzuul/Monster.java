@@ -13,18 +13,14 @@ public class Monster {
 
     //Attributes
     private String name;
-    private String description;
-    private String badStuff;
     private int level;
     private int badStuffEffect;
     private String imagePath;
 
     //Constructor
-    public Monster(String name, String description, int level, String badStuff, int badStuffEffect, String imagePath) {
+    public Monster(String name, int level, int badStuffEffect, String imagePath) {
         this.name = name;
-        this.description = description;
         this.level = level;
-        this.badStuff = badStuff;
         this.badStuffEffect = badStuffEffect;
         this.imagePath = imagePath;
     }
@@ -46,28 +42,12 @@ public class Monster {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int getLevel() {
         return level;
     }
 
     public void setLevel(int level) {
         this.level = level;
-    }
-
-    public String getBadStuff() {
-        return badStuff;
-    }
-
-    public void setBadStuff(String badStuff) {
-        this.badStuff = badStuff;
     }
 
     public String getImagePath() {

@@ -21,6 +21,7 @@ import javafx.stage.Stage;
  * @author Mathias
  */
 public class ShowArmorController implements Initializable {
+
     @FXML
     private ImageView imgShowArmor;
     @FXML
@@ -33,12 +34,11 @@ public class ShowArmorController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         imgShowArmor.setPreserveRatio(true);
         imgShowArmor.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Armor"))));
-    }    
+    }
 
     @FXML
     private void handleCloseWindowButtonAction(ActionEvent event) {
         Stage stage = (Stage) btnCloseWindow.getScene().getWindow();
         stage.close();
     }
-    
 }

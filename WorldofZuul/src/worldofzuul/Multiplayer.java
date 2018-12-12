@@ -5,14 +5,12 @@
  */
 package worldofzuul;
 
-import Commands.Command;
-
 /**
  *
  * @author Yourk
  */
 public class Multiplayer {
-    
+
     Game player1 = new Game(true);
     Game player2 = new Game(true);
     private Game currentGame = player1;
@@ -29,11 +27,11 @@ public class Multiplayer {
             }
         }
     }
-    
-    public void getChangePlayer(){
+
+    public void getChangePlayer() {
         changePlayer();
     }
-    
+
     public Game getCurrentGame() {
         return currentGame;
     }
@@ -47,11 +45,11 @@ public class Multiplayer {
             setHasAskedForHelp(true);
         }
     }
-    
+
     public void bonusHelp() {
-        if (currentGame == player1){
+        if (currentGame == player1) {
             player2.getPlayer().addBonusHelp();
-        }else {
+        } else {
             player1.getPlayer().addBonusHelp();
         }
     }
@@ -63,9 +61,9 @@ public class Multiplayer {
     public void setHasAskedForHelp(boolean hasAskedForHelp) {
         this.hasAskedForHelp = hasAskedForHelp;
     }
-    
-    public void helpBadStuff(){
-        if(currentGame == player1){
+
+    public void helpBadStuff() {
+        if (currentGame == player1) {
             player2.getPlayer().removeLevel(currentGame.getFleeRoom().getMonster().getBadStuffEffect());
         } else {
             player1.getPlayer().removeLevel(currentGame.getFleeRoom().getMonster().getBadStuffEffect());

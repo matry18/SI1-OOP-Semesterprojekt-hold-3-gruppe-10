@@ -59,29 +59,30 @@ public class FXMLController implements Initializable {
     private String[] datatypes;
     private HashMap<ImageView, String> imageInventory = new HashMap<>();
     private ImageView[] inventoryViews;
+    private static boolean attack = false;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         inventoryViews = new ImageView[]{imgHeadgear, imgArmor, imgLeftHand, imgRightHand, imgFootgear, imgOneTimeUse};
-        datatypes = new String[] {"Headgear","Armor","Left hand weapon", "Right hand weapon", "Footgear", "Item"};
-        for(int i = 0; i < inventoryViews.length; i++){
+        datatypes = new String[]{"Headgear", "Armor", "Left hand weapon", "Right hand weapon", "Footgear", "Item"};
+        for (int i = 0; i < inventoryViews.length; i++) {
             imageInventory.put(inventoryViews[i], datatypes[i]);
         }
-        
-        buttons = new Button[] {btnOneTimeUse, btnFight, btnFlee, btnLoot, btnHelp, btnQuit, btnGoNorth, btnGoSouth,btnGoWest,btnGoEast, btnEndTurn};
-        for(Button button : buttons){
+
+        buttons = new Button[]{btnOneTimeUse, btnFight, btnFlee, btnLoot, btnHelp, btnQuit, btnGoNorth, btnGoSouth, btnGoWest, btnGoEast, btnEndTurn};
+        for (Button button : buttons) {
             setBtnStyle(button);
         }
+
         if (isIsMultiplayer()) {
             btnEndTurn.setOpacity(1);
         } else {
             btnEndTurn.setOpacity(0);
         }
-        
+
         Image image = new Image(getClass().getResourceAsStream("/Pictures/BackGround/Entrance.png"));
         imgRoomView.setFitHeight(338);
         imgRoomView.setPreserveRatio(false);
@@ -97,7 +98,7 @@ public class FXMLController implements Initializable {
         imgOneTimeUse.setImage(noItem);
         setLevel();
         setAttackLevel();
-        txtOutput.setText("Welcome to World of Munchkin\nYou're standing outside an old house. Use the compass to move.\n"+getGame().getCurrentRoom().getExitString());
+        txtOutput.setText("Welcome to World of Munchkin\nUse the compass to move.\n" + getGame().getCurrentRoom().getExitString());
     }
 
     @FXML
@@ -161,21 +162,21 @@ public class FXMLController implements Initializable {
         setImgMonsterCurseItem(getGame().getCurrentRoom());
         setLevel();
         setAttackLevel();
-        if(multiplayer.getCurrentGame().getCurrentRoom().isContainsMonster() && multiplayer.isHasAskedForHelp()){
+        if (!multiplayer.getCurrentGame().getCurrentRoom().isContainsMonster() && multiplayer.isHasAskedForHelp()) {
             multiplayer.bonusHelp();
         }
         resetAskedForHelp();
         if (getGame().getCurrentRoom().isContainsMonster() && !multiplayer.isHasAskedForHelp()) {
             try {
-            Parent root = FXMLLoader.load(getClass().getResource("HelpFromOtherPlayer.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Begging for HELP!");
-            stage.setScene(new Scene(root));
+                Parent root = FXMLLoader.load(getClass().getResource("HelpFromOtherPlayer.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Begging for HELP!");
+                stage.setScene(new Scene(root));
 
-            stage.show();
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
+                stage.show();
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
         }
     }
 
@@ -186,13 +187,13 @@ public class FXMLController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Dice Roll");
             stage.setScene(new Scene(root));
-            
-            if(getGame().getCurrentRoom().isContainsMonster()){ //Only show die if theres's a monster in the room
-            stage.show();
+
+            if (getGame().getCurrentRoom().isContainsMonster()) { //Only show die if theres's a monster in the room
+                stage.show();
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
-        }        
+        }
         command("flee");
         checkForLosing();
         if (lost) {
@@ -200,12 +201,9 @@ public class FXMLController implements Initializable {
         } else {
             roomSettings();
         }
-        if(multiplayer.isHasAskedForHelp() && 5 > multiplayer.getCurrentGame().getDie().getDieResult()){
-            System.out.println(multiplayer.getCurrentGame().getDie().getDieResult());
-            System.out.println(multiplayer.getCurrentGame().getDie().getDieResult());
+        if (multiplayer.isHasAskedForHelp() && 5 > multiplayer.getCurrentGame().getDie().getDieResult()) {
             multiplayer.helpBadStuff();
         }
-        System.out.println(multiplayer.getCurrentGame().getDie().getDieResult());
         resetAskedForHelp();
         setAttackLevel();
         setLevel();
@@ -214,7 +212,6 @@ public class FXMLController implements Initializable {
     @FXML
     private void handleLootButtonAction(ActionEvent event) {
         if (getGame().isBattleMode()) {
-            //txtOutput.setText("You are in battle mode you can only fight or flee!");
             return;
         }
         command("loot");
@@ -337,7 +334,7 @@ public class FXMLController implements Initializable {
 
                 Parent root = FXMLLoader.load(getClass().getResource("Losing.fxml"));
                 Stage stage = new Stage();
-                stage.setTitle("Lose the game");
+                stage.setTitle("Lost the game");
                 stage.setScene(new Scene(root));
 
                 stage.show();
@@ -374,29 +371,23 @@ public class FXMLController implements Initializable {
     }
 
     private void roomSettings() {
-        //txtOutput.setText(getGame().getCurrentRoom().getExitString());
-        if (getGame().isBattleMode()) {
-            //txtOutput.setText("You are in battle mode you can only fight or flee!");
-        }
-        if (getGame().isNoDoor()) {
-            //txtOutput.setText("There is no door!");
-        } else {
+        if (!getGame().isNoDoor()) {
             setImgRoom();
             setImgMonsterCurseItem(getGame().getCurrentRoom());
         }
     }
 
-    private void setInventory() {       
-        for(HashMap.Entry<ImageView, String> entry : imageInventory.entrySet()){
-            if(findInventoryItem(entry.getValue()) != null){
-            entry.getKey().setImage(new Image(getClass().getResourceAsStream(findInventoryItem(entry.getValue()))));
+    private void setInventory() {
+        for (HashMap.Entry<ImageView, String> entry : imageInventory.entrySet()) {
+            if (findInventoryItem(entry.getValue()) != null) {
+                entry.getKey().setImage(new Image(getClass().getResourceAsStream(findInventoryItem(entry.getValue()))));
             } else {
                 entry.getKey().setImage(new Image(getClass().getResourceAsStream("/Pictures/Items/default.png")));
             }
         }
     }
 
-    private void setAttackLevel() {
+    protected void setAttackLevel() {
         lblAttackLevel.setText(Integer.toString(getGame().getPlayer().totalAttackValue()));
     }
 
@@ -407,7 +398,6 @@ public class FXMLController implements Initializable {
     private void removeCurse(Room room) {
         if (room.isContainsCurse()) {
             room.setContainsCurse(false);//Removes curse after getting hit
-            System.out.println("Curse removed");
         }
     }
 
@@ -419,15 +409,15 @@ public class FXMLController implements Initializable {
         }
         return null;
     }
-    
-    private void setBtnStyle(Button b){
-        b.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
+
+    private void setBtnStyle(Button b) {
+        b.setStyle("-fx-padding: 5;"
+                + "-fx-border-style: solid inside;"
+                + "-fx-border-width: 2;"
+                + "-fx-border-insets: 0;"
+                + "-fx-border-radius: 3;"
+                + "-fx-border-color: rgb(" + 86 + "," + 23 + "," + 26 + ");"
+                + "-fx-background-color: rgb(" + 223 + ", " + 196 + ", " + 169 + ");");
     }
 
     @FXML
@@ -439,26 +429,26 @@ public class FXMLController implements Initializable {
             setInventory();
             setAttackLevel();
             setLevel();
-        }         
+        }
     }
-    
-    protected static void setIsMultiplayer(boolean state){
+
+    protected static void setIsMultiplayer(boolean state) {
         isMultiplayer = state;
     }
 
     public static boolean isIsMultiplayer() {
         return isMultiplayer;
     }
-    
-    protected static Game getGame(){
-        if(isIsMultiplayer()){
+
+    protected static Game getGame() {
+        if (isIsMultiplayer()) {
             return multiplayer.getCurrentGame();
         } else {
             return game;
         }
     }
-    
-    private void resetAskedForHelp(){
+
+    private void resetAskedForHelp() {
         if (multiplayer.isHasAskedForHelp() && !multiplayer.getCurrentGame().getCurrentRoom().isContainsMonster()) {
             multiplayer.getCurrentGame().getPlayer().resetTemporaryBonus();
             multiplayer.setHasAskedForHelp(false);

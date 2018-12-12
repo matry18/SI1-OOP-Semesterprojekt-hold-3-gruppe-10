@@ -47,7 +47,7 @@ public class Item implements Comparable<Item> {
     public void setDataNum(int dataNum) {
         this.dataNum = dataNum;
     }
-    
+
     @Override
     public int compareTo(Item o) { //Items are compared for inventory management purposes.
         return this.getDataNum() - o.getDataNum();

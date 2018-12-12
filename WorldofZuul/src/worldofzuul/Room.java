@@ -3,7 +3,6 @@ package worldofzuul;
 import Bonuses.Item;
 import java.util.Set;
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class Room {
 
@@ -16,9 +15,7 @@ public class Room {
     private boolean containsMonster = false;
     private boolean containsCurse = false;
     private boolean containsItem = false;
-    private boolean hadMonster = false;
-    private boolean hadCurse = false;
-    
+
     public Room(String description) {
         this.description = description;
         exits = new HashMap<String, Room>();
@@ -30,22 +27,6 @@ public class Room {
 
     public String getShortDescription() {
         return description;
-    }
-
-    public String getLongDescription() {
-        if (containsMonster) {
-            return "In here you meet the monster '" + getMonster().getName() + "'.\nLevel: " + getMonster().getLevel() + "\nDescription: " + getMonster().getDescription() + "\nBad Stuff: " + getMonster().getBadStuff();
-        } else if (containsCurse) {
-            return "In this room you are getting hit by the curse '" + getCurse().getName() + "'\nDescription: " + getCurse().getDescription() + "\nBad Stuff: " + getCurse().getBadStuff();
-        } else if (hadMonster && containsItem){
-            return "In here you met and defeated the monster '" + getMonster().getName() + "'." + "\nOn the ground you find '"+ getItem().getName() + "' with an attack bonus of "+ getItem().getBonus() + "\nTo loot the room type 'loot' or else leave the room.\n" + getExitString();
-        } else if (hadCurse) {
-            return "In here you met and got hit by the curse '" + getCurse().getName() + "'." + "\n" + getExitString();
-        } else if (hadMonster) {
-            return "In here you met and defeated the monster '" + getMonster().getName() + "'." + "\n" + getExitString();
-        } else {
-            return getExitString();
-        }
     }
 
     public String getExitString() {
@@ -86,8 +67,8 @@ public class Room {
     public boolean isContainsCurse() {
         return containsCurse;
     }
-    
-    public boolean isContainsItem(){
+
+    public boolean isContainsItem() {
         return containsItem;
     }
 
@@ -98,25 +79,9 @@ public class Room {
     public void setContainsCurse(boolean containsCurse) {
         this.containsCurse = containsCurse;
     }
-    
-    public void setContainsItem(boolean containsItem){
+
+    public void setContainsItem(boolean containsItem) {
         this.containsItem = containsItem;
-    }
-
-    public boolean isHadMonster() {
-        return hadMonster;
-    }
-
-    public void setHadMonster(boolean hadMonster) {
-        this.hadMonster = hadMonster;
-    }
-
-    public boolean isHadCurse() {
-        return hadCurse;
-    }
-
-    public void setHadCurse(boolean hadCurse) {
-        this.hadCurse = hadCurse;
     }
 
     public Item getItem() {
@@ -126,13 +91,12 @@ public class Room {
     public void setItem(Item item) {
         this.item = item;
     }
-    
+
     public String getExits() {
         Set<String> keys = exits.keySet();
-        for (String exit : keys){
+        for (String exit : keys) {
             return exit;
         }
         return "";
     }
-
 }

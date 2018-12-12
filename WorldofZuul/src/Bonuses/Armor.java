@@ -9,10 +9,10 @@ package Bonuses;
  *
  * @author Patrick
  */
-public class Armor extends Item implements Comparable<Item>{
-    
+public class Armor extends Item implements Comparable<Item> {
+
     public Armor(String name, int bonus, String imgPath) {
         super(name, bonus, "Armor", 2, imgPath);
     }
-    
+
 }

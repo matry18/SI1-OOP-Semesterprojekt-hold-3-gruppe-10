@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import static GUI.GUILaunch.game;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -22,6 +21,7 @@ import javafx.stage.Stage;
  * @author aalsc
  */
 public class ShowCardController implements Initializable {
+
     @FXML
     private ImageView imgShowCard;
     @FXML
@@ -35,17 +35,16 @@ public class ShowCardController implements Initializable {
         imgShowCard.setPreserveRatio(true);
         if (FXMLController.getGame().getCurrentRoom().isContainsMonster()) {
             imgShowCard.setImage(new Image(getClass().getResourceAsStream(FXMLController.getGame().getCurrentRoom().getMonster().getImagePath())));
-        } else if(FXMLController.getGame().getCurrentRoom().isContainsCurse()){
+        } else if (FXMLController.getGame().getCurrentRoom().isContainsCurse()) {
             imgShowCard.setImage(new Image(getClass().getResourceAsStream(FXMLController.getGame().getCurrentRoom().getCurse().getImagePath())));
-        } else if(FXMLController.getGame().getCurrentRoom().isContainsItem()){
+        } else if (FXMLController.getGame().getCurrentRoom().isContainsItem()) {
             imgShowCard.setImage(new Image(getClass().getResourceAsStream(FXMLController.getGame().getCurrentRoom().getItem().getImgPath())));
         }
-    }    
+    }
 
     @FXML
     private void handleCloseWindowButtonAction(ActionEvent event) {
         Stage stage = (Stage) btnCloseWindow.getScene().getWindow();
         stage.close();
     }
-    
 }

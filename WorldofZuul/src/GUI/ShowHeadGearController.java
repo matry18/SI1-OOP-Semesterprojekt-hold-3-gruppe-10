@@ -21,6 +21,7 @@ import javafx.stage.Stage;
  * @author Mathias
  */
 public class ShowHeadGearController implements Initializable {
+
     @FXML
     private ImageView imgShowHeadGear;
     @FXML
@@ -33,12 +34,12 @@ public class ShowHeadGearController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         imgShowHeadGear.setPreserveRatio(true);
         imgShowHeadGear.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Headgear"))));
-    }    
+    }
 
     @FXML
     private void handleCloseWindowButtonAction(ActionEvent event) {
         Stage stage = (Stage) btnCloseWindow.getScene().getWindow();
         stage.close();
     }
-    
+
 }

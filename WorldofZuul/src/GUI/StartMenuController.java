@@ -25,14 +25,11 @@ import javafx.stage.Stage;
  * @author Yourk
  */
 public class StartMenuController implements Initializable {
+
     @FXML
-    private Button btnStartGame;
+    private Button btnStartGame, btnStartMultiplayer, btnQuitGame;
     @FXML
     private ImageView imgStartMenu;
-    @FXML
-    private Button btnStartMultiplayer;
-    @FXML
-    private Button btnQuitGame;
 
     /**
      * Initializes the controller class.
@@ -41,22 +38,22 @@ public class StartMenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         Button[] buttons = {btnStartGame, btnStartMultiplayer, btnQuitGame};
-        for (Button button: buttons) {
+        for (Button button : buttons) {
             setBtnStyle(button);
         }
         imgStartMenu.setImage(new Image(getClass().getResourceAsStream("/Pictures/BackGround/MunchkinWelcomeVers2.jpg")));
-    }    
+    }
 
     @FXML
-    private void handleStartGameButtonAction(ActionEvent event)throws Exception{
-        
-            Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("World of Munchkin");
-            stage.setScene(new Scene(root));
-            
-            stage.show();
-        
+    private void handleStartGameButtonAction(ActionEvent event) throws Exception {
+
+        Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("World of Munchkin");
+        stage.setScene(new Scene(root));
+
+        stage.show();
+
         ((Node) event.getSource()).getScene().getWindow().hide();
     }
 
@@ -68,21 +65,22 @@ public class StartMenuController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("World of Munchkin");
             stage.setScene(new Scene(root));
-            
+
             stage.show();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
         ((Node) event.getSource()).getScene().getWindow().hide();
     }
-    private void setBtnStyle(Button b){
-        b.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
+
+    private void setBtnStyle(Button b) {
+        b.setStyle("-fx-padding: 5;"
+                + "-fx-border-style: solid inside;"
+                + "-fx-border-width: 2;"
+                + "-fx-border-insets: 0;"
+                + "-fx-border-radius: 3;"
+                + "-fx-border-color: rgb(" + 86 + "," + 23 + "," + 26 + ");"
+                + "-fx-background-color: rgb(" + 223 + ", " + 196 + ", " + 169 + ");");
     }
 
     @FXML

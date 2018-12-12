@@ -23,6 +23,7 @@ import javafx.stage.Stage;
  * @author aalsc
  */
 public class HelpFromOtherPlayerController implements Initializable {
+
     @FXML
     private Button btnBegForHelp;
     @FXML
@@ -36,13 +37,13 @@ public class HelpFromOtherPlayerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Button[] buttons = {btnNoNeedHelp, btnBegForHelp};
-        for (Button button: buttons) {
+        for (Button button : buttons) {
             setBtnStyle(button);
         }
         txtAreaAskingForHelp.setText("You can ask the other player for help to fight the monster."
                 + "\nThe character level of the other player will be added to your attack level in this current fight."
                 + "\nYou will gain the level up by defeating the monster, but the other player will gain a permanent +1 bonus.");
-    }    
+    }
 
     @FXML
     private void handleBegForHelpButtonAction(ActionEvent event) {
@@ -65,13 +66,14 @@ public class HelpFromOtherPlayerController implements Initializable {
         Stage stage = (Stage) btnNoNeedHelp.getScene().getWindow();
         stage.close();
     }
-    private void setBtnStyle(Button b){
-        b.setStyle("-fx-padding: 5;" + 
-                      "-fx-border-style: solid inside;" + 
-                      "-fx-border-width: 2;" +
-                      "-fx-border-insets: 0;" + 
-                      "-fx-border-radius: 3;" + 
-                      "-fx-border-color: rgb("+86+","+23+","+26+");"+
-                      "-fx-background-color: rgb(" + 223 + ", "+ 196 +", "+169+");");
-    } 
+
+    private void setBtnStyle(Button b) {
+        b.setStyle("-fx-padding: 5;"
+                + "-fx-border-style: solid inside;"
+                + "-fx-border-width: 2;"
+                + "-fx-border-insets: 0;"
+                + "-fx-border-radius: 3;"
+                + "-fx-border-color: rgb(" + 86 + "," + 23 + "," + 26 + ");"
+                + "-fx-background-color: rgb(" + 223 + ", " + 196 + ", " + 169 + ");");
+    }
 }

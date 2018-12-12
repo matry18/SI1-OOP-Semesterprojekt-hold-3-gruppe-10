@@ -37,11 +37,11 @@ public class Character {
     }
 
     public void addLevel() {
-        this.level++;
+        level++;
     }
-    
+
     public void addBonusHelp() {
-        this.bonus++;
+        bonus++;
     }
 
     public void removeLevel(int level) {
@@ -53,9 +53,9 @@ public class Character {
     }
 
     public void resetTemporaryBonus() {
-        this.temporaryBonus = 0;
+        temporaryBonus = 0;
     }
-    
+
     public void setBonus(int bonus) {
         this.bonus = bonus;
     }
@@ -63,11 +63,11 @@ public class Character {
     public int getBonus() {
         return bonus;
     }
-    
+
     public OneTimeUse getOneTimeUse() {
-        for(Item item : inventory){
-            if(item instanceof OneTimeUse){
-                return (OneTimeUse)item;
+        for (Item item : inventory) {
+            if (item instanceof OneTimeUse) {
+                return (OneTimeUse) item;
             }
         }
         return null;
@@ -76,45 +76,19 @@ public class Character {
     public ArrayList<Item> getInventory() {
         return inventory;
     }
-    
-    
 
     public void addItem(Item item) { //Adds an item to the inventory. Always use a subclass to Item.
-            if(item instanceof LeftHand || item instanceof RightHand){
-                System.out.println("The Player equips "+item.getName());
-            }
-            else{
-                System.out.println("The Player puts on the "+item.getDataType()+" "+item.getName());
-            }
-            inventory.add(item);
-        
-    }
-
-    public String stringInventory() { //Returns the inventory in a string. Headgear printet first, then armor and so on.
-        Collections.sort(inventory); //Sorts the inventory (ArrayList) after the int dataNum.
-        String total = "";
-        int counter = 0;
-        for (Item gear : inventory) {
-            counter++;
-            total += gear.getDataType()+": " + gear.getName() + " | Item Bonus: " + gear.getBonus() + "\n";
-        }
-        if(counter == 0){
-            return "Inventory:\nYou have no items!\n";
-        } else {
-            return "Inventory:\n"+total+"\n";
-        }
+        inventory.add(item);
     }
 
     public int totalAttackValue() { //Adds the player level with the combined bonus of all items.
         int totalValue = 0;
         for (Item gear : inventory) {
-            if(gear instanceof OneTimeUse){
+            if (gear instanceof OneTimeUse) {
                 continue;
             }
             totalValue += gear.getBonus();
         }
         return totalValue + level + bonus + temporaryBonus;
     }
-    
-    
 }

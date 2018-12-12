@@ -22,6 +22,7 @@ import javafx.stage.Stage;
  * @author Mathias
  */
 public class DiceRollController implements Initializable {
+
     @FXML
     private ImageView imgShowDiceRoll;
     @FXML
@@ -32,26 +33,16 @@ public class DiceRollController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    imgShowDiceRoll.setPreserveRatio(true);
-    FXMLController.getGame().getDie().roll();   
-    setDiePicture();
-        
+        imgShowDiceRoll.setPreserveRatio(true);
+        FXMLController.getGame().getDie().roll();
+        setDiePicture();
+
     }
-private void setDiePicture() {
-    if(FXMLController.getGame().getDie().getDieResult()==1) {
-        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/1.png")));
-    } else if(FXMLController.getGame().getDie().getDieResult()==2) {
-        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/2.png")));
-    } else if(FXMLController.getGame().getDie().getDieResult()==3) {
-        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/3.png")));
-    } else if(FXMLController.getGame().getDie().getDieResult()==4) {
-        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/4.png")));
-    } else if(FXMLController.getGame().getDie().getDieResult()==5) {
-        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/5.png")));
-    } else if(FXMLController.getGame().getDie().getDieResult()==6) {
-        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/6.png")));
+
+    private void setDiePicture() {
+        String result = Integer.toString(FXMLController.getGame().getDie().getDieResult());
+        imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/" + result + ".png")));
     }
-}
 
     @FXML
     private void handleCloseWindowButtonAction(ActionEvent event) {

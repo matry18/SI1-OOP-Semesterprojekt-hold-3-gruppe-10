@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package worldofzuul;
+
 import java.util.Random;
 
 public class Die {
 
-private int die;
-public int roll() {
-    Random random = new Random();
-    die=random.nextInt(6)+1;
-    return die;
-}
+    private int die;
+
+    public int roll() {
+        Random random = new Random();
+        die = random.nextInt(6) + 1;
+        return die;
+    }
 
     public int getDieResult() {
         return die;
@@ -24,6 +25,4 @@ public int roll() {
         this.die = die;
     }
 
- 
-    
 }

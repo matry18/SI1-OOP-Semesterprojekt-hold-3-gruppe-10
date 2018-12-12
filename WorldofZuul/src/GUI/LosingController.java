@@ -44,5 +44,4 @@ public class LosingController implements Initializable {
     private void handleQuitButtonAction(ActionEvent event) {
         System.exit(0);
     }
-    
 }

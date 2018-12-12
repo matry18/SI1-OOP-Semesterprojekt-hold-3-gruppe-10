@@ -21,6 +21,7 @@ import javafx.stage.Stage;
  * @author Mathias
  */
 public class ShowFootGearController implements Initializable {
+
     @FXML
     private ImageView imgShowFootGear;
     @FXML
@@ -33,12 +34,12 @@ public class ShowFootGearController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         imgShowFootGear.setPreserveRatio(true);
         imgShowFootGear.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Footgear"))));
-    }    
+    }
 
     @FXML
     private void handleCloseWindowButtonAction(ActionEvent event) {
         Stage stage = (Stage) btnCloseWindow.getScene().getWindow();
         stage.close();
     }
-    
+
 }

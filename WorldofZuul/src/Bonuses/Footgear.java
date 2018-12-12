@@ -10,9 +10,9 @@ package Bonuses;
  * @author Patrick
  */
 public class Footgear extends Item implements Comparable<Item> {
-    
+
     public Footgear(String name, int bonus, String imgPath) {
-        super(name, bonus,"Footgear",3,imgPath);
+        super(name, bonus, "Footgear", 3, imgPath);
     }
-    
+
 }

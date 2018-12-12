@@ -49,7 +49,6 @@ public class HelpWindowController implements Initializable {
                 + "\nWhen encountering a monster instead of fighting it you may flee by pressing the flee button."
                 + "\nYou flee for free if you roll 5 or 6 on a die."
                 + "\nIf you roll anything else you will suffer from the bad stuff of the monster (lose levels).");
-        
     }    
 
     @FXML
@@ -57,5 +56,4 @@ public class HelpWindowController implements Initializable {
         Stage stage = (Stage) btnCloseWindow.getScene().getWindow();
         stage.close();
     }
-    
 }

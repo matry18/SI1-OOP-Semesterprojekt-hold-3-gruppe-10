@@ -26,10 +26,10 @@ import Bonuses.*;
 import static GUI.GUILaunch.game;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
-import worldofzuul.Room;
+import worldofmunchkin.Room;
 import static GUI.GUILaunch.multiplayer;
 import java.util.HashMap;
-import worldofzuul.Game;
+import worldofmunchkin.Game;
 
 /**
  * FXML Controller class

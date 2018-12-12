@@ -1,4 +1,4 @@
-package worldofzuul;
+package worldofmunchkin;
 
 import Commands.Parser;
 import Commands.CommandWord;

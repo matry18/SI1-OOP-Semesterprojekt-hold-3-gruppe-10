@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import worldofzuul.Game;
-import worldofzuul.Multiplayer;
+import worldofmunchkin.Game;
+import worldofmunchkin.Multiplayer;
 
 public class GUILaunch extends Application {
 

@@ -1,4 +1,4 @@
-package worldofzuul;
+package worldofmunchkin;
 
 public class Curse {
 

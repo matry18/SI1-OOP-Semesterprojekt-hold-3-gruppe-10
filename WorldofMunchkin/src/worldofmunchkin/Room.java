@@ -1,4 +1,4 @@
-package worldofzuul;
+package worldofmunchkin;
 
 import Bonuses.Item;
 import java.util.Set;

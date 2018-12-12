@@ -48,17 +48,15 @@ public class StartMenuController implements Initializable {
     }    
 
     @FXML
-    private void handleStartGameButtonAction(ActionEvent event) {
-        try {
+    private void handleStartGameButtonAction(ActionEvent event)throws Exception{
+        
             Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
             Stage stage = new Stage();
             stage.setTitle("World of Munchkin");
             stage.setScene(new Scene(root));
             
             stage.show();
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
+        
         ((Node) event.getSource()).getScene().getWindow().hide();
     }
 

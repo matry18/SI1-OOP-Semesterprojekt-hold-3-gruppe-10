@@ -32,7 +32,7 @@ public class ShowFootGearController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         imgShowFootGear.setPreserveRatio(true);
-        imgShowFootGear.setImage(new Image(FXMLController.findInventoryItem("Footgear")));
+        imgShowFootGear.setImage(new Image(getClass().getResourceAsStream(FXMLController.findInventoryItem("Footgear"))));
     }    
 
     @FXML

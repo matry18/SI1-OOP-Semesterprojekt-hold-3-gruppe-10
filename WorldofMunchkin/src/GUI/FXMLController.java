@@ -166,7 +166,7 @@ public class FXMLController implements Initializable {
             multiplayer.bonusHelp();
         }
         resetAskedForHelp();
-        if (getGame().getCurrentRoom().isContainsMonster() && !multiplayer.isHasAskedForHelp()) {
+        if (isMultiplayer && getGame().getCurrentRoom().isContainsMonster() && !multiplayer.isHasAskedForHelp()) {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("HelpFromOtherPlayer.fxml"));
                 Stage stage = new Stage();
@@ -313,6 +313,19 @@ public class FXMLController implements Initializable {
         }
     }
 
+    @FXML
+    private void handleEndTurnButtonAction(ActionEvent event) {
+        if (!getGame().isBattleMode()) {
+            command("endturn");
+            multiplayer.getChangePlayer();
+            checkForLosing();
+            roomSettings();
+            setInventory();
+            setAttackLevel();
+            setLevel();
+        }
+    }
+
     public void checkForWinning() {
         if (getGame().getPlayer().getLevel() == getGame().getMaxLevel()) {
             try {
@@ -420,18 +433,6 @@ public class FXMLController implements Initializable {
                 + "-fx-background-color: rgb(" + 223 + ", " + 196 + ", " + 169 + ");");
     }
 
-    @FXML
-    private void handleEndTurnButtonAction(ActionEvent event) {
-        if (!getGame().isBattleMode()) {
-            command("endturn");
-            multiplayer.getChangePlayer();
-            roomSettings();
-            setInventory();
-            setAttackLevel();
-            setLevel();
-        }
-    }
-
     protected static void setIsMultiplayer(boolean state) {
         isMultiplayer = state;
     }
@@ -449,7 +450,7 @@ public class FXMLController implements Initializable {
     }
 
     private void resetAskedForHelp() {
-        if (multiplayer.isHasAskedForHelp() && !multiplayer.getCurrentGame().getCurrentRoom().isContainsMonster()) {
+        if (isMultiplayer && multiplayer.isHasAskedForHelp() && !multiplayer.getCurrentGame().getCurrentRoom().isContainsMonster()) {
             multiplayer.getCurrentGame().getPlayer().resetTemporaryBonus();
             multiplayer.setHasAskedForHelp(false);
         }

@@ -7,7 +7,7 @@ import Bonuses.*;
 import java.util.ArrayList;
 
 public class Game {
-    
+
     private Parser parser;
     private Room currentRoom;
     private Room previousRoom;

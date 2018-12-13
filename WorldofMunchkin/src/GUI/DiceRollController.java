@@ -39,7 +39,7 @@ public class DiceRollController implements Initializable {
 
     }
 
-    private void setDiePicture() {
+    private void setDiePicture() { //The die files are named 1.png, 2.png etc. This takes the number from the die and searches for the picture named the same number.
         String result = Integer.toString(FXMLController.getGame().getDie().getDieResult());
         imgShowDiceRoll.setImage(new Image(getClass().getResourceAsStream("/Pictures/Dice/" + result + ".png")));
     }

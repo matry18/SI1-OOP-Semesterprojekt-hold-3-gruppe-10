@@ -6,7 +6,7 @@ public class Item implements Comparable<Item> {
     private int bonus;
     private String dataType; //Used for printing the type of item. Example: Headgear.
     private int dataNum; //Used for sorting the inventory. Headgear = 1, Armor = 2 and so on.
-    private String imgPath;
+    private String imgPath; //Used for storing the path of the image.
 
     public Item(String name, int bonus, String dataType, int dataNum, String imgPath) {
         this.name = name;

@@ -19,7 +19,7 @@ public class Game {
     private final boolean isMultiplayer;
     private boolean changePlayer = false;
     private int moves = 3;
-    private String outputDesc;
+    private String outputDesc; //Used for the textfield txtOutput in the FXMLController class.
     Character player = new Character();
     Die die = new Die();
 
@@ -397,7 +397,7 @@ public class Game {
         outputDesc = currentRoom.getExitString();
         ArrayList<Item> equippedItems = new ArrayList<>();
         for (Item item : player.inventory) {
-            if (currentRoom.getItem().getClass().equals(item.getClass())) {
+            if (currentRoom.getItem().getClass().equals(item.getClass())) { //Puts the item from the room inside an arraylist that can be checked for size.
                 equippedItems.add(item);
             }
         }

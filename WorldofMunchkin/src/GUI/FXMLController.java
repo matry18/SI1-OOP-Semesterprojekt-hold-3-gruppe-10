@@ -54,35 +54,37 @@ public class FXMLController implements Initializable {
     private Button btnShowCard, btnShowHeadGear, btnShowArmor, btnShowLeftHand, btnShowRightHand, btnShowFootGear, btnShowOneTimeUse, btnFlee, btnEndTurn, btnGoWest, btnGoNorth, btnGoEast, btnGoSouth,
             btnFight, btnLoot, btnQuit, btnHelp, btnOneTimeUse;
     private boolean lost = false;
-    private static boolean isMultiplayer = false;
+    private static boolean isMultiplayer = false, attack = false;
     private Button[] buttons;
     private String[] datatypes;
     private HashMap<ImageView, String> imageInventory = new HashMap<>();
     private ImageView[] inventoryViews;
-    private static boolean attack = false;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //Preparing HashMap used for setInventory() so that it is easier to refer to an ImageView's 'datatype'.
         inventoryViews = new ImageView[]{imgHeadgear, imgArmor, imgLeftHand, imgRightHand, imgFootgear, imgOneTimeUse};
         datatypes = new String[]{"Headgear", "Armor", "Left hand weapon", "Right hand weapon", "Footgear", "Item"};
         for (int i = 0; i < inventoryViews.length; i++) {
             imageInventory.put(inventoryViews[i], datatypes[i]);
         }
-
+        
+        //Used instead of setting every button's style.
         buttons = new Button[]{btnOneTimeUse, btnFight, btnFlee, btnLoot, btnHelp, btnQuit, btnGoNorth, btnGoSouth, btnGoWest, btnGoEast, btnEndTurn};
         for (Button button : buttons) {
             setBtnStyle(button);
         }
-
+        
         if (isIsMultiplayer()) {
             btnEndTurn.setOpacity(1);
         } else {
             btnEndTurn.setOpacity(0);
         }
 
+        
         Image image = new Image(getClass().getResourceAsStream("/Pictures/BackGround/Entrance.png"));
         imgRoomView.setFitHeight(338);
         imgRoomView.setPreserveRatio(false);
@@ -96,7 +98,7 @@ public class FXMLController implements Initializable {
         imgRightHand.setImage(noItem);
         imgFootgear.setImage(noItem);
         imgOneTimeUse.setImage(noItem);
-        setLevel();
+        setLevel(); //This and line 102 refreshes textfields so that they are not empty at the start of the game.
         setAttackLevel();
         txtOutput.setText("Welcome to World of Munchkin\nUse the compass to move.\n" + getGame().getCurrentRoom().getExitString());
     }
@@ -129,7 +131,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleGoEastButtonAction(ActionEvent event) {
-        removeCurse(getGame().getCurrentRoom());
+        removeCurse(getGame().getCurrentRoom()); //Curses always disappear after the player has been in the room.
         command("go east");
         roomSettings();
     }
@@ -162,7 +164,8 @@ public class FXMLController implements Initializable {
         setImgMonsterCurseItem(getGame().getCurrentRoom());
         setLevel();
         setAttackLevel();
-        if (!multiplayer.getCurrentGame().getCurrentRoom().isContainsMonster() && multiplayer.isHasAskedForHelp()) {
+        //Rest of handler is for checking the 'help other player' function. 
+        if (!multiplayer.getCurrentGame().getCurrentRoom().isContainsMonster() && multiplayer.isHasAskedForHelp()) { //Gives the helping player a permanent bonus if the monster is defeated.
             multiplayer.bonusHelp();
         }
         resetAskedForHelp();
@@ -197,11 +200,11 @@ public class FXMLController implements Initializable {
         command("flee");
         checkForLosing();
         if (lost) {
-            ((Node) event.getSource()).getScene().getWindow().hide();
+            ((Node) event.getSource()).getScene().getWindow().hide(); //Closes the game window.
         } else {
             roomSettings();
         }
-        if (multiplayer.isHasAskedForHelp() && 5 > multiplayer.getCurrentGame().getDie().getDieResult()) {
+        if (multiplayer.isHasAskedForHelp() && 5 > multiplayer.getCurrentGame().getDie().getDieResult()) { //Removes a level from also the helping player if the players lose to the monster.
             multiplayer.helpBadStuff();
         }
         resetAskedForHelp();
@@ -211,7 +214,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void handleLootButtonAction(ActionEvent event) {
-        if (getGame().isBattleMode()) {
+        if (getGame().isBattleMode()) { //You cannot loot a room if there is a monster inside it.
             return;
         }
         command("loot");
@@ -358,7 +361,7 @@ public class FXMLController implements Initializable {
         }
     }
 
-    private void command(String input) {
+    private void command(String input) { //Parser has been changed so it checks for a string instead of a scanner. This string is defined in every command handler.
         Parser parser = new Parser();
         parser.setGUICommand(input);
         getGame().processCommand(parser.getCommand());
@@ -369,7 +372,7 @@ public class FXMLController implements Initializable {
         imgRoomView.setImage(new Image(getClass().getResourceAsStream(getGame().getCurrentRoom().getShortDescription())));
     }
 
-    private void setImgMonsterCurseItem(Room room) {
+    private void setImgMonsterCurseItem(Room room) { //Handles the main picture on the main screen. 
         if (room.isContainsMonster()) {
             imgMonsterCurseItem.setImage(new Image(getClass().getResourceAsStream(room.getMonster().getImagePath())));
         } else if (room.isContainsCurse()) {
@@ -383,14 +386,14 @@ public class FXMLController implements Initializable {
         }
     }
 
-    private void roomSettings() {
+    private void roomSettings() { //Loads the new room.
         if (!getGame().isNoDoor()) {
             setImgRoom();
             setImgMonsterCurseItem(getGame().getCurrentRoom());
         }
     }
 
-    private void setInventory() {
+    private void setInventory() { //Loads the cards in the inventory for the player.
         for (HashMap.Entry<ImageView, String> entry : imageInventory.entrySet()) {
             if (findInventoryItem(entry.getValue()) != null) {
                 entry.getKey().setImage(new Image(getClass().getResourceAsStream(findInventoryItem(entry.getValue()))));
@@ -414,7 +417,7 @@ public class FXMLController implements Initializable {
         }
     }
 
-    protected static String findInventoryItem(String dataType) {
+    protected static String findInventoryItem(String dataType) { //Searches the player's inventory for a specific item by the 'datatype'.
         for (Item item : getGame().getPlayer().getInventory()) {
             if (item.getDataType().equals(dataType)) {
                 return item.getImgPath();
@@ -441,7 +444,7 @@ public class FXMLController implements Initializable {
         return isMultiplayer;
     }
 
-    protected static Game getGame() {
+    protected static Game getGame() { //The Multiplayer class consists of two instances of Game, therefore this is necessary.
         if (isIsMultiplayer()) {
             return multiplayer.getCurrentGame();
         } else {

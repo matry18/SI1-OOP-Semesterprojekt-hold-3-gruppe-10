@@ -7,7 +7,7 @@ import Bonuses.*;
 import java.util.ArrayList;
 
 public class Game {
-
+    
     private Parser parser;
     private Room currentRoom;
     private Room previousRoom;
@@ -413,6 +413,7 @@ public class Game {
     private boolean endTurn(Command command) { //(Multiplayer Only) When player has 0 moves left this indicates the players wants to change.
         noDoor = false;
         if (isMultiplayer) {
+            outputDesc = "Changed Player!";
             moves = 3;
             changePlayer = true;
             return true;

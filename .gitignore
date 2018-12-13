@@ -20,3 +20,6 @@ WorldofZuul/nbproject/project.properties
 WorldofZuul/nbproject/private/private.properties
 /WorldofMunchkin/nbproject/private/
 /WorldofMunchkin/build/
+/WorldofMunchkin/dist/
+WorldofMunchkin/nbproject/genfiles.properties
+WorldofMunchkin/nbproject/build-impl.xml
